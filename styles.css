@@ -1,0 +1,76 @@
+body {
+    background-color: #fffff;
+    font-size: 100%; /*Font size in the web body*/
+    font-weight: 300; /*boldness of the font*/
+    line-height: 100%; /*font height*/
+    margin:0.5%; /*margin of the web body*/
+    text-align: left; /*Position of the body text in the web*/
+}
+
+.container {
+    margin-left: 2%; /*Left margin of the container*/
+    margin-right: 2%; /*Right margin of the container*/
+}
+.header {
+    background-color: #f5f5f5;/*Color of header's background*/
+    color: #00000; /*color of font in the header's background*/
+    padding: 0.8% 0.8%; /*size of header's background relative to the vertical*/
+    text-align: center; /*Posisi of the header text*/
+}
+h2 {
+    color: purple; /*Color of font in h2*/
+}
+
+p{
+    font-family: verdana; /*type of font in p*/
+    font-size : 100%; /*size of font in p*/
+}
+
+footer {
+    background-color: rgba(189, 214, 199, 0.4); /*Color of font in the footer*/
+    padding: 0.1%; /*Size of navigation background*/
+    text-align: center; /*Position of object inside footer*/
+    color: black; /*Footer font color*/
+    position:sticky; /*Position of footer in the web*/
+    bottom:3%; /*Position of the footer relative to the bottom of web*/
+    width: 100% /*width of footer */
+  }
+
+  .navigation{
+    background-color: lightblue; /*navigation background color*/
+    padding: 1.5% 1.5%; /*Size of navigation background*/
+    text-align: left; /*Position of object inside navigation background*/
+  }
+
+.button, input[type="submit"] { /*Button style*/
+    background-color: green; /*Color of button*/
+    margin: 1%; /*margin of button to the whole width*/
+    border: 5% solid transparent; /*Button button*/
+    border-radius: 8%; /*round of border*/
+    font-size: 90%; /*Size of font in the button*/
+    font-weight: 700; /*Boldness of font*/
+    line-height: 150%; /*Size of font in the button*/
+    padding: 0.3% 1% 0.3% 1%; /*Size of button*/
+    text-align: center; /*Position of the text in the button relative to the horizontal*/
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    vertical-align: middle; /*Position of the text in the button relative to the vertical*/
+}
+
+.button, input[type="submit"]:hover {
+    background-color: white;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+a {
+    color: black; /*Anchor font color*/
+}
+
+img {
+    width: 15%;
+    height: auto;
+    border-radius: 15%;
+    margin-left: 3%;
+}
+
+
+
