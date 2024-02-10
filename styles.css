@@ -19,7 +19,7 @@ body {
 }
 h2 {
     color: purple; /*Color of font in h2*/
-    vertical-align: middle;
+    padding: 2%;
     font-size:200%;
 }
 
