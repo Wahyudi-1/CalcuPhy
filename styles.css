@@ -19,10 +19,15 @@ body {
 }
 h2 {
     color: purple; /*Color of font in h2*/
+    font-size:200%;
 }
 
 p{
-    font-family: verdana; /*type of font in p*/
+    font-family: Calibri; /*type of font in p*/
+    letter-spacing: 2px;
+    line-height: 20px;
+    text-align: justify;
+    font-weight: 400;
     font-size : 100%; /*size of font in p*/
 }
 
