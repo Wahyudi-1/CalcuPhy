@@ -37,7 +37,6 @@ footer {
     text-align: center; /*Position of object inside footer*/
     color: black; /*Footer font color*/
     position:sticky; /*Position of footer in the web*/
-    bottom:3%; /*Position of the footer relative to the bottom of web*/
     width: 100% /*width of footer */
   }
 
@@ -76,6 +75,7 @@ img {
     border-radius: 15%;
     margin-left: 3%;
 }
+
 
 
 
