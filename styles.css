@@ -33,11 +33,11 @@ p{
 
 footer {
     background-color: rgba(189, 214, 199, 0.4); /*Color of font in the footer*/
-    padding: 0.1%; /*Size of navigation background*/
+    padding: 1.5% 1.5%; /*Size of navigation background*/
+    text-align: left; /*Position of object inside navigation background*/
     text-align: center; /*Position of object inside footer*/
     color: black; /*Footer font color*/
     position:sticky; /*Position of footer in the web*/
-    width: 100% /*width of footer */
   }
 
   .navigation{

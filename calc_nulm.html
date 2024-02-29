@@ -19,7 +19,7 @@
                 const speedf =speedfInput.value;
                 const speedi =speediInput.value;
                 const speedave = (speedf/2) + (speedi/2);
-                speedaveSpan.innerHTML = `${speedave} m/s`;
+                speedaveSpan.innerHTML = `${speedave.toFixed(2)} m/s`;
             }
             speedfInput.addEventListener("input", calculateAveSpeed);
             speediInput.addEventListener("input", calculateAveSpeed);
@@ -35,7 +35,7 @@
                 const speedave2 =speedave2Input.value;
                 const speedi2 =speedi2Input.value;
                 const speedf2 = (speedave2*2) - speedi2;
-                speedf2Span.innerHTML = `${speedf2} m/s`;
+                speedf2Span.innerHTML = `${speedf2.toFixed(2)} m/s`;
             }
             speedave2Input.addEventListener("input", calculateSpeedFinal);
             speedi2Input.addEventListener("input", calculateSpeedFinal);
@@ -51,7 +51,7 @@
                 const speedave3 =speedave3Input.value;
                 const speedf3 =speedf3Input.value;
                 const speedi3 = (speedave3*2) - speedf3;
-                speedi3Span.innerHTML = `${speedi3} m/s`;
+                speedi3Span.innerHTML = `${speedi3.toFixed(2)} m/s`;
             }
             speedave3Input.addEventListener("input", calculateInitialSpeed);
             speedf3Input.addEventListener("input", calculateInitialSpeed);
@@ -67,7 +67,7 @@
                 const speedave4 =speedave4Input.value;
                 const time4 =time4Input.value;
                 const distance4 = speedave4*time4;
-                distance4Span.innerHTML = `${distance4} m`;
+                distance4Span.innerHTML = `${distance4.toFixed(2)} m`;
             }
             speedave4Input.addEventListener("input", calculateDistance4);
             time4Input.addEventListener("input", calculateDistance4);
@@ -83,7 +83,7 @@
                 const speedave5 =speedave5Input.value;
                 const distance5 =distance5Input.value;
                 const time5 = distance5/speedave5;
-                time5Span.innerHTML = `${time5} s`;
+                time5Span.innerHTML = `${time5.toFixed(2)} s`;
             }
             speedave5Input.addEventListener("input", calculateTime5);
             distance5Input.addEventListener("input", calculateTime5);
@@ -99,7 +99,7 @@
                 const time6 =time6Input.value;
                 const distance6 =distance6Input.value;
                 const speedave6 = distance6/time6;
-                speedave6Span.innerHTML = `${speedave6} m/s`;
+                speedave6Span.innerHTML = `${speedave6.toFixed(2)} m/s`;
             }
             time6Input.addEventListener("input", calculateAverageSpeed6);
             distance6Input.addEventListener("input", calculateAverageSpeed6);
@@ -117,7 +117,7 @@
                 const speedf7 =speedf7Input.value;
                 const speedi7 =speedi7Input.value;
                 const accel7 = (speedf7 - speedi7)/time7;
-                accel7Span.innerHTML = `${accel7} m/s^2`;
+                accel7Span.innerHTML = `${accel7.toFixed(2)} m/s\u00B2`;
             }
             time7Input.addEventListener("input", calculateAcceleration7);
             speedf7Input.addEventListener("input", calculateAcceleration7);
@@ -136,7 +136,7 @@
                 const speedf8 =speedf8Input.value;
                 const speedi8 =speedi8Input.value;
                 const time8 = (speedf8 - speedi8)/accel8;
-                time8Span.innerHTML = `${time8} s`;
+                time8Span.innerHTML = `${time8.toFixed(2)} s`;
             }
             accel8Input.addEventListener("input", calculateTime8);
             speedf8Input.addEventListener("input", calculateTime8);
@@ -155,7 +155,7 @@
                 const accel9 =accel9Input.value;
                 const speedi9 =speedi9Input.value;
                 const speedf9 = (accel9 * time9) + Math.floor(speedi9);
-                speedf9Span.innerHTML = `${speedf9} m/s`;
+                speedf9Span.innerHTML = `${speedf9.toFixed(2)} m/s`;
             }
             time9Input.addEventListener("input", calculateFinalSpeed9);
             accel9Input.addEventListener("input", calculateFinalSpeed9);
@@ -174,13 +174,136 @@
                 const accel10 =accel10Input.value;
                 const speedf10 =speedf10Input.value;
                 const speedi10 = (accel10 * time10) - Math.floor(speedf10);
-                speedi10Span.innerHTML = `${speedi10} m/s`;
+                speedi10Span.innerHTML = `${speedi10.toFixed(2)} m/s`;
             }
             time10Input.addEventListener("input", calculateInitialSpeed10);
             accel10Input.addEventListener("input", calculateInitialSpeed10);
             speedf10Input.addEventListener("input", calculateInitialSpeed10);
 
             calculateInitialSpeed10();
+        });
+        //--11 Script for units convertion of speed//
+        document.addEventListener("DOMContentLoaded", function(){
+            const speed11Input = document.getElementById("speed11");
+            const speedsiSpan = document.getElementById("speedsi");
+            const selectElement = document.getElementById("myselect");
+            function calculateSpeedConvert(){
+                const speed11 =parseFloat(speed11Input.value);
+                let speedsi;
+                if (selectElement.value == "option 1"){
+                  speedsi = speed11 * 1;
+                }
+                else if (selectElement.value == "option 2"){
+                  speedsi = speed11 * 0.27778;
+                }
+                else if (selectElement.value == "option 3"){
+                  speedsi = speed11 * 1000;
+                }
+                else if (selectElement.value == "option 4"){
+                  speedsi = speed11 / 60;
+                }
+                else if (selectElement.value == "option 5"){
+                  speedsi = speed11 * 16.66667;
+                }
+                else if (selectElement.value == "option 6"){
+                  speedsi = speed11 * 0.514444;
+                }
+                else if (selectElement.value == "option 7"){
+                  speedsi = speed11 * 1609.34;
+                }
+                else if (selectElement.value == "option 8"){
+                  speedsi = speed11 * 0.44704;
+                }
+                else if (selectElement.value == "option 9"){
+                  speedsi = speed11 * 0.3048;
+                }
+                speedsiSpan.innerHTML = `${speedsi.toFixed(2)} m/s`;
+            }
+
+            speed11Input.addEventListener("input", calculateSpeedConvert);
+            selectElement.addEventListener("change", calculateSpeedConvert);
+            calculateSpeedConvert();
+        });
+                //--12 Script for units convertion of distance//
+                document.addEventListener("DOMContentLoaded", function(){
+            const distance12Input = document.getElementById("distance12");
+            const distancesiSpan = document.getElementById("distancesi");
+            const selectElement = document.getElementById("myselectd");
+            function calculateDistanceConvert(){
+                const distance12 =parseFloat(distance12Input.value);
+                let distancesi;
+                if (selectElement.value == "option 1"){
+                  distancesi = distance12 * 1000;
+                }
+                else if (selectElement.value == "option 2"){
+                  distancesi = distance12 * 0.3048;
+                }
+                else if (selectElement.value == "option 3"){
+                  distancesi = distance12 * 1609.34;
+                }
+                else if (selectElement.value == "option 4"){
+                  distancesi = distance12 * 0.0254;
+                }
+                else if (selectElement.value == "option 5"){
+                  distancesi = distance12 * 0.9144;
+                }
+                else if (selectElement.value == "option 6"){
+                  distancesi = distance12 * 100;
+                }
+                else if (selectElement.value == "option 7"){
+                  distancesi = distance12 * 1000;
+                }
+                distancesiSpan.innerHTML = `${distancesi.toFixed(2)} m`;
+            }
+
+            distance12Input.addEventListener("input", calculateDistanceConvert);
+            selectElement.addEventListener("change", calculateDistanceConvert);
+            calculateDistanceConvert();
+        });
+                        //--13 Script for units convertion of acceleration//
+                        document.addEventListener("DOMContentLoaded", function(){
+            const accel13Input = document.getElementById("accel13");
+            const accelsiSpan = document.getElementById("accelsi");
+            const selectElement = document.getElementById("myselecta");
+            function calculateAccelerationConvert(){
+                const accel13 =parseFloat(accel13Input.value);
+                let distancesi;
+                if (selectElement.value == "option 1"){
+                  accelsi = accel13 * 0.01;
+                }
+                else if (selectElement.value == "option 2"){
+                  accelsi = accel13 * 0.3048;
+                }
+                else if (selectElement.value == "option 3"){
+                  accelsi = accel13 * 1000;
+                }
+                else if (selectElement.value == "option 4"){
+                  accelsi = accel13 * 0.000278;
+                }
+                else if (selectElement.value == "option 5"){
+                  accelsi = accel13 * 0.277;
+                }
+                else if (selectElement.value == "option 6"){
+                  accelsi = accel13 * 0.514444;
+                }
+                else if (selectElement.value == "option 7"){
+                  accelsi = accel13 * 1609.344;
+                }
+                else if (selectElement.value == "option 8"){
+                  accelsi = accel13 * 0.0254;
+                }
+                else if (selectElement.value == "option 9"){
+                  accelsi = accel13 * 9.81;
+                }
+                else if (selectElement.value == "option 10"){
+                  accelsi = accel13 * 0.01;
+                }
+                accelsiSpan.innerHTML = `${accelsi.toFixed(2)} m/s\u00B2`;
+            }
+
+            accel13Input.addEventListener("input", calculateAccelerationConvert);
+            selectElement.addEventListener("change", calculateAccelerationConvert);
+            calculateAccelerationConvert();
         });
         </script>
     </head>
@@ -202,6 +325,69 @@
         <h2>Calculating The Quantity</h2>
         <p>Click the blue button as you need then insert the value</p>
     </div>
+    <div class="convert" select="option" style="margin-left:5%; margin-right:5%;">
+      <h2>"Unit Conversion"</h2>
+      <div class="row">
+        <div class="col">
+          <div class="container">
+            <label for="">Distance</label>
+            <input type="number" id="distance12" placeholder="Distance Value" min="0"/>
+            <select id="myselectd">
+              <option value="option 1">km</option>
+              <option value="option 2">ft</option>
+              <option value="option 3">mi</option>
+              <option value="option 4">inch</option>
+              <option value="option 5">yard</option>
+              <option value="option 6">cm</option>
+              <option value="option 7">mm</option>
+            </select>
+            <label for="" style="background-color:lightgreen">Distance in SI units</label>
+            <span id="distancesi" style="padding:5px; font-weight: bold;" ></span>
+        </div>
+      </div>
+      <div class="col">
+        <div class="container">
+          <label for="">Speed</label>
+          <input type="number" id="speed11" placeholder="Speed Value" min="0"/>
+          <select id="myselect">
+            <option value="option 1">m/s</option>
+            <option value="option 2">km/h</option>
+            <option value="option 3">km/s</option>
+            <option value="option 4">m/minutes</option>
+            <option value="option 5">km/minutes</option>
+            <option value="option 6">Knot</option>
+            <option value="option 7">mi/s</option>
+            <option value="option 8">mph</option>
+            <option value="option 9">ft/s</option>
+          </select>
+          <label for="" style="background-color:yellow">Speed in SI units</label>
+          <span id="speedsi" style="padding:5px; font-weight: bold;" ></span>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="padding-top:2%;">
+  <div class="col">
+    <div class="container">
+      <label for="">Acceleration</label>
+      <input type="number" id="accel13" placeholder="Acceleration Value" min="0"/>
+      <select id="myselecta">
+        <option value="option 1">cm/s<sup>2</sup></option>
+        <option value="option 2">ft/s<sup>2</sup></option>
+        <option value="option 3">km/s<sup>2</sup></option>
+        <option value="option 4">m/minutes<sup>2</sup></option>
+        <option value="option 5">km/minutes<sup>2</sup></option>
+        <option value="option 6">Knot/s</option>
+        <option value="option 7">mi/s<sup>2</sup></option>
+        <option value="option 8">inch/s<sup>2</sup></option>
+        <option value="option 9">gn</option>
+        <option value="option 10">gal</option>
+      </select>
+      <label for="" style="background-color:lightblue">Acceleration in SI units</label>
+      <span id="accelsi" style="padding:5px; font-weight: bold;" ></span>
+  </div>
+</div>
+</div>
+</div>
     <div class="row" style="margin-left:5%; margin-right:5%;">
         <div class="col" style="padding:2%;">
             <p>
@@ -225,8 +411,8 @@
                     </div>
                     <!--Output Quantity-->
                     <div class="container">
-                        <label for="">Average Speed</label>
-                        <span id="speedave" style="padding:5px;" ></span>
+                        <label for="" style="background-color:lightgreen">Average Speed</label>
+                        <span id="speedave" style="padding:5px; font-weight: bold;"></span>
                     </div>
                   </div>
                 </div>
@@ -254,8 +440,8 @@
                     </div>
                     <!--Output Quantity-->
                     <div class="container">
-                        <label for="">Final Speed</label>
-                        <span id="speedf2" style="padding:5px;" ></span>
+                        <label for="" style="background-color:lightgreen">Final Speed</label>
+                        <span id="speedf2" style="padding:5px; font-weight: bold;"></span>
                     </div>
                   </div>
                 </div>
@@ -283,8 +469,8 @@
                     </div>
                     <!--Input Quantity 3-->
                     <div class="container">
-                        <label for="">Initial Speed</label>
-                        <span id="speedi3" style="padding:5px;" ></span>
+                        <label for="" style="background-color:lightgreen">Initial Speed</label>
+                        <span id="speedi3" style="padding:5px; font-weight: bold;" ></span>
                     </div>
                   </div>
                 </div>
@@ -314,8 +500,8 @@
               </div>
               <!--Output Quantity-->
               <div class="container">
-                  <label for="">Distance</label>
-                  <span id="distance4" style="padding:5px;" ></span>
+                  <label for="" style="background-color:lightgreen">Distance</label>
+                  <span id="distance4" style="padding:5px; font-weight: bold;" ></span>
               </div>
             </div>
           </div>
@@ -343,8 +529,8 @@
             </div>
             <!--Output Quantity-->
             <div class="container">
-                <label for="">Time</label>
-                <span id="time5" style="padding:5px;" ></span>
+                <label for="" style="background-color:lightgreen">Time</label>
+                <span id="time5" style="padding:5px; font-weight: bold;" ></span>
             </div>
           </div>
         </div>
@@ -372,8 +558,8 @@
             </div>
             <!--Output Quantity-->
             <div class="container">
-                <label for="">Average Speed</label>
-                <span id="speedave6" style="padding:5px;" ></span>
+                <label for="" style="background-color:lightgreen">Average Speed</label>
+                <span id="speedave6" style="padding:5px; font-weight: bold;" ></span>
             </div>
           </div>
         </div>
@@ -408,8 +594,8 @@
                 </div>
                 <!--Output Quantity-->
                 <div class="container">
-                    <label for="">Acceleration</label>
-                    <span id="accel7" style="padding:5px;" ></span>
+                    <label for="" style="background-color:lightgreen">Acceleration</label>
+                    <span id="accel7" style="padding:5px; font-weight: bold;" ></span>
                 </div>
               </div>
             </div>
@@ -437,13 +623,13 @@
               </div>
               <!--Input Quantity 3-->
               <div class="container">
-                <label for="">Acceleration (m/s^2)</label>
-                <input type="number" id="accel8" placeholder="enter value of acceleration in m/s^2" min="0"  />
+                <label for="">Acceleration (m/s&sup2)</label>
+                <input type="number" id="accel8" placeholder="enter value of acceleration in m/s&sup2" min="0"  />
 
               <!--Output Quantity-->
               <div class="container">
-                  <label for="">Time</label>
-                  <span id="time8" style="padding:5px;" ></span>
+                  <label for="" style="background-color:lightgreen">Time</label>
+                  <span id="time8" style="padding:5px; font-weight: bold;" ></span>
               </div>
             </div>
           </div>
@@ -472,13 +658,13 @@
               </div>
               <!--Input Quantity 3-->
               <div class="container">
-                <label for="">Acceleration (m/s^2)</label>
-                <input type="number" id="accel9" placeholder="enter value of acceleration in m/s^2" min="0"  />
+                <label for="">Acceleration (m/s&sup2)</label>
+                <input type="number" id="accel9" placeholder="enter value of acceleration in m/s&sup2" min="0"  />
               </div>
               <!--Output Quantity-->
               <div class="container">
-                  <label for="">Final Speed</label>
-                  <span id="speedf9" style="padding:5px;" ></span>
+                  <label for="" style="background-color:lightgreen">Final Speed</label>
+                  <span id="speedf9" style="padding:5px; font-weight: bold;" ></span>
               </div>
             </div>
           </div>
@@ -506,13 +692,13 @@
               </div>
               <!--Input Quantity 3-->
               <div class="container">
-                <label for="">Acceleration (m/s^2)</label>
-                <input type="number" id="accel10" placeholder="enter value of acceleration in m/s^2" min="0"  />
+                <label for="">Acceleration (m/s&sup2)</label>
+                <input type="number" id="accel10" placeholder="acceleration in m/s&sup2" min="0"  />
               </div>
               <!--Output Quantity-->
               <div class="container">
-                  <label for="">Initial Speed</label>
-                  <span id="speedi10" style="padding:5px;" ></span>
+                  <label for="" style="background-color:lightgreen">Initial Speed</label>
+                  <span id="speedi10" style="padding:5px; font-weight: bold;" ></span>
               </div>
             </div>
           </div>
@@ -524,6 +710,8 @@
   <div class="row" style="margin-left:5%; margin-right:5%;">
     <!-- Your new content here -->
   </div>
+</div>
+</div>
         <br>
         <br>
         <br>
