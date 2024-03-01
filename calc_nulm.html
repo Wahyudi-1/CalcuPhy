@@ -328,7 +328,8 @@
     <div class="convert" select="option" style="margin-left:5%; margin-right:5%;">
       <h2>"Unit Conversion"</h2>
       <div class="row">
-        <div class="col">
+              <!--Distance Conversion-->
+        <div class="col" style="padding-top:2%;">
           <div class="container">
             <label for="">Distance</label>
             <input type="number" id="distance12" placeholder="Distance Value" min="0"/>
@@ -341,11 +342,12 @@
               <option value="option 6">cm</option>
               <option value="option 7">mm</option>
             </select>
-            <label for="" style="background-color:lightgreen">Distance in SI units</label>
+            <label for="" style="padding:5px; background-color:lightgreen">Distance in SI units</label>
             <span id="distancesi" style="padding:5px; font-weight: bold;" ></span>
         </div>
       </div>
-      <div class="col">
+            <!--Speed Conversion-->
+      <div class="col" style="padding-top:2%;">
         <div class="container">
           <label for="">Speed</label>
           <input type="number" id="speed11" placeholder="Speed Value" min="0"/>
@@ -360,11 +362,12 @@
             <option value="option 8">mph</option>
             <option value="option 9">ft/s</option>
           </select>
-          <label for="" style="background-color:yellow">Speed in SI units</label>
+          <label for="" style="padding:5px; background-color:yellow">Speed in SI units</label>
           <span id="speedsi" style="padding:5px; font-weight: bold;" ></span>
       </div>
     </div>
   </div>
+        <!--Acceleration Conversion-->
   <div class="row" style="padding-top:2%;">
   <div class="col">
     <div class="container">
@@ -382,7 +385,7 @@
         <option value="option 9">gn</option>
         <option value="option 10">gal</option>
       </select>
-      <label for="" style="background-color:lightblue">Acceleration in SI units</label>
+      <label for="" style="padding:5px; background-color:lightblue">Acceleration in SI units</label>
       <span id="accelsi" style="padding:5px; font-weight: bold;" ></span>
   </div>
 </div>
