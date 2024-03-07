@@ -10,12 +10,102 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script>
+        //--1 Temperature Conversion//
+        document.addEventListener("DOMContentLoaded", function(){
+            const temp1Input = document.getElementById("temp1");
+            const temp2Span = document.getElementById("temp2");
+            const initialSelectElement = document.getElementById("myselecti");
+            const targetSelectElement = document.getElementById("myselectg");
+            function calculateTempConvert(){
+                const temp1 =parseFloat(temp1Input.value);
+                let temp2;
+                if (initialSelectElement.value == "option 1" && targetSelectElement.value == "option 7"){
+                  temp2 = temp1;
+                }
+                else if (initialSelectElement.value == "option 1" && targetSelectElement.value == "option 8"){
+                    temp2 = temp1 - 273.15;
+                }
+                else if (initialSelectElement.value == "option 1" && targetSelectElement.value == "option 9"){
+                    temp2 = ((temp1 - 273.15)*(9/5))+32;
+                }
+                else if (initialSelectElement.value == "option 1" && targetSelectElement.value == "option 10"){
+                    temp2 = ((temp1 - 273.15)*(4/5));
+                }
+                else if (initialSelectElement.value == "option 2" && targetSelectElement.value == "option 7"){
+                    temp2 = ((temp1 + 273.15));
+                }
+                else if (initialSelectElement.value == "option 2" && targetSelectElement.value == "option 8"){
+                    temp2 = temp1;
+                }
+                else if (initialSelectElement.value == "option 2" && targetSelectElement.value == "option 9"){
+                    temp2 = (temp1*(9/5))+32;
+                }
+                else if (initialSelectElement.value == "option 2" && targetSelectElement.value == "option 10"){
+                    temp2 = temp1*(4/5);
+                }
+                else if (initialSelectElement.value == "option 3" && targetSelectElement.value == "option 7"){
+                    temp2 = ((temp1 -32)*(5/9)+273.15);
+                }
+                else if (initialSelectElement.value == "option 3" && targetSelectElement.value == "option 8"){
+                    temp2 = (temp1 -32)*(5/9);
+                }
+                else if (initialSelectElement.value == "option 3" && targetSelectElement.value == "option 9"){
+                    temp2 = temp1;
+                }
+                else if (initialSelectElement.value == "option 3" && targetSelectElement.value == "option 10"){
+                    temp2 = (temp1 -32)*(4/9);
+                }
+                else if (initialSelectElement.value == "option 4" && targetSelectElement.value == "option 7"){
+                    temp2 = (temp1*(9/4))+273.15;
+                }
+                else if (initialSelectElement.value == "option 4" && targetSelectElement.value == "option 8"){
+                    temp2 = temp1*(5/4);
+                }
+                else if (initialSelectElement.value == "option 4" && targetSelectElement.value == "option 9"){
+                    temp2 = (temp1*(9/4)+32);
+                }
+                else if (initialSelectElement.value == "option 4" && targetSelectElement.value == "option 10"){
+                    temp2 = temp1;
+                }
+                temp2Span.innerHTML = `${temp2.toFixed(2)}`;
+            }
 
+            temp1Input.addEventListener("input", calculateTempConvert);
+            initialSelectElement.addEventListener("change", calculateTempConvert);
+            targetSelectElement.addEventListener("change", calculateTempConvert);
+            calculateTempConvert();
+        });
+                //--2 Unknown Temperature Conversion//
+                document.addEventListener("DOMContentLoaded", function(){
+            const tempxiInput = document.getElementById("tempxi");
+            const tempxbInput = document.getElementById("tempxb");
+            const tempxmInput = document.getElementById("tempxm");
+            const tempyiInput = document.getElementById("tempyi");
+            const tempybInput = document.getElementById("tempyb");
+            const tempymSpan = document.getElementById("tempym");
+            function calculateUnknownTempConvert(){
+                const tempxi =parseFloat(tempxiInput.value);
+                const tempxb =parseFloat(tempxbInput.value);
+                const tempxm =parseFloat(tempxmInput.value);
+                const tempyi =parseFloat(tempyiInput.value);
+                const tempyb =parseFloat(tempybInput.value);
+                let tempym;
+                  tempym = (((tempxm-tempxi)/(tempxb-tempxi))*(tempyb-tempyi))+tempyi;
+                tempymSpan.innerHTML = `${tempym.toFixed(2)} &deg;Y`;
+            }
+
+            tempxiInput.addEventListener("input", calculateUnknownTempConvert);
+            tempxbInput.addEventListener("input", calculateUnknownTempConvert);
+            tempxmInput.addEventListener("input", calculateUnknownTempConvert);
+            tempyiInput.addEventListener("input", calculateUnknownTempConvert);
+            tempybInput.addEventListener("input", calculateUnknownTempConvert);
+            calculateUnknownTempConvert();
+        });
         </script>
     </head>
     <body>
         <div class="header">
-            <h1>Calculation of Elasticity</h1>
+            <h1>Calculation of Temperature</h1>
         </div>
     </body>
 
@@ -27,10 +117,57 @@
         <a href="about.html" class="button">About Me</a>
     </div>
     <!--main content-->
-    <div class="container">
-        <h2>Sorry, page under construction</h2>
-        <a href="calculation.html" class="button">Return!</a>
+    <div class="container" >
+        <h2>Calculating The Quantity</h2>
+        <p>Enter the value</p>
     </div>
+    <div class="convert" select="option" style="margin-left:5%; margin-right:5%;">
+      <h2>"Temperature Conversion"</h2>
+      <div class="row">
+              <!--Temperature Conversion-->
+        <div class="col" style="padding-top:2%;">
+          <div class="container">
+            <label for="">Initial Temperature</label>
+            <input type="number" id="temp1" placeholder="Temperature Value"/>
+            <select id="myselecti">
+              <option value="option 1">Kelvin</option>
+              <option value="option 2">Celcius</option>
+              <option value="option 3">Fahrenheit</option>
+              <option value="option 4">Réaumur</option>
+            </select>
+            <label for="" style="padding:5px; background-color:lightgreen">Goal Temperature</label>
+            <span id="temp2" style="padding:5px; font-weight: bold;" >  </span>
+            <select id="myselectg">
+              <option value="option 7">Kelvin</option>
+              <option value="option 8">Celcius</option>
+              <option value="option 9">Fahrenheit</option>
+              <option value="option 10">Réaumur</option>
+            </select>
+        </div>
+      </div>
+  </div>
+        <!--Unknown Temperature-->
+  <div class="row" style="padding-top:2%;">
+  <div class="col">
+    <div class="container">
+      <label for="">Initial Temperature</label>
+      <input type="number" id="tempxi" placeholder="Icing point"/>
+      <input type="number" id="tempxb" placeholder="Boiling point"/>
+      <input type="number" id="tempxm" placeholder="Measured Temperature"/>
+      <label for="" style="padding:5px; background-color:lightblue">&deg; X</label>
+    </div>
+  </div>
+  </div>
+  <div class="row" style="padding-top:2%;">
+    <div class="col">
+      <div class="container">
+      <label for="">Goal Temperature</label>
+      <input type="number" id="tempyi" placeholder="Icing point"/>
+      <input type="number" id="tempyb" placeholder="Boiling point"/>
+      <label for="" style="padding:5px; background-color:lightblue">Mesured in Goal Temperature</label>
+      <span id="tempym" style="padding:5px; font-weight: bold;" ></span>
+  </div>
+</div>
 </div>
 </div>
         <br>

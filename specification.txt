@@ -1,0 +1,3 @@
+HTML tags: <html>, <head>, <body>, <h1>, <h2>, <h3>, <a>, <p>, <hr>, <br>, <div>, <footer>, <button>, <meta>, <link>, <script>, <label>, <input>, <iframe>
+CSS Properties: background-color, font-size, font-weight, line-height, margin, text-align, margin-left, margin-right, color, padding, font-family, position, bottom, width, margin, border, border-radius, line-height, transition, vertical-align, margin-left
+I use bootstrap to make the web site more responsive and attractive.I use javascript to make the website more interactive, because my web contain calculation.

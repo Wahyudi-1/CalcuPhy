@@ -1,2 +1,2 @@
 My final project is a web-based application to help students and teachers calculate physics problems. It is accessible online to anyone with the link to the GitHub Pages site. The application was built using HTML, JavaScript, and CSS. To run it locally, the files can be opened in VSCode and launched with http-server. Alternatively, it can be accessed online at https://wahyudi-1.github.io/CalcuPhy/.
-For more details on the project, please see my CS50 final project presentation on my YouTube channel.
+For more details on the project, please see my CS50 final project presentation on my YouTube channel https://youtu.be/8ZiCSRNBSgo .
