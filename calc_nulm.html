@@ -305,6 +305,82 @@
             selectElement.addEventListener("change", calculateAccelerationConvert);
             calculateAccelerationConvert();
         });
+                    //--14 Script for calculating Acceleration//
+                    document.addEventListener("DOMContentLoaded", function(){
+            const speedf21Input = document.getElementById("speedf21");
+            const speedi21Input = document.getElementById("speedi21");
+            const distance21Input = document.getElementById("distance21");
+            const accel21Span = document.getElementById("accel21");
+            function calculateAcceleration21(){
+                const distance21 =parseFloat(distance21Input.value);
+                const speedf21 =parseFloat(speedf21Input.value);
+                const speedi21 =parseFloat(speedi21Input.value);
+                const accel21 = ((speedf21*speedf21) - (speedi21*speedi21))/(2*distance21);
+                accel21Span.innerHTML = `${accel21.toFixed(2)} m/s\u00B2`;
+            }
+            distance21Input.addEventListener("input", calculateAcceleration21);
+            speedf21Input.addEventListener("input", calculateAcceleration21);
+            speedi21Input.addEventListener("input", calculateAcceleration21);
+
+            calculateAcceleration21();
+        });
+            //--15 Script for calculating Distance//
+            document.addEventListener("DOMContentLoaded", function(){
+            const speedf22Input = document.getElementById("speedf22");
+            const speedi22Input = document.getElementById("speedi22");
+            const accel22Input = document.getElementById("accel22");
+            const distance22Span = document.getElementById("distance22");
+            function calculateDistance22(){
+                const accel22 =parseFloat(accel22Input.value);
+                const speedf22 =parseFloat(speedf22Input.value);
+                const speedi22 =parseFloat(speedi22Input.value);
+                const distance22 = ((speedf22*speedf22) - (speedi22*speedi22))/(2*accel22);
+                distance22Span.innerHTML = `${distance22.toFixed(2)} m`;
+            }
+            accel22Input.addEventListener("input", calculateDistance22);
+            speedf22Input.addEventListener("input", calculateDistance22);
+            speedi22Input.addEventListener("input", calculateDistance22);
+
+            calculateDistance22();
+        });
+            //--16 Script for calculating Final Speed//
+            document.addEventListener("DOMContentLoaded", function(){
+            const accel20Input = document.getElementById("accel20");
+            const speedi20Input = document.getElementById("speedi20");
+            const distance20Input = document.getElementById("distance20");
+            const speedf20Span = document.getElementById("speedf20");
+            function calculateFinalSpeed20(){
+                const distance20 =parseFloat(distance20Input.value);
+                const accel20 =parseFloat(accel20Input.value);
+                const speedi20 =parseFloat(speedi20Input.value);
+                const speedf20 = Math.sqrt(((speedi20*speedi20))+(2*accel20*distance20));
+                speedf20Span.innerHTML = `${speedf20.toFixed(2)} m/s`;
+            }
+            distance20Input.addEventListener("input", calculateFinalSpeed20);
+            accel20Input.addEventListener("input", calculateFinalSpeed20);
+            speedi20Input.addEventListener("input", calculateFinalSpeed20);
+
+            calculateFinalSpeed20();
+        });
+            //--17 Script for calculating Initial Speed//
+            document.addEventListener("DOMContentLoaded", function(){
+            const accel23Input = document.getElementById("accel23");
+            const speedf23Input = document.getElementById("speedf23");
+            const distance23Input = document.getElementById("distance23");
+            const speedi23Span = document.getElementById("speedi23");
+            function calculateInitialSpeed23(){
+                const distance23 =parseFloat(distance23Input.value);
+                const accel23 =parseFloat(accel23Input.value);
+                const speedf23 =parseFloat(speedf23Input.value);
+                const speedi23 = Math.sqrt(((speedf23*speedf23))-(2*accel23*distance23));
+                speedi23Span.innerHTML = `${speedi23.toFixed(2)} m/s`;
+            }
+            distance23Input.addEventListener("input", calculateInitialSpeed23);
+            accel23Input.addEventListener("input", calculateInitialSpeed23);
+            speedf23Input.addEventListener("input", calculateInitialSpeed23);
+
+            calculateInitialSpeed23();
+        });
         </script>
     </head>
     <body>
@@ -707,8 +783,143 @@
           </div>
         </div>
     </div>
+  </div>
   <div class="row" style="margin-left:5%; margin-right:5%;">
-      <!-- Your new content here -->
+      <div class="col" style="padding:2%;">
+        <p>
+            <!--20 Calculate Final Speed-->
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample20" aria-expanded="false" aria-controls="collapseWidthExample20">
+              Calculate Final Speed
+            </button>
+          </p>
+          <div style="min-height: auto;">
+            <div class="collapse collapse-horizontal" id="collapseWidthExample20">
+              <div class="card card-body" style="width: 300px;">
+                <!--Input Quantity 1-->
+                <div class="container">
+                    <label for="">Initial Speed (m/s)</label>
+                    <input type="number" id="speedi20" placeholder="enter value of initial speed in m/s" min="0"/>
+                </div>
+                <!--Input Quantity 2-->
+                <div class="container">
+                    <label for="">Acceleration (m/s&sup2)</label>
+                    <input type="number" id="accel20" placeholder="enter value of acceleration in m/s&sup2" min="0"  />
+                </div>
+                <!--Input Quantity 3-->
+                <div class="container">
+                  <label for="">Distnace (m)</label>
+                  <input type="number" id="distance20" placeholder="enter value of distance in m" min="0"  />
+                </div>
+                <!--Output Quantity-->
+                <div class="container">
+                    <label for="" style="background-color:lightgreen">Final Speed</label>
+                    <span id="speedf20" style="padding:5px; font-weight: bold;" ></span>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    <div class="col" style="padding:2%;">
+      <p>
+        <!--21 Calculate Acceleration-->
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample21" aria-expanded="false" aria-controls="collapseWidthExample21">
+          Calculate Acceleration
+        </button>
+      </p>
+      <div style="min-height: auto;">
+        <div class="collapse collapse-horizontal" id="collapseWidthExample21">
+          <div class="card card-body" style="width: 300px;">
+            <!--Input Quantity 1-->
+            <div class="container">
+                <label for="">Final Speed (m/s)</label>
+                <input type="number" id="speedf21" placeholder="enter value of final speed in m/s" min="0"/>
+            </div>
+            <!--Input Quantity 2-->
+            <div class="container">
+                <label for="">Initial Speed (m/s)</label>
+                <input type="number" id="speedi21" placeholder="enter value of initial final in m/s" min="0"  />
+            </div>
+            <!--Input Quantity 3-->
+            <div class="container">
+              <label for="">Distance (m)</label>
+              <input type="number" id="distance21" placeholder="enter value of distance in m" min="0"  />
+            </div>
+            <!--Output Quantity-->
+            <div class="container">
+                <label for="" style="background-color:lightgreen">Acceleration</label>
+                <span id="accel21" style="padding:5px; font-weight: bold;" >?</span>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+    <div class="col" style="padding:2%;">
+      <p>
+        <!--23 Calculate Initial Speed-->
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample23" aria-expanded="false" aria-controls="collapseWidthExample23">
+          Calculate Initial Speed
+        </button>
+      </p>
+      <div style="min-height: auto;">
+        <div class="collapse collapse-horizontal" id="collapseWidthExample23">
+          <div class="card card-body" style="width: 300px;">
+            <!--Input Quantity 1-->
+            <div class="container">
+                <label for="">Final Speed (m/s)</label>
+                <input type="number" id="speedf23" placeholder="enter value of final speed in m/s" min="0"/>
+            </div>
+            <!--Input Quantity 2-->
+            <div class="container">
+                <label for="">Acceleration (m/s&sup2)</label>
+                <input type="number" id="accel23" placeholder="enter value of acceleration in m/s&sup2" min="0"  />
+            </div>
+            <!--Input Quantity 3-->
+            <div class="container">
+              <label for="">Distance (m)</label>
+              <input type="number" id="distance23" placeholder="enter value of distance in m" min="0"  />
+            </div>
+            <!--Output Quantity-->
+            <div class="container">
+                <label for="" style="background-color:lightgreen">Initial Speed</label>
+                <span id="speedi23" style="padding:5px; font-weight: bold;" ></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col" style="padding:2%;">
+      <p>
+        <!--22 Calculate Distance-->
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample22" aria-expanded="false" aria-controls="collapseWidthExample22">
+          Calculate Distance
+        </button>
+      </p>
+      <div style="min-height: auto;">
+        <div class="collapse collapse-horizontal" id="collapseWidthExample22">
+          <div class="card card-body" style="width: 300px;">
+            <!--Input Quantity 1-->
+            <div class="container">
+                <label for="">Final Speed (m/s)</label>
+                <input type="number" id="speedf22" placeholder="enter value of final speed in m/s" min="0"/>
+            </div>
+            <!--Input Quantity 2-->
+            <div class="container">
+                <label for="">Acceleration (m/s&sup2)</label>
+                <input type="number" id="accel22" placeholder="enter value of acceleration in m/s&sup2" min="0"  />
+            </div>
+            <!--Input Quantity 3-->
+            <div class="container">
+              <label for="">Initial Speed (m/s)</label>
+              <input type="number" id="speedi22" placeholder="enter value of initial speed in m/s" min="0"  />
+            </div>
+            <!--Output Quantity-->
+            <div class="container">
+                <label for="" style="background-color:lightgreen">Distance</label>
+                <span id="distance22" style="padding:5px; font-weight: bold;" ></span>
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
   <div class="row" style="margin-left:5%; margin-right:5%;">
     <!-- Your new content here -->
