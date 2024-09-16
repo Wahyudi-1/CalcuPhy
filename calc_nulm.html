@@ -10,6 +10,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script>
+          //-- Script for Hidden element//
+          document.getElementById('myCheckbox').addEventListener('change', function() {
+          let distance12 = document.getElementById('distance12');
+          if (this.checked) {
+            distance12.style.display = 'none';
+          } else {
+            distance12.style.display = 'block';
+          }
+          });
             //--1 Script for calculating Average Speed//
             document.addEventListener("DOMContentLoaded", function(){
             const speedfInput = document.getElementById("speedf");
@@ -391,16 +400,31 @@
 
     <!---Navigation Bar-->
     <div class="navigation">
-        <a href="index.html" class="button">Home</a>
-        <a href="calculation.html" class="button">Calculation</a>
-        <a href="study.html" class="button">Understanding</a>
-        <a href="about.html" class="button">About Me</a>
+      <a href="index.html" class="button">Beranda</a>
+      <a href="calculation.html" class="button">Perhitungan</a>
+      <a href="study.html" class="button">Pemahaman</a>
+      <a href="about.html" class="button">Tentang pembuat</a>
     </div>
     <!--main content-->
     <div class="container" >
         <h2>Calculating The Quantity</h2>
         <p>Click the blue button as you need then insert the value</p>
     </div>
+    <div class="row" style="margin-left:5%; margin-right:5%;padding-bottom:5px;">
+      <div class="col" style="padding-top:2%;">
+    <input type="checkbox" id="myCheckbox">
+    <div id="distance12">Distance Conversion</div>
+  </div>
+    <div class="col" style="padding-top:2%;">
+    <input type="checkbox" id="myCheckbox">
+    <div id="myDiv">Speed Conversion</div>
+  </div>
+  <div class="col" style="padding-top:2%;">
+    <input type="checkbox" id="myCheckbox">
+    <div id="myDiv">Acceleration Conversion</div>
+    </div>
+  </div>
+</div>
     <div class="convert" select="option" style="margin-left:5%; margin-right:5%;">
       <h2>"Unit Conversion"</h2>
       <div class="row">
@@ -933,10 +957,10 @@
     <!--Footer-->
     <footer>
       <div class="footer">
-          <h3>CS50 for Indonesian Teacher - WAHYUDI</h3>
+          <h3>Guru Fisika - WAHYUDI</h3>
       </div>
       <div class="footer">
-          <h4>Contact me by <a href="mailto:pakwahyudi.indonesia@gmail.com">email</a></h4>
+          <h4>Email saya melalui<a href="mailto:pakwahyudi.indonesia@gmail.com">email</a></h4>
       </div>
   </footer>
 
