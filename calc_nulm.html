@@ -6,7 +6,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css2family=monsterrat:wght@500&display=swap" rel="stylesheet">
         <link href="styles.css" rel="stylesheet">
-        <title>Calculating Your Physics</title>
+        <title>Perhitungan Fisikamu</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script>
@@ -394,7 +394,7 @@
     </head>
     <body>
         <div class="header">
-            <h1>Calculation of Non-Uniformly Linear Motion</h1>
+            <h1>Perhitungan pada Gerak Lurus Berubah Beraturan</h1>
         </div>
     </body>
 
@@ -407,62 +407,62 @@
     </div>
     <!--main content-->
     <div class="container" >
-        <h2>Calculating The Quantity</h2>
-        <p>Click the blue button as you need then insert the value</p>
+        <h2>Perhitungan</h2>
+        <p>Klik tombol biru sesuai kebutuhanmu dan masukkan nilai-nilai pada sel yang disediakan</p>
     </div>
     <div class="row" style="margin-left:5%; margin-right:5%;padding-bottom:5px;">
       <div class="col" style="padding-top:2%;">
     <input type="checkbox" id="myCheckbox">
-    <div id="distance12">Distance Conversion</div>
+    <div id="distance12">Konversi Jarak</div>
   </div>
     <div class="col" style="padding-top:2%;">
     <input type="checkbox" id="myCheckbox">
-    <div id="myDiv">Speed Conversion</div>
+    <div id="myDiv">Konversi Kelajuan</div>
   </div>
   <div class="col" style="padding-top:2%;">
     <input type="checkbox" id="myCheckbox">
-    <div id="myDiv">Acceleration Conversion</div>
+    <div id="myDiv">Konversi Perlajuan</div>
     </div>
   </div>
 </div>
     <div class="convert" select="option" style="margin-left:5%; margin-right:5%;">
-      <h2>"Unit Conversion"</h2>
+      <h2>Konversi Satuan</h2>
       <div class="row">
               <!--Distance Conversion-->
         <div class="col" style="padding-top:2%;">
           <div class="container">
-            <label for="">Distance</label>
-            <input type="number" id="distance12" placeholder="Distance Value" min="0"/>
+            <label for="">Jarak</label>
+            <input type="number" id="distance12" placeholder="Nilai Jarak" min="0"/>
             <select id="myselectd">
               <option value="option 1">km</option>
-              <option value="option 2">ft</option>
-              <option value="option 3">mi</option>
-              <option value="option 4">inch</option>
+              <option value="option 2">kaki</option>
+              <option value="option 3">mil</option>
+              <option value="option 4">inchi</option>
               <option value="option 5">yard</option>
               <option value="option 6">cm</option>
               <option value="option 7">mm</option>
             </select>
-            <label for="" style="padding:5px; background-color:lightgreen">Distance in SI units</label>
+            <label for="" style="padding:5px; background-color:lightgreen">Jarak dalam sistem satuan internasional</label>
             <span id="distancesi" style="padding:5px; font-weight: bold;" ></span>
         </div>
       </div>
             <!--Speed Conversion-->
       <div class="col" style="padding-top:2%;">
         <div class="container">
-          <label for="">Speed</label>
-          <input type="number" id="speed11" placeholder="Speed Value" min="0"/>
+          <label for="">Kelajuan</label>
+          <input type="number" id="speed11" placeholder="Nilai Kelajuan" min="0"/>
           <select id="myselect">
             <option value="option 1">m/s</option>
-            <option value="option 2">km/h</option>
+            <option value="option 2">km/jam</option>
             <option value="option 3">km/s</option>
-            <option value="option 4">m/minutes</option>
-            <option value="option 5">km/minutes</option>
+            <option value="option 4">m/menit</option>
+            <option value="option 5">km/menit</option>
             <option value="option 6">Knot</option>
-            <option value="option 7">mi/s</option>
-            <option value="option 8">mph</option>
-            <option value="option 9">ft/s</option>
+            <option value="option 7">mil/s</option>
+            <option value="option 8">m/jam</option>
+            <option value="option 9">kaki/s</option>
           </select>
-          <label for="" style="padding:5px; background-color:yellow">Speed in SI units</label>
+          <label for="" style="padding:5px; background-color:yellow">Kelajuan dalam sistem satuan internasional</label>
           <span id="speedsi" style="padding:5px; font-weight: bold;" ></span>
       </div>
     </div>
@@ -471,21 +471,21 @@
   <div class="row" style="padding-top:2%;">
   <div class="col">
     <div class="container">
-      <label for="">Acceleration</label>
-      <input type="number" id="accel13" placeholder="Acceleration Value" min="0"/>
+      <label for="">Perlajuan</label>
+      <input type="number" id="accel13" placeholder="Nilai Perlajuan" min="0"/>
       <select id="myselecta">
         <option value="option 1">cm/s<sup>2</sup></option>
-        <option value="option 2">ft/s<sup>2</sup></option>
+        <option value="option 2">kaki/s<sup>2</sup></option>
         <option value="option 3">km/s<sup>2</sup></option>
-        <option value="option 4">m/minutes<sup>2</sup></option>
-        <option value="option 5">km/minutes<sup>2</sup></option>
+        <option value="option 4">m/menit<sup>2</sup></option>
+        <option value="option 5">km/menit<sup>2</sup></option>
         <option value="option 6">Knot/s</option>
-        <option value="option 7">mi/s<sup>2</sup></option>
-        <option value="option 8">inch/s<sup>2</sup></option>
+        <option value="option 7">mil/s<sup>2</sup></option>
+        <option value="option 8">inchi/s<sup>2</sup></option>
         <option value="option 9">gn</option>
         <option value="option 10">gal</option>
       </select>
-      <label for="" style="padding:5px; background-color:lightblue">Acceleration in SI units</label>
+      <label for="" style="padding:5px; background-color:lightblue">Perlajuan dalam satuan sistem internasional</label>
       <span id="accelsi" style="padding:5px; font-weight: bold;" ></span>
   </div>
 </div>
@@ -496,7 +496,7 @@
             <p>
                 <!--1 Calculate Average Speed-->
                 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample1" aria-expanded="false" aria-controls="collapseWidthExample1">
-                  Calculate Average Speed
+                  Perhitungan kelajuan rerata
                 </button>
               </p>
               <div style="min-height: auto;">
@@ -504,17 +504,17 @@
                   <div class="card card-body" style="width: 300px;">
                     <!--Input Quantity 1-->
                     <div class="container">
-                        <label for="">Final Speed (m/s)</label>
-                        <input type="number" id="speedf" placeholder="enter value of final speed in m/s" min="0"/>
+                        <label for="">Kelajuan akhir (m/s)</label>
+                        <input type="number" id="speedf" placeholder="Masukkan nilai kelajuan akhir dalam satuan m/s" min="0"/>
                     </div>
                     <!--Input Quantity 2-->
                     <div class="container">
-                        <label for="">Initial Speed (m/s)</label>
-                        <input type="number" id="speedi" placeholder="enter value of initial speed in m/s" min="0"  />
+                        <label for="">Kelajuan awal (m/s)</label>
+                        <input type="number" id="speedi" placeholder="Masukkan kelajuan awal dalam satuan m/s" min="0"  />
                     </div>
                     <!--Output Quantity-->
                     <div class="container">
-                        <label for="" style="background-color:lightgreen">Average Speed</label>
+                        <label for="" style="background-color:lightgreen">Kelajuan rerata</label>
                         <span id="speedave" style="padding:5px; font-weight: bold;"></span>
                     </div>
                   </div>
@@ -525,7 +525,7 @@
           <p>
                 <!--2 Calculate Final Speed-->
                 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample2" aria-expanded="false" aria-controls="collapseWidthExample2">
-                  Calculate Final Speed
+                  Perhitungan kelajuan akhir
                 </button>
               </p>
               <div style="min-height: auto;">
@@ -533,17 +533,17 @@
                   <div class="card card-body" style="width: 300px;">
                     <!--Input Quantity 1-->
                     <div class="container">
-                        <label for="">Average Speed (m/s)</label>
-                        <input type="number" id="speedave2" placeholder="enter value of average speed in m/s" min="0"/>
+                        <label for="">Kelajuan rerata (m/s)</label>
+                        <input type="number" id="speedave2" placeholder="Masukkan kelajuan rerata dalam satuan m/s" min="0"/>
                     </div>
                     <!--Input Quantity 2-->
                     <div class="container">
-                        <label for="">Initial Speed (m/s)</label>
-                        <input type="number" id="speedi2" placeholder="enter value of initial speed in m/s" min="0"  />
+                        <label for="">Kelajuan awal (m/s)</label>
+                        <input type="number" id="speedi2" placeholder="Masukkan kelajuan awal dalam satuan m/s" min="0"  />
                     </div>
                     <!--Output Quantity-->
                     <div class="container">
-                        <label for="" style="background-color:lightgreen">Final Speed</label>
+                        <label for="" style="background-color:lightgreen">Kelajuan Akhir</label>
                         <span id="speedf2" style="padding:5px; font-weight: bold;"></span>
                     </div>
                   </div>
@@ -554,7 +554,7 @@
             <p>
                 <!--3 Calculate Initial Speed-->
                 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample3" aria-expanded="false" aria-controls="collapseWidthExample3">
-                  Calculate Initial Speed
+                  Perhitungan Kelajuan Awal
                 </button>
               </p>
               <div style="min-height: auto;">
@@ -562,17 +562,17 @@
                   <div class="card card-body" style="width: 300px;">
                     <!--Input Quantity 1-->
                     <div class="container">
-                        <label for="">Average Speed (m/s)</label>
-                        <input type="number" id="speedave3" placeholder="enter value of average speed in m/s" min="0"/>
+                        <label for="">Kelajuan rerata (m/s)</label>
+                        <input type="number" id="speedave3" placeholder="Masukkan kelajuan rerata dalam satuan m/s" min="0"/>
                     </div>
                     <!--Input Quantity 2-->
                     <div class="container">
-                        <label for="">Final Speed (m/s)</label>
-                        <input type="number" id="speedf3" placeholder="enter value of final speed in m/s" min="0"  />
+                        <label for="">Kelajuan Akhir (m/s)</label>
+                        <input type="number" id="speedf3" placeholder="Masukkan kelajuan akhir dalam satuan m/s" min="0"  />
                     </div>
                     <!--Input Quantity 3-->
                     <div class="container">
-                        <label for="" style="background-color:lightgreen">Initial Speed</label>
+                        <label for="" style="background-color:lightgreen">Kelajuan Awal</label>
                         <span id="speedi3" style="padding:5px; font-weight: bold;" ></span>
                     </div>
                   </div>
@@ -585,7 +585,7 @@
       <p>
           <!--4 Calculate Distance-->
           <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample4" aria-expanded="false" aria-controls="collapseWidthExample4">
-            Calculate Distance
+            Perhitungan Jarak
           </button>
         </p>
         <div style="min-height: auto;">
@@ -593,17 +593,17 @@
             <div class="card card-body" style="width: 300px;">
               <!--Input Quantity 1-->
               <div class="container">
-                  <label for="">Average Speed (m/s)</label>
-                  <input type="number" id="speedave4" placeholder="enter value of average speed in m/s" min="0"/>
+                  <label for="">Kelajuan rerata (m/s)</label>
+                  <input type="number" id="speedave4" placeholder="Masukkan nilai kelajuan rerata dalam satuan m/s" min="0"/>
               </div>
               <!--Input Quantity 2-->
               <div class="container">
-                  <label for="">Time (s)</label>
-                  <input type="number" id="time4" placeholder="enter value of time in s" min="0"  />
+                  <label for="">Waktu (s)</label>
+                  <input type="number" id="time4" placeholder="Masukkan nilai waktu dalam satuan s" min="0"  />
               </div>
               <!--Output Quantity-->
               <div class="container">
-                  <label for="" style="background-color:lightgreen">Distance</label>
+                  <label for="" style="background-color:lightgreen">Jarak</label>
                   <span id="distance4" style="padding:5px; font-weight: bold;" ></span>
               </div>
             </div>
@@ -614,7 +614,7 @@
     <p>
         <!--5 Calculate Time-->
         <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample5" aria-expanded="false" aria-controls="collapseWidthExample5">
-          Calculate Time
+          Perhitungan Waktu
         </button>
       </p>
       <div style="min-height: auto;">
@@ -622,17 +622,17 @@
           <div class="card card-body" style="width: 300px;">
             <!--Input Quantity 1-->
             <div class="container">
-                <label for="">Average Speed (m/s)</label>
-                <input type="number" id="speedave5" placeholder="enter value of average speed in m/s" min="0"/>
+                <label for="">Kelajuan rerata (m/s)</label>
+                <input type="number" id="speedave5" placeholder="Masukkan kelajuan rerata dalam satuan m/s" min="0"/>
             </div>
             <!--Input Quantity 2-->
             <div class="container">
-                <label for="">Distance (m)</label>
-                <input type="number" id="distance5" placeholder="enter value of distance in m" min="0"  />
+                <label for="">Jarak (m)</label>
+                <input type="number" id="distance5" placeholder="Masukkan nilai jarak dalam satuan m" min="0"  />
             </div>
             <!--Output Quantity-->
             <div class="container">
-                <label for="" style="background-color:lightgreen">Time</label>
+                <label for="" style="background-color:lightgreen">Waktu</label>
                 <span id="time5" style="padding:5px; font-weight: bold;" ></span>
             </div>
           </div>
@@ -643,7 +643,7 @@
     <p>
         <!--6 Calculate Average Speed-->
         <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample6" aria-expanded="false" aria-controls="collapseWidthExample6">
-          Calculate Average Speed
+          Perhitungan Kelajuan rerata
         </button>
       </p>
       <div style="min-height: auto;">
@@ -651,17 +651,17 @@
           <div class="card card-body" style="width: 300px;">
             <!--Input Quantity 1-->
             <div class="container">
-                <label for="">Time (s)</label>
-                <input type="number" id="time6" placeholder="enter value of timed in s" min="0"/>
+                <label for="">Waktu (s)</label>
+                <input type="number" id="time6" placeholder="Masukkan nilai wkatu dalam satuan s" min="0"/>
             </div>
             <!--Input Quantity 2-->
             <div class="container">
-                <label for="">Distance (m)</label>
-                <input type="number" id="distance6" placeholder="enter value of distance in m" min="0"  />
+                <label for="">Jarak (m)</label>
+                <input type="number" id="distance6" placeholder="Masukkan nilai jarak dalam satuan m" min="0"  />
             </div>
             <!--Output Quantity-->
             <div class="container">
-                <label for="" style="background-color:lightgreen">Average Speed</label>
+                <label for="" style="background-color:lightgreen">Kelajuan Rerata</label>
                 <span id="speedave6" style="padding:5px; font-weight: bold;" ></span>
             </div>
           </div>
@@ -674,7 +674,7 @@
         <p>
             <!--7 Calculate Acceleration-->
             <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample7" aria-expanded="false" aria-controls="collapseWidthExample7">
-              Calculate Acceleration
+              Perhitungan Perlajuan
             </button>
           </p>
           <div style="min-height: auto;">
@@ -682,22 +682,22 @@
               <div class="card card-body" style="width: 300px;">
                 <!--Input Quantity 1-->
                 <div class="container">
-                    <label for="">Final Speed (m/s)</label>
-                    <input type="number" id="speedf7" placeholder="enter value of final speed in m/s" min="0"/>
+                    <label for="">Kelajuan Akhir (m/s)</label>
+                    <input type="number" id="speedf7" placeholder="Masukkan nilai Kelajuan akhir dalam satuan m/s" min="0"/>
                 </div>
                 <!--Input Quantity 2-->
                 <div class="container">
-                    <label for="">Initial Speed (m/s)</label>
-                    <input type="number" id="speedi7" placeholder="enter value of initial speed in m/s" min="0"  />
+                    <label for="">Kelajuan Awal (m/s)</label>
+                    <input type="number" id="speedi7" placeholder="Masukkan nilai kelajuan awal dalam satuan m/s" min="0"  />
                 </div>
                 <!--Input Quantity 3-->
                 <div class="container">
-                  <label for="">Time (s)</label>
-                  <input type="number" id="time7" placeholder="enter value of time in s" min="0"  />
+                  <label for="">Waktu (s)</label>
+                  <input type="number" id="time7" placeholder="Masukkan nilai waktu dalam satuan s" min="0"  />
                 </div>
                 <!--Output Quantity-->
                 <div class="container">
-                    <label for="" style="background-color:lightgreen">Acceleration</label>
+                    <label for="" style="background-color:lightgreen">Perlajuan</label>
                     <span id="accel7" style="padding:5px; font-weight: bold;" ></span>
                 </div>
               </div>
@@ -708,7 +708,7 @@
       <p>
           <!--8 Calculate Time-->
           <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample8" aria-expanded="false" aria-controls="collapseWidthExample8">
-            Calculate Time
+            Menghitung Waktu
           </button>
         </p>
         <div style="min-height: auto;">
@@ -716,22 +716,22 @@
             <div class="card card-body" style="width: 300px;">
               <!--Input Quantity 1-->
               <div class="container">
-                  <label for="">Final Speed (m/s)</label>
-                  <input type="number" id="speedf8" placeholder="enter value of final speed in m/s" min="0"/>
+                  <label for="">Kelajuan Akhir (m/s)</label>
+                  <input type="number" id="speedf8" placeholder="Masukkan nilai kelajuan akhir dalam satuan m/s" min="0"/>
               </div>
               <!--Input Quantity 2-->
               <div class="container">
-                  <label for="">Initial Speed (m)</label>
-                  <input type="number" id="speedi8" placeholder="enter value of initial speed in m/s" min="0"  />
+                  <label for="">Kelajuan awal (m)</label>
+                  <input type="number" id="speedi8" placeholder="Masukkan nilai kelajuan awal dalam satuan m/s" min="0"  />
               </div>
               <!--Input Quantity 3-->
               <div class="container">
-                <label for="">Acceleration (m/s&sup2)</label>
-                <input type="number" id="accel8" placeholder="enter value of acceleration in m/s&sup2" min="0"  />
+                <label for="">Perlajuan (m/s&sup2)</label>
+                <input type="number" id="accel8" placeholder="Masukkan nilai perlajuan dalam satuan m/s&sup2" min="0"  />
 
               <!--Output Quantity-->
               <div class="container">
-                  <label for="" style="background-color:lightgreen">Time</label>
+                  <label for="" style="background-color:lightgreen">Waktu</label>
                   <span id="time8" style="padding:5px; font-weight: bold;" ></span>
               </div>
             </div>
@@ -743,7 +743,7 @@
       <p>
           <!--9 Calculate Final Speed-->
           <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample9" aria-expanded="false" aria-controls="collapseWidthExample9">
-            Calculate Final Speed
+            Perhitungan kelajuan akhir
           </button>
         </p>
         <div style="min-height: auto;">
@@ -751,18 +751,18 @@
             <div class="card card-body" style="width: 300px;">
               <!--Input Quantity 1-->
               <div class="container">
-                  <label for="">Time (s)</label>
-                  <input type="number" id="time9" placeholder="enter value of timed in s" min="0"/>
+                  <label for="">Waktu (s)</label>
+                  <input type="number" id="time9" placeholder="Masukkan nilai waktu dalam satuan s" min="0"/>
               </div>
               <!--Input Quantity 2-->
               <div class="container">
-                  <label for="">Initial Speed (m/s)</label>
-                  <input type="number" id="speedi9" placeholder="enter value of initial speed in m/s" min="0"  />
+                  <label for="">Kelajuan Awal(m/s)</label>
+                  <input type="number" id="speedi9" placeholder="Masukkan nilai kelajuan awal dalam satuan m/s" min="0"  />
               </div>
               <!--Input Quantity 3-->
               <div class="container">
-                <label for="">Acceleration (m/s&sup2)</label>
-                <input type="number" id="accel9" placeholder="enter value of acceleration in m/s&sup2" min="0"  />
+                <label for="">Perlajuan (m/s&sup2)</label>
+                <input type="number" id="accel9" placeholder="Masukkan nilai perlajuan dalam satuan m/s&sup2" min="0"  />
               </div>
               <!--Output Quantity-->
               <div class="container">
@@ -777,7 +777,7 @@
       <p>
           <!--10 Calculate Initial Speed-->
           <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample10" aria-expanded="false" aria-controls="collapseWidthExample10">
-            Calculate Initial Speed
+            Perhitungan Kelajuan Awal
           </button>
         </p>
         <div style="min-height: auto;">
@@ -785,22 +785,22 @@
             <div class="card card-body" style="width: 300px;">
               <!--Input Quantity 1-->
               <div class="container">
-                <label for="">Time (s)</label>
-                <input type="number" id="time10" placeholder="enter value of timed in s" min="0"/>
+                <label for="">Waktu (s)</label>
+                <input type="number" id="time10" placeholder="Masukkan nilai waktu dalam satuan s" min="0"/>
               </div>
               <!--Input Quantity 2-->
               <div class="container">
-                  <label for="">Final Speed (m/s)</label>
-                  <input type="number" id="speedf10" placeholder="enter value of final speed in m/s" min="0"  />
+                  <label for="">Kelajuan Akhir(m/s)</label>
+                  <input type="number" id="speedf10" placeholder="Masukkan nilai kelajuan akhir dalam satuan m/s" min="0"  />
               </div>
               <!--Input Quantity 3-->
               <div class="container">
-                <label for="">Acceleration (m/s&sup2)</label>
-                <input type="number" id="accel10" placeholder="acceleration in m/s&sup2" min="0"  />
+                <label for="">perlajuan (m/s&sup2)</label>
+                <input type="number" id="accel10" placeholder="Masukkan nilai perlajuan dalam satuan m/s&sup2" min="0"  />
               </div>
               <!--Output Quantity-->
               <div class="container">
-                  <label for="" style="background-color:lightgreen">Initial Speed</label>
+                  <label for="" style="background-color:lightgreen">Kelajuan awal</label>
                   <span id="speedi10" style="padding:5px; font-weight: bold;" ></span>
               </div>
             </div>
@@ -813,7 +813,7 @@
         <p>
             <!--20 Calculate Final Speed-->
             <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample20" aria-expanded="false" aria-controls="collapseWidthExample20">
-              Calculate Final Speed
+              Perhitungan Kelajuan Akhir
             </button>
           </p>
           <div style="min-height: auto;">
@@ -821,22 +821,22 @@
               <div class="card card-body" style="width: 300px;">
                 <!--Input Quantity 1-->
                 <div class="container">
-                    <label for="">Initial Speed (m/s)</label>
-                    <input type="number" id="speedi20" placeholder="enter value of initial speed in m/s" min="0"/>
+                    <label for="">Kelajuan Awal(m/s)</label>
+                    <input type="number" id="speedi20" placeholder="Masukkan nilai kelajuan awal dalam satuan m/s" min="0"/>
                 </div>
                 <!--Input Quantity 2-->
                 <div class="container">
-                    <label for="">Acceleration (m/s&sup2)</label>
-                    <input type="number" id="accel20" placeholder="enter value of acceleration in m/s&sup2" min="0"  />
+                    <label for="">Perlajuan (m/s&sup2)</label>
+                    <input type="number" id="accel20" placeholder="Masukkan nilai perlajuan dalam satuan m/s&sup2" min="0"  />
                 </div>
                 <!--Input Quantity 3-->
                 <div class="container">
-                  <label for="">Distnace (m)</label>
-                  <input type="number" id="distance20" placeholder="enter value of distance in m" min="0"  />
+                  <label for="">Jarak (m)</label>
+                  <input type="number" id="distance20" placeholder="Masukkan nilai jarak dalam satuan m" min="0"  />
                 </div>
                 <!--Output Quantity-->
                 <div class="container">
-                    <label for="" style="background-color:lightgreen">Final Speed</label>
+                    <label for="" style="background-color:lightgreen">Kelajuan Akhir</label>
                     <span id="speedf20" style="padding:5px; font-weight: bold;" ></span>
                 </div>
               </div>
@@ -847,7 +847,7 @@
       <p>
         <!--21 Calculate Acceleration-->
         <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample21" aria-expanded="false" aria-controls="collapseWidthExample21">
-          Calculate Acceleration
+          Perhitungan Perlajuan
         </button>
       </p>
       <div style="min-height: auto;">
@@ -855,22 +855,22 @@
           <div class="card card-body" style="width: 300px;">
             <!--Input Quantity 1-->
             <div class="container">
-                <label for="">Final Speed (m/s)</label>
-                <input type="number" id="speedf21" placeholder="enter value of final speed in m/s" min="0"/>
+                <label for="">Kelajuan Akhir (m/s)</label>
+                <input type="number" id="speedf21" placeholder="Masukkan nilai kelajuan akhir dalam satuan m/s" min="0"/>
             </div>
             <!--Input Quantity 2-->
             <div class="container">
-                <label for="">Initial Speed (m/s)</label>
-                <input type="number" id="speedi21" placeholder="enter value of initial final in m/s" min="0"  />
+                <label for="">Kelajuan Awal (m/s)</label>
+                <input type="number" id="speedi21" placeholder="Masukkan nilai kelajuan awal dalam satuan m/s" min="0"  />
             </div>
             <!--Input Quantity 3-->
             <div class="container">
-              <label for="">Distance (m)</label>
-              <input type="number" id="distance21" placeholder="enter value of distance in m" min="0"  />
+              <label for="">Jarak (m)</label>
+              <input type="number" id="distance21" placeholder="Masukkan nilai jarak dalam satuan m" min="0"  />
             </div>
             <!--Output Quantity-->
             <div class="container">
-                <label for="" style="background-color:lightgreen">Acceleration</label>
+                <label for="" style="background-color:lightgreen">Perlajuan</label>
                 <span id="accel21" style="padding:5px; font-weight: bold;" >?</span>
             </div>
           </div>
@@ -881,7 +881,7 @@
       <p>
         <!--23 Calculate Initial Speed-->
         <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample23" aria-expanded="false" aria-controls="collapseWidthExample23">
-          Calculate Initial Speed
+          Perhitungan Kelajuan Awal
         </button>
       </p>
       <div style="min-height: auto;">
@@ -889,22 +889,22 @@
           <div class="card card-body" style="width: 300px;">
             <!--Input Quantity 1-->
             <div class="container">
-                <label for="">Final Speed (m/s)</label>
-                <input type="number" id="speedf23" placeholder="enter value of final speed in m/s" min="0"/>
+                <label for="">Kelajuan Awal (m/s)</label>
+                <input type="number" id="speedf23" placeholder="Masukkan nilai kelajuan awal dalam satuan m/s" min="0"/>
             </div>
             <!--Input Quantity 2-->
             <div class="container">
-                <label for="">Acceleration (m/s&sup2)</label>
-                <input type="number" id="accel23" placeholder="enter value of acceleration in m/s&sup2" min="0"  />
+                <label for="">Perlajuan (m/s&sup2)</label>
+                <input type="number" id="accel23" placeholder="Masukkan nilai perlajuan dalam satuan m/s&sup2" min="0"  />
             </div>
             <!--Input Quantity 3-->
             <div class="container">
-              <label for="">Distance (m)</label>
-              <input type="number" id="distance23" placeholder="enter value of distance in m" min="0"  />
+              <label for="">Jarak (m)</label>
+              <input type="number" id="distance23" placeholder="Masukkan nilai jarak dalam satuan m" min="0"  />
             </div>
             <!--Output Quantity-->
             <div class="container">
-                <label for="" style="background-color:lightgreen">Initial Speed</label>
+                <label for="" style="background-color:lightgreen">Kelajuan Awal</label>
                 <span id="speedi23" style="padding:5px; font-weight: bold;" ></span>
             </div>
           </div>
@@ -915,7 +915,7 @@
       <p>
         <!--22 Calculate Distance-->
         <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample22" aria-expanded="false" aria-controls="collapseWidthExample22">
-          Calculate Distance
+          Perhitungan Jarak
         </button>
       </p>
       <div style="min-height: auto;">
@@ -923,22 +923,22 @@
           <div class="card card-body" style="width: 300px;">
             <!--Input Quantity 1-->
             <div class="container">
-                <label for="">Final Speed (m/s)</label>
-                <input type="number" id="speedf22" placeholder="enter value of final speed in m/s" min="0"/>
+                <label for="">Kelajuan Akhir (m/s)</label>
+                <input type="number" id="speedf22" placeholder="Masukkan nilai kelajuan akhir dalam satuan m/s" min="0"/>
             </div>
             <!--Input Quantity 2-->
             <div class="container">
-                <label for="">Acceleration (m/s&sup2)</label>
-                <input type="number" id="accel22" placeholder="enter value of acceleration in m/s&sup2" min="0"  />
+                <label for="">Perlajuan (m/s&sup2)</label>
+                <input type="number" id="accel22" placeholder="Masukkan nilai perlajuan dalam satuan m/s&sup2" min="0"  />
             </div>
             <!--Input Quantity 3-->
             <div class="container">
-              <label for="">Initial Speed (m/s)</label>
-              <input type="number" id="speedi22" placeholder="enter value of initial speed in m/s" min="0"  />
+              <label for="">Kelajuan Awal (m/s)</label>
+              <input type="number" id="speedi22" placeholder="Masukkan nilai kelajuan awal dalam satuan m/s" min="0"  />
             </div>
             <!--Output Quantity-->
             <div class="container">
-                <label for="" style="background-color:lightgreen">Distance</label>
+                <label for="" style="background-color:lightgreen">Jarak</label>
                 <span id="distance22" style="padding:5px; font-weight: bold;" ></span>
             </div>
           </div>
@@ -960,8 +960,7 @@
           <h3>Guru Fisika - WAHYUDI</h3>
       </div>
       <div class="footer">
-          <h4>Email saya melalui<a href="mailto:pakwahyudi.indonesia@gmail.com">email</a></h4>
+          <h4>Email saya melalui <a href="mailto:pakwahyudi.indonesia@gmail.com">email</a></h4>
       </div>
   </footer>
-
 </html>
