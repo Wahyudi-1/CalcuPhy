@@ -1,188 +1,328 @@
 <!DOCTYPE html>
+<!-- Bahasa diatur ke Indonesia -->
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Judul halaman spesifik -->
+    <title>Perhitungan Temperatur & Konversi Skala</title>
 
-<html lang="en">
-    <head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-        <link href="https://fonts.googleapis.com/css2family=monsterrat:wght@500&display=swap" rel="stylesheet">
-        <link href="styles.css" rel="stylesheet">
-        <title>Perhitungan Fisikamu</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script>
-        //--1 Temperature Conversion//
-        document.addEventListener("DOMContentLoaded", function(){
-            const temp1Input = document.getElementById("temp1");
-            const temp2Span = document.getElementById("temp2");
-            const initialSelectElement = document.getElementById("myselecti");
-            const targetSelectElement = document.getElementById("myselectg");
-            function calculateTempConvert(){
-                const temp1 =parseFloat(temp1Input.value);
-                let temp2;
-                if (initialSelectElement.value == "option 1" && targetSelectElement.value == "option 7"){
-                  temp2 = temp1;
-                }
-                else if (initialSelectElement.value == "option 1" && targetSelectElement.value == "option 8"){
-                    temp2 = temp1 - 273.15;
-                }
-                else if (initialSelectElement.value == "option 1" && targetSelectElement.value == "option 9"){
-                    temp2 = ((temp1 - 273.15)*(9/5))+32;
-                }
-                else if (initialSelectElement.value == "option 1" && targetSelectElement.value == "option 10"){
-                    temp2 = ((temp1 - 273.15)*(4/5));
-                }
-                else if (initialSelectElement.value == "option 2" && targetSelectElement.value == "option 7"){
-                    temp2 = ((temp1 + 273.15));
-                }
-                else if (initialSelectElement.value == "option 2" && targetSelectElement.value == "option 8"){
-                    temp2 = temp1;
-                }
-                else if (initialSelectElement.value == "option 2" && targetSelectElement.value == "option 9"){
-                    temp2 = (temp1*(9/5))+32;
-                }
-                else if (initialSelectElement.value == "option 2" && targetSelectElement.value == "option 10"){
-                    temp2 = temp1*(4/5);
-                }
-                else if (initialSelectElement.value == "option 3" && targetSelectElement.value == "option 7"){
-                    temp2 = ((temp1 -32)*(5/9)+273.15);
-                }
-                else if (initialSelectElement.value == "option 3" && targetSelectElement.value == "option 8"){
-                    temp2 = (temp1 -32)*(5/9);
-                }
-                else if (initialSelectElement.value == "option 3" && targetSelectElement.value == "option 9"){
-                    temp2 = temp1;
-                }
-                else if (initialSelectElement.value == "option 3" && targetSelectElement.value == "option 10"){
-                    temp2 = (temp1 -32)*(4/9);
-                }
-                else if (initialSelectElement.value == "option 4" && targetSelectElement.value == "option 7"){
-                    temp2 = (temp1*(9/4))+273.15;
-                }
-                else if (initialSelectElement.value == "option 4" && targetSelectElement.value == "option 8"){
-                    temp2 = temp1*(5/4);
-                }
-                else if (initialSelectElement.value == "option 4" && targetSelectElement.value == "option 9"){
-                    temp2 = (temp1*(9/4)+32);
-                }
-                else if (initialSelectElement.value == "option 4" && targetSelectElement.value == "option 10"){
-                    temp2 = temp1;
-                }
-                temp2Span.innerHTML = `${temp2.toFixed(2)}`;
-            }
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
-            temp1Input.addEventListener("input", calculateTempConvert);
-            initialSelectElement.addEventListener("change", calculateTempConvert);
-            targetSelectElement.addEventListener("change", calculateTempConvert);
-            calculateTempConvert();
-        });
-                //--2 Unknown Temperature Conversion//
-                document.addEventListener("DOMContentLoaded", function(){
-            const tempxiInput = document.getElementById("tempxi");
-            const tempxbInput = document.getElementById("tempxb");
-            const tempxmInput = document.getElementById("tempxm");
-            const tempyiInput = document.getElementById("tempyi");
-            const tempybInput = document.getElementById("tempyb");
-            const tempymSpan = document.getElementById("tempym");
-            function calculateUnknownTempConvert(){
-                const tempxi =parseFloat(tempxiInput.value);
-                const tempxb =parseFloat(tempxbInput.value);
-                const tempxm =parseFloat(tempxmInput.value);
-                const tempyi =parseFloat(tempyiInput.value);
-                const tempyb =parseFloat(tempybInput.value);
-                let tempym;
-                  tempym = (((tempxm-tempxi)/(tempxb-tempxi))*(tempyb-tempyi))+tempyi;
-                tempymSpan.innerHTML = `${tempym.toFixed(2)} &deg;Y`;
-            }
+    <!-- Google Font Montserrat (URL Diperbaiki) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-            tempxiInput.addEventListener("input", calculateUnknownTempConvert);
-            tempxbInput.addEventListener("input", calculateUnknownTempConvert);
-            tempxmInput.addEventListener("input", calculateUnknownTempConvert);
-            tempyiInput.addEventListener("input", calculateUnknownTempConvert);
-            tempybInput.addEventListener("input", calculateUnknownTempConvert);
-            calculateUnknownTempConvert();
-        });
-        </script>
-    </head>
-    <body>
-        <div class="header">
-            <h1>Calculation of Temperature</h1>
-        </div>
-    </body>
+    <!-- Link ke file CSS eksternal Anda (Pastikan file ini ada dan berisi gaya yang sudah diperbaiki) -->
+    <link href="styles.css" rel="stylesheet">
 
-    <!---Navigation Bar-->
-    <div class="navigation">
-        <a href="index.html" class="button">Beranda</a>
-        <a href="calculation.html" class="button">Perhitungan</a>
-        <a href="study.html" class="button">Pemahaman</a>
-        <a href="about.html" class="button">Tentang pembuat</a>
-    </div>
-    <!--main content-->
-    <div class="container" >
-        <h2>Perhitungan </h2>
-        <p>Klik tombol biru sesuai kebutuhanmu dan masukkan nilai-nilai pada sel yang disediakan</p>
-    </div>
-    <div class="convert" select="option" style="margin-left:5%; margin-right:5%;">
-      <h2>"Konversi Suhu"</h2>
-      <div class="row">
-              <!--Temperature Conversion-->
-        <div class="col" style="padding-top:2%;">
-          <div class="container">
-            <label for="">Suhu Awal</label>
-            <input type="number" id="temp1" placeholder="Temperature Value"/>
-            <select id="myselecti">
-              <option value="option 1">Kelvin</option>
-              <option value="option 2">Celcius</option>
-              <option value="option 3">Fahrenheit</option>
-              <option value="option 4">Réaumur</option>
-            </select>
-            <label for="" style="padding:5px; background-color:lightgreen">Suhu yang dituju</label>
-            <span id="temp2" style="padding:5px; font-weight: bold;" >  </span>
-            <select id="myselectg">
-              <option value="option 7">Kelvin</option>
-              <option value="option 8">Celcius</option>
-              <option value="option 9">Fahrenheit</option>
-              <option value="option 10">Réaumur</option>
-            </select>
+    <!-- Optional: Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- Script block kosong dihapus -->
+</head>
+<body class="d-flex flex-column min-vh-100"> <!-- Layout untuk footer menempel di bawah -->
+
+    <!-- Navigation Bar Bootstrap (Konsisten dengan halaman lain) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm mb-4">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">FisikaCalc</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <!-- Tandai 'Perhitungan' sebagai active -->
+              <a class="nav-link active" aria-current="page" href="calculation.html">Perhitungan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="study.html">Pemahaman</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">Tentang</a>
+            </li>
+          </ul>
         </div>
       </div>
-  </div>
-        <!--Unknown Temperature-->
-  <div class="row" style="padding-top:2%;">
-  <div class="col">
-    <div class="container">
-      <label for="">Suhu Awal</label>
-      <input type="number" id="tempxi" placeholder="Titik Bawah"/>
-      <input type="number" id="tempxb" placeholder="Titik atas"/>
-      <input type="number" id="tempxm" placeholder="Suhu Terukur"/>
-      <label for="" style="padding:5px; background-color:lightblue">&deg; X</label>
-    </div>
-  </div>
-  </div>
-  <div class="row" style="padding-top:2%;">
-    <div class="col">
-      <div class="container">
-      <label for="">Suhu yang dituju</label>
-      <input type="number" id="tempyi" placeholder="Titik Bawah"/>
-      <input type="number" id="tempyb" placeholder="Titik Atas"/>
-      <label for="" style="padding:5px; background-color:lightblue">Suhu yang terukur</label>
-      <span id="tempym" style="padding:5px; font-weight: bold;" ></span>
-  </div>
-</div>
-</div>
-</div>
-        <br>
-        <br>
-        <br>
-        <br>
-    <!--Footer-->
-    <footer>
-        <footer>
-            <div class="footer">
-                <h3>Guru Fisika - WAHYUDI</h3>
-            </div>
-            <div class="footer">
-                <h4>Email saya melalui <a href="mailto:pakwahyudi.indonesia@gmail.com">email</a></h4>
-            </div>
-        </footer>
+    </nav>
 
-</html>
+    <!-- Container Utama Bootstrap untuk Konten Halaman -->
+    <div class="container mt-4 mb-5">
+        <div class="intro text-center mb-5">
+             <h1 class="display-5">Konversi Suhu</h1>
+             <p class="lead">Konversi antar skala suhu standar atau gunakan perbandingan skala kustom.</p>
+        </div>
+
+        <!-- Gunakan Grid Bootstrap untuk layout dua kolom -->
+        <div class="row g-4 justify-content-center">
+
+            <!-- Kolom 1: Konverter Skala Standar -->
+            <div class="col-lg-6">
+                <div class="card shadow-sm h-100"> <!-- h-100 agar tinggi card sama jika bersebelahan -->
+                    <div class="card-body d-flex flex-column">
+                        <h2 class="card-title h4 mb-4 text-primary text-center"><i class="bi bi-thermometer-half me-2"></i>Konversi Skala Standar</h2>
+
+                        <div class="mb-3">
+                            <label for="temp1" class="form-label">Nilai Suhu Awal:</label>
+                            <input type="number" class="form-control" id="temp1" placeholder="Masukkan nilai suhu"/>
+                        </div>
+
+                        <div class="row g-2 mb-3">
+                            <div class="col-sm-6">
+                                <label for="myselecti" class="form-label">Dari Skala:</label>
+                                <!-- Perbaikan: Value lebih deskriptif -->
+                                <select id="myselecti" class="form-select">
+                                    <option value="K">Kelvin (K)</option>
+                                    <option value="C">Celcius (°C)</option>
+                                    <option value="F">Fahrenheit (°F)</option>
+                                    <option value="R">Réaumur (°R)</option>
+                                </select>
+                            </div>
+                             <div class="col-sm-6">
+                                <label for="myselectg" class="form-label">Ke Skala:</label>
+                                <!-- Perbaikan: Value lebih deskriptif -->
+                                <select id="myselectg" class="form-select">
+                                    <option value="K">Kelvin (K)</option>
+                                    <option value="C" selected>Celcius (°C)</option> <!-- Default ke Celcius -->
+                                    <option value="F">Fahrenheit (°F)</option>
+                                    <option value="R">Réaumur (°R)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Output Section dipindah ke bawah untuk alur logis -->
+                        <div class="output-section mt-auto"> <!-- mt-auto push to bottom -->
+                            <label class="output-label output-label-result">Hasil Konversi:</label>
+                            <!-- Tambahkan unit dinamis di JS jika perlu, atau tampilkan di sini -->
+                            <span id="temp2" class="output-value"> - </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kolom 2: Konverter Skala Kustom -->
+            <div class="col-lg-6">
+                 <div class="card shadow-sm h-100">
+                    <div class="card-body d-flex flex-column">
+                        <h2 class="card-title h4 mb-4 text-success text-center"><i class="bi bi-rulers me-2"></i>Perbandingan Skala Kustom (X ke Y)</h2>
+
+                        <p class="small text-muted text-center mb-3">Masukkan titik bawah (beku) dan titik atas (didih) untuk kedua skala.</p>
+
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6 border-end pe-3">
+                                <h5 class="h6 text-center text-secondary mb-3">Skala Awal (X)</h5>
+                                <div class="mb-2">
+                                    <label for="tempxi" class="form-label">Titik Bawah (°X):</label>
+                                    <input type="number" class="form-control form-control-sm" id="tempxi" placeholder="Cth: 0"/>
+                                </div>
+                                <div class="mb-2">
+                                    <label for="tempxb" class="form-label">Titik Atas (°X):</label>
+                                    <input type="number" class="form-control form-control-sm" id="tempxb" placeholder="Cth: 100"/>
+                                </div>
+                                <div class="mb-2">
+                                    <label for="tempxm" class="form-label fw-bold">Suhu Terukur (°X):</label>
+                                    <input type="number" class="form-control form-control-sm" id="tempxm" placeholder="Suhu X"/>
+                                </div>
+                            </div>
+                             <div class="col-md-6 ps-3">
+                                <h5 class="h6 text-center text-secondary mb-3">Skala Tujuan (Y)</h5>
+                                <div class="mb-2">
+                                    <label for="tempyi" class="form-label">Titik Bawah (°Y):</label>
+                                    <input type="number" class="form-control form-control-sm" id="tempyi" placeholder="Cth: 32"/>
+                                </div>
+                                <div class="mb-2">
+                                     <label for="tempyb" class="form-label">Titik Atas (°Y):</label>
+                                     <input type="number" class="form-control form-control-sm" id="tempyb" placeholder="Cth: 212"/>
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- Output Section -->
+                        <div class="output-section mt-auto">
+                            <label class="output-label output-label-result">Suhu Terukur Skala Y:</label>
+                            <span id="tempym" class="output-value"> - °Y</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- Akhir Row -->
+
+        <!-- Tag penutup ekstra dihapus -->
+        <!-- <br> dihapus -->
+
+    </div> <!-- Akhir Container Utama -->
+
+    <!-- Footer (Struktur diperbaiki & menggunakan class Bootstrap) -->
+    <footer class="bg-dark text-white text-center mt-auto py-3">
+        <div class="container">
+            <p class="mb-1">© 2024 FisikaCalc oleh Guru Fisika - WAHYUDI.</p>
+            <p class="mb-0">Kontak: <a href="mailto:pakwahyudi.indonesia@gmail.com" class="text-white">pakwahyudi.indonesia@gmail.com</a></p>
+        </div>
+    </footer> <!-- Hanya satu tag penutup footer -->
+
+    <!-- Bootstrap JS Bundle (di akhir body) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <!-- JavaScript untuk Kalkulator -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+        // --- Helper Function for Safe Calculation & Display ---
+        function displayResult(spanElement, value, unit = '', precision = 2) {
+            if (!spanElement) return; // Exit if element not found
+
+            if (value === null || isNaN(value) || !isFinite(value)) {
+                spanElement.textContent = '-';
+                 // Tambahkan unit jika ada meskipun tidak valid, atau sesuaikan
+                 if (unit) spanElement.textContent += ` ${unit}`;
+                 spanElement.classList.add('text-muted');
+            } else {
+                spanElement.textContent = `${value.toFixed(precision)} ${unit}`;
+                spanElement.classList.remove('text-muted');
+                 // Handle superskrip jika perlu (meskipun ° lebih umum untuk suhu)
+                 // if (unit === 'm/s²') { ... }
+            }
+        }
+
+        // --- Helper Function to Setup Listeners ---
+         function setupCalculator(inputIdPairs, outputSpanId, calculateFunction, initialCall = true) {
+            const inputs = [];
+            let allElementsExist = true;
+
+            for (const id of inputIdPairs) {
+                const element = document.getElementById(id);
+                if (!element) {
+                    console.warn(`Element with ID "${id}" not found for calculator targeting "${outputSpanId}".`);
+                    allElementsExist = false;
+                }
+                inputs.push(element); // Push even if null to maintain order for checks later
+            }
+
+            const outputSpan = document.getElementById(outputSpanId);
+            if (!outputSpan) {
+                console.warn(`Output span with ID "${outputSpanId}" not found.`);
+                allElementsExist = false;
+            }
+
+            if (allElementsExist) {
+                inputs.forEach(input => {
+                    if (input) { // Only add listener if element exists
+                         const eventType = (input.tagName === 'SELECT') ? 'change' : 'input';
+                         input.addEventListener(eventType, calculateFunction);
+                    }
+                });
+                if (initialCall) {
+                    calculateFunction(); // Initial calculation
+                }
+            } else {
+                 console.error(`Calculator setup failed for output "${outputSpanId}" due to missing elements.`);
+            }
+        }
+
+
+        // --- 1. Standard Temperature Conversion ---
+        const temp1Input = document.getElementById("temp1");
+        const temp2Span = document.getElementById("temp2");
+        const initialSelectElement = document.getElementById("myselecti");
+        const targetSelectElement = document.getElementById("myselectg");
+
+        function calculateTempConvert() {
+            const temp1 = parseFloat(temp1Input?.value);
+            const scaleFrom = initialSelectElement?.value; // K, C, F, R
+            const scaleTo = targetSelectElement?.value;   // K, C, F, R
+            let temp2 = null; // Default to null for easier checking
+            let targetUnit = '';
+
+            if (!isNaN(temp1) && scaleFrom && scaleTo) {
+                let tempInCelcius;
+
+                // Step 1: Convert input temperature to Celcius (base unit)
+                switch (scaleFrom) {
+                    case 'C': tempInCelcius = temp1; break;
+                    case 'K': tempInCelcius = temp1 - 273.15; break;
+                    case 'F': tempInCelcius = (temp1 - 32) * 5/9; break;
+                    case 'R': tempInCelcius = temp1 * 5/4; break;
+                    default: tempInCelcius = NaN; // Should not happen
+                }
+
+                 // Step 2: Convert from Celcius to the target scale
+                 if (!isNaN(tempInCelcius)) {
+                     switch (scaleTo) {
+                        case 'C': temp2 = tempInCelcius; targetUnit = '°C'; break;
+                        case 'K': temp2 = tempInCelcius + 273.15; targetUnit = 'K'; break;
+                        case 'F': temp2 = (tempInCelcius * 9/5) + 32; targetUnit = '°F'; break;
+                        case 'R': temp2 = tempInCelcius * 4/5; targetUnit = '°R'; break;
+                        default: temp2 = NaN; // Should not happen
+                     }
+                 } else {
+                     temp2 = NaN; // Mark as NaN if conversion to Celcius failed
+                 }
+
+            } else if (temp1Input?.value === '') {
+                 temp2 = null; // Clear output if input is empty
+            } else {
+                temp2 = NaN; // Mark as NaN if input is invalid number
+            }
+
+            // Display result using helper
+            displayResult(temp2Span, temp2, targetUnit);
+        }
+        // Setup listeners for standard converter
+        setupCalculator(['temp1', 'myselecti', 'myselectg'], 'temp2', calculateTempConvert);
+
+
+        // --- 2. Unknown Temperature Conversion ---
+        const tempxiInput = document.getElementById("tempxi");
+        const tempxbInput = document.getElementById("tempxb");
+        const tempxmInput = document.getElementById("tempxm");
+        const tempyiInput = document.getElementById("tempyi");
+        const tempybInput = document.getElementById("tempyb");
+        const tempymSpan = document.getElementById("tempym");
+
+        function calculateUnknownTempConvert() {
+            const tempxi = parseFloat(tempxiInput?.value);
+            const tempxb = parseFloat(tempxbInput?.value);
+            const tempxm = parseFloat(tempxmInput?.value);
+            const tempyi = parseFloat(tempyiInput?.value);
+            const tempyb = parseFloat(tempybInput?.value);
+            let tempym = null; // Default to null
+
+            // Check if all inputs are valid numbers
+            if ([tempxi, tempxb, tempxm, tempyi, tempyb].every(val => !isNaN(val))) {
+                const rangeX = tempxb - tempxi;
+                const rangeY = tempyb - tempyi;
+
+                // Check for division by zero (identical lower/upper points on scale X)
+                if (rangeX !== 0) {
+                    // Linear interpolation formula
+                    tempym = (((tempxm - tempxi) / rangeX) * rangeY) + tempyi;
+                } else {
+                    // Handle division by zero case (maybe output NaN or an error message)
+                    console.warn("Skala X memiliki titik bawah dan atas yang sama.");
+                    tempym = NaN;
+                }
+            } else if ([tempxiInput, tempxbInput, tempxmInput, tempyiInput, tempybInput].some(input => input?.value === '')) {
+                 tempym = null; // Clear if any input is empty
+            }
+             else {
+                tempym = NaN; // Mark as NaN if any input is invalid number
+            }
+
+             // Display result using helper
+             // Note: Unit is hardcoded in HTML span for now, could be dynamic if needed
+             displayResult(tempymSpan, tempym, '°Y');
+        }
+        // Setup listeners for unknown converter
+        setupCalculator(['tempxi', 'tempxb', 'tempxm', 'tempyi', 'tempyb'], 'tempym', calculateUnknownTempConvert);
+
+
+    }); // Akhir dari DOMContentLoaded
+    </script>
+
+</body> <!-- Tag body ditutup -->
+</html> <!-- Tag html ditutup -->
