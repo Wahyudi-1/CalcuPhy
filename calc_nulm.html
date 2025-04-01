@@ -1,986 +1,943 @@
 <!DOCTYPE html>
+
 <html lang="en">
     <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2family=monsterrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Calculating Your Physics</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Perhitungan Fisikamu</title>
-    
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-        <!-- Perbaikan: URL Google Font yang benar -->
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-        <link href="styles.css" rel="stylesheet">
-
-    <style>
-        /* Tambahan: Sembunyikan konverter secara default jika diinginkan */
-        .converter-section {
-             display: none; /* Atau 'block' jika ingin terlihat default */
-             margin-bottom: 15px; /* Jarak antar konverter */
-        }
-        .output-label {
-            padding: 5px;
-            display: inline-block; /* Agar background color terlihat */
-            margin-right: 5px;
-        }
-        .output-value {
-            padding: 5px;
-            font-weight: bold;
-        }
-        /* Perbaikan kecil untuk label dan input agar lebih rapi */
-        .card-body .container {
-            margin-bottom: 10px;
-        }
-        .card-body label {
-            display: block;
-            margin-bottom: 3px;
-        }
-        .card-body input[type="number"], .card-body select {
-             width: 100%; /* Lebar penuh di dalam card */
-             margin-bottom: 5px;
-        }
-    </style>
-
-</head>
-<body>
-    <div class="header">
-        <h1>Perhitungan pada Gerak Lurus Berubah Beraturan</h1>
-    </div>
-
-    <!---Navigation Bar-->
-    <div class="navigation">
-      <a href="index.html" class="button">Beranda</a>
-      <a href="calculation.html" class="button">Perhitungan</a>
-      <a href="study.html" class="button">Pemahaman</a>
-      <a href="about.html" class="button">Tentang pembuat</a>
-    </div>
-
-    <!--main content-->
-    <div class="container" >
-        <h2>Perhitungan</h2>
-        <p>Klik tombol biru sesuai kebutuhanmu dan masukkan nilai-nilai pada sel yang disediakan. Anda juga dapat menampilkan/menyembunyikan bagian konversi satuan menggunakan checkbox.</p>
-    </div>
-
-    <!-- Checkbox untuk Konverter -->
-    <div class="row" style="margin-left:5%; margin-right:5%; padding-bottom:5px;">
-      <div class="col-md-4" style="padding-top:2%;">
-        <div class="form-check">
-          <!-- Perbaikan: ID Unik -->
-          <input class="form-check-input" type="checkbox" id="checkDistanceConv">
-          <label class="form-check-label" for="checkDistanceConv">
-            Tampilkan/Sembunyikan Konversi Jarak
-          </label>
-        </div>
-      </div>
-      <div class="col-md-4" style="padding-top:2%;">
-        <div class="form-check">
-          <!-- Perbaikan: ID Unik -->
-          <input class="form-check-input" type="checkbox" id="checkSpeedConv">
-          <label class="form-check-label" for="checkSpeedConv">
-            Tampilkan/Sembunyikan Konversi Kelajuan
-          </label>
-        </div>
-      </div>
-      <div class="col-md-4" style="padding-top:2%;">
-        <div class="form-check">
-          <!-- Perbaikan: ID Unik -->
-          <input class="form-check-input" type="checkbox" id="checkAccelConv">
-          <label class="form-check-label" for="checkAccelConv">
-            Tampilkan/Sembunyikan Konversi Perlajuan
-          </label>
-        </div>
-      </div>
-    </div>
-
-    <!-- Bagian Konverter (awalnya mungkin tersembunyi) -->
-    <div class="convert" style="margin-left:5%; margin-right:5%;">
-      <h2>Konversi Satuan</h2>
-      <!-- Perbaikan: ID Unik untuk kontainer & elemen input distance12 sudah ada di bawah -->
-      <div id="containerDistanceConv" class="converter-section">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Konversi Jarak</h5>
-            <label for="distance12">Jarak</label>
-            <!-- Perbaikan: ID distance12 sekarang hanya untuk input ini -->
-            <input type="number" class="form-control" id="distance12" placeholder="Nilai Jarak" min="0"/>
-            <label for="myselectd">Dari Satuan:</label>
-            <select id="myselectd" class="form-select">
-              <option value="option 1">km</option>
-              <option value="option 2">kaki (ft)</option>
-              <option value="option 3">mil</option>
-              <option value="option 4">inchi (in)</option>
-              <option value="option 5">yard (yd)</option>
-              <option value="option 6">cm</option>
-              <option value="option 7">mm</option>
-            </select>
-            <label for="distancesi" class="output-label" style="background-color:lightgreen">Jarak (SI):</label>
-            <span id="distancesi" class="output-value"></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Perbaikan: ID Unik untuk kontainer -->
-      <div id="containerSpeedConv" class="converter-section">
-         <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Konversi Kelajuan</h5>
-            <label for="speed11">Kelajuan</label>
-            <input type="number" class="form-control" id="speed11" placeholder="Nilai Kelajuan" min="0"/>
-            <label for="myselect">Dari Satuan:</label>
-            <select id="myselect" class="form-select">
-                <option value="option 1">m/s</option>
-                <option value="option 2">km/jam</option>
-                <option value="option 3">km/s</option>
-                <option value="option 4">m/menit</option>
-                <option value="option 5">km/menit</option>
-                <option value="option 6">Knot</option>
-                <option value="option 7">mil/s</option>
-                <option value="option 8">m/jam</option> <!-- Seharusnya mil/jam? m/jam tidak umum -->
-                <option value="option 9">kaki/s (ft/s)</option>
-            </select>
-            <label for="speedsi" class="output-label" style="background-color:yellow">Kelajuan (SI):</label>
-            <span id="speedsi" class="output-value"></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Perbaikan: ID Unik untuk kontainer -->
-      <div id="containerAccelConv" class="converter-section">
-         <div class="card">
-          <div class="card-body">
-             <h5 class="card-title">Konversi Perlajuan</h5>
-             <label for="accel13">Perlajuan</label>
-             <input type="number" class="form-control" id="accel13" placeholder="Nilai Perlajuan" min="0"/>
-             <label for="myselecta">Dari Satuan:</label>
-             <select id="myselecta" class="form-select">
-                <option value="option 1">cm/s²</option>
-                <option value="option 2">kaki/s² (ft/s²)</option>
-                <option value="option 3">km/s²</option>
-                <option value="option 4">m/menit²</option>
-                <option value="option 5">km/jam²</option> <!-- Direvisi dari km/menit^2 agar lebih umum -->
-                <option value="option 6">Knot/s</option>
-                <option value="option 7">mil/s²</option>
-                <option value="option 8">inchi/s² (in/s²)</option>
-                <option value="option 9">g (percepatan gravitasi bumi)</option>
-                <option value="option 10">Gal (cm/s²)</option>
-             </select>
-             <label for="accelsi" class="output-label" style="background-color:lightblue">Perlajuan (SI):</label>
-             <span id="accelsi" class="output-value"></span>
-           </div>
-         </div>
-      </div>
-    </div>
-
-
-    <!-- Kalkulator -->
-    <div class="row" style="margin-left:5%; margin-right:5%;">
-        <!-- Kolom 1 -->
-        <div class="col-lg-3 col-md-6" style="padding:2%;">
-            <!-- 1 Calculate Average Speed -->
-            <p>
-                <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample1" aria-expanded="false" aria-controls="collapseWidthExample1">
-                  Hitung Kelajuan Rerata (v = (v₀+vₜ)/2)
-                </button>
-            </p>
-            <div class="collapse" id="collapseWidthExample1">
-              <div class="card card-body">
-                <div class="container">
-                    <label for="speedf">Kelajuan Akhir (vₜ) (m/s)</label>
-                    <input type="number" id="speedf" class="form-control" placeholder="Masukkan vₜ" min="0"/>
-                </div>
-                <div class="container">
-                    <label for="speedi">Kelajuan Awal (v₀) (m/s)</label>
-                    <input type="number" id="speedi" class="form-control" placeholder="Masukkan v₀" min="0"/>
-                </div>
-                <div class="container">
-                    <label for="speedave" class="output-label" style="background-color:lightgreen">Kelajuan Rerata (v̄):</label>
-                    <span id="speedave" class="output-value"></span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 4 Calculate Distance -->
-             <p class="mt-3">
-                <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample4" aria-expanded="false" aria-controls="collapseWidthExample4">
-                  Hitung Jarak (s = v̄ × t)
-                </button>
-              </p>
-              <div class="collapse" id="collapseWidthExample4">
-                <div class="card card-body">
-                  <div class="container">
-                      <label for="speedave4">Kelajuan Rerata (v̄) (m/s)</label>
-                      <input type="number" id="speedave4" class="form-control" placeholder="Masukkan v̄" min="0"/>
-                  </div>
-                  <div class="container">
-                      <label for="time4">Waktu (t) (s)</label>
-                      <input type="number" id="time4" class="form-control" placeholder="Masukkan t" min="0"/>
-                  </div>
-                  <div class="container">
-                      <label for="distance4" class="output-label" style="background-color:lightgreen">Jarak (s):</label>
-                      <span id="distance4" class="output-value"></span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 7 Calculate Acceleration -->
-              <p class="mt-3">
-                <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample7" aria-expanded="false" aria-controls="collapseWidthExample7">
-                    Hitung Perlajuan (a = (vₜ - v₀) / t)
-                </button>
-                </p>
-                <div class="collapse" id="collapseWidthExample7">
-                    <div class="card card-body">
-                    <div class="container">
-                        <label for="speedf7">Kelajuan Akhir (vₜ) (m/s)</label>
-                        <input type="number" id="speedf7" class="form-control" placeholder="Masukkan vₜ" min="0"/>
-                    </div>
-                    <div class="container">
-                        <label for="speedi7">Kelajuan Awal (v₀) (m/s)</label>
-                        <input type="number" id="speedi7" class="form-control" placeholder="Masukkan v₀" min="0"/>
-                    </div>
-                    <div class="container">
-                        <label for="time7">Waktu (t) (s)</label>
-                        <input type="number" id="time7" class="form-control" placeholder="Masukkan t" min="0"/>
-                    </div>
-                    <div class="container">
-                        <label for="accel7" class="output-label" style="background-color:lightgreen">Perlajuan (a):</label>
-                        <span id="accel7" class="output-value"></span>
-                    </div>
-                    </div>
-                </div>
-
-              <!-- 10 Calculate Initial Speed -->
-              <p class="mt-3">
-                <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample10" aria-expanded="false" aria-controls="collapseWidthExample10">
-                    Hitung Kelajuan Awal (v₀ = vₜ - a×t)
-                </button>
-                </p>
-                <div class="collapse" id="collapseWidthExample10">
-                <div class="card card-body">
-                    <div class="container">
-                    <label for="time10">Waktu (t) (s)</label>
-                    <input type="number" id="time10" class="form-control" placeholder="Masukkan t" min="0"/>
-                    </div>
-                    <div class="container">
-                        <label for="speedf10">Kelajuan Akhir (vₜ) (m/s)</label>
-                        <input type="number" id="speedf10" class="form-control" placeholder="Masukkan vₜ" min="0"/>
-                    </div>
-                    <div class="container">
-                    <label for="accel10">Perlajuan (a) (m/s²)</label>
-                    <input type="number" id="accel10" class="form-control" placeholder="Masukkan a"/> <!-- Min 0 dihapus untuk perlambatan -->
-                    </div>
-                    <div class="container">
-                        <label for="speedi10" class="output-label" style="background-color:lightgreen">Kelajuan Awal (v₀):</label>
-                        <span id="speedi10" class="output-value"></span>
-                    </div>
-                </div>
-                </div>
-
-              <!-- 20 Calculate Final Speed (vₜ² = v₀² + 2as) -->
-              <p class="mt-3">
-                <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample20" aria-expanded="false" aria-controls="collapseWidthExample20">
-                   Hitung Kelajuan Akhir (vₜ² = v₀² + 2as)
-                </button>
-              </p>
-              <div class="collapse" id="collapseWidthExample20">
-                <div class="card card-body">
-                  <div class="container">
-                      <label for="speedi20">Kelajuan Awal (v₀) (m/s)</label>
-                      <input type="number" id="speedi20" class="form-control" placeholder="Masukkan v₀" min="0"/>
-                  </div>
-                  <div class="container">
-                      <label for="accel20">Perlajuan (a) (m/s²)</label>
-                      <input type="number" id="accel20" class="form-control" placeholder="Masukkan a"/>
-                  </div>
-                  <div class="container">
-                    <label for="distance20">Jarak (s) (m)</label>
-                    <input type="number" id="distance20" class="form-control" placeholder="Masukkan s" min="0"/>
-                  </div>
-                  <div class="container">
-                      <label for="speedf20" class="output-label" style="background-color:lightgreen">Kelajuan Akhir (vₜ):</label>
-                      <span id="speedf20" class="output-value"></span>
-                  </div>
-                </div>
-              </div>
-
-            <!-- 23 Calculate Initial Speed (v₀² = vₜ² - 2as) -->
-            <p class="mt-3">
-                <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample23" aria-expanded="false" aria-controls="collapseWidthExample23">
-                   Hitung Kelajuan Awal (v₀² = vₜ² - 2as)
-                </button>
-            </p>
-            <div class="collapse" id="collapseWidthExample23">
-                <div class="card card-body">
-                <div class="container">
-                    <label for="speedf23">Kelajuan Akhir (vₜ) (m/s)</label>
-                    <input type="number" id="speedf23" class="form-control" placeholder="Masukkan vₜ" min="0"/>
-                </div>
-                <div class="container">
-                    <label for="accel23">Perlajuan (a) (m/s²)</label>
-                    <input type="number" id="accel23" class="form-control" placeholder="Masukkan a"/>
-                </div>
-                <div class="container">
-                    <label for="distance23">Jarak (s) (m)</label>
-                    <input type="number" id="distance23" class="form-control" placeholder="Masukkan s" min="0"/>
-                </div>
-                <div class="container">
-                    <label for="speedi23" class="output-label" style="background-color:lightgreen">Kelajuan Awal (v₀):</label>
-                    <span id="speedi23" class="output-value"></span>
-                </div>
-                </div>
-            </div>
-
-        </div> <!-- End Kolom 1 -->
-
-        <!-- Kolom 2 -->
-        <div class="col-lg-3 col-md-6" style="padding:2%;">
-            <!-- 2 Calculate Final Speed -->
-            <p>
-                <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample2" aria-expanded="false" aria-controls="collapseWidthExample2">
-                  Hitung Kelajuan Akhir (vₜ = 2v̄ - v₀)
-                </button>
-            </p>
-            <div class="collapse" id="collapseWidthExample2">
-                <div class="card card-body">
-                <div class="container">
-                    <label for="speedave2">Kelajuan Rerata (v̄) (m/s)</label>
-                    <input type="number" id="speedave2" class="form-control" placeholder="Masukkan v̄" min="0"/>
-                </div>
-                <div class="container">
-                    <label for="speedi2">Kelajuan Awal (v₀) (m/s)</label>
-                    <input type="number" id="speedi2" class="form-control" placeholder="Masukkan v₀" min="0"/>
-                </div>
-                <div class="container">
-                    <label for="speedf2" class="output-label" style="background-color:lightgreen">Kelajuan Akhir (vₜ):</label>
-                    <span id="speedf2" class="output-value"></span>
-                </div>
-                </div>
-            </div>
-
-            <!-- 5 Calculate Time -->
-            <p class="mt-3">
-                <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample5" aria-expanded="false" aria-controls="collapseWidthExample5">
-                  Hitung Waktu (t = s / v̄)
-                </button>
-            </p>
-            <div class="collapse" id="collapseWidthExample5">
-                <div class="card card-body">
-                <div class="container">
-                    <label for="speedave5">Kelajuan Rerata (v̄) (m/s)</label>
-                    <input type="number" id="speedave5" class="form-control" placeholder="Masukkan v̄" min="0"/>
-                </div>
-                <div class="container">
-                    <label for="distance5">Jarak (s) (m)</label>
-                    <input type="number" id="distance5" class="form-control" placeholder="Masukkan s" min="0"/>
-                </div>
-                <div class="container">
-                    <label for="time5" class="output-label" style="background-color:lightgreen">Waktu (t):</label>
-                    <span id="time5" class="output-value"></span>
-                </div>
-                </div>
-            </div>
-
-             <!-- 8 Calculate Time -->
-             <p class="mt-3">
-                <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample8" aria-expanded="false" aria-controls="collapseWidthExample8">
-                   Hitung Waktu (t = (vₜ - v₀) / a)
-                </button>
-              </p>
-              <div class="collapse" id="collapseWidthExample8">
-                <div class="card card-body">
-                  <div class="container">
-                      <label for="speedf8">Kelajuan Akhir (vₜ) (m/s)</label>
-                      <input type="number" id="speedf8" class="form-control" placeholder="Masukkan vₜ" min="0"/>
-                  </div>
-                  <div class="container">
-                      <label for="speedi8">Kelajuan Awal (v₀) (m/s)</label>
-                      <input type="number" id="speedi8" class="form-control" placeholder="Masukkan v₀" min="0"/>
-                  </div>
-                  <div class="container">
-                    <label for="accel8">Perlajuan (a) (m/s²)</label>
-                    <input type="number" id="accel8" class="form-control" placeholder="Masukkan a"/>
-                  </div>
-                  <div class="container">
-                      <label for="time8" class="output-label" style="background-color:lightgreen">Waktu (t):</label>
-                      <span id="time8" class="output-value"></span>
-                  </div>
-                </div>
-              </div>
-
-             <!-- 21 Calculate Acceleration (a = (vₜ² - v₀²) / 2s) -->
-            <p class="mt-3">
-                <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample21" aria-expanded="false" aria-controls="collapseWidthExample21">
-                   Hitung Perlajuan (a = (vₜ²-v₀²) / 2s)
-                </button>
-            </p>
-            <div class="collapse" id="collapseWidthExample21">
-                <div class="card card-body">
-                <div class="container">
-                    <label for="speedf21">Kelajuan Akhir (vₜ) (m/s)</label>
-                    <input type="number" id="speedf21" class="form-control" placeholder="Masukkan vₜ" min="0"/>
-                </div>
-                <div class="container">
-                    <label for="speedi21">Kelajuan Awal (v₀) (m/s)</label>
-                    <input type="number" id="speedi21" class="form-control" placeholder="Masukkan v₀" min="0"/>
-                </div>
-                <div class="container">
-                    <label for="distance21">Jarak (s) (m)</label>
-                    <input type="number" id="distance21" class="form-control" placeholder="Masukkan s" min="0"/>
-                </div>
-                <div class="container">
-                    <label for="accel21" class="output-label" style="background-color:lightgreen">Perlajuan (a):</label>
-                    <span id="accel21" class="output-value"></span>
-                </div>
-                </div>
-            </div>
-
-            <!-- 22 Calculate Distance (s = (vₜ² - v₀²) / 2a) -->
-            <p class="mt-3">
-                <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample22" aria-expanded="false" aria-controls="collapseWidthExample22">
-                   Hitung Jarak (s = (vₜ²-v₀²) / 2a)
-                </button>
-            </p>
-            <div class="collapse" id="collapseWidthExample22">
-                <div class="card card-body">
-                <div class="container">
-                    <label for="speedf22">Kelajuan Akhir (vₜ) (m/s)</label>
-                    <input type="number" id="speedf22" class="form-control" placeholder="Masukkan vₜ" min="0"/>
-                </div>
-                 <div class="container">
-                    <label for="speedi22">Kelajuan Awal (v₀) (m/s)</label>
-                    <input type="number" id="speedi22" class="form-control" placeholder="Masukkan v₀" min="0"/>
-                </div>
-                <div class="container">
-                    <label for="accel22">Perlajuan (a) (m/s²)</label>
-                    <input type="number" id="accel22" class="form-control" placeholder="Masukkan a"/>
-                </div>
-                <div class="container">
-                    <label for="distance22" class="output-label" style="background-color:lightgreen">Jarak (s):</label>
-                    <span id="distance22" class="output-value"></span>
-                </div>
-                </div>
-            </div>
-
-        </div><!-- End Kolom 2 -->
-
-        <!-- Kolom 3 -->
-        <div class="col-lg-3 col-md-6" style="padding:2%;">
-             <!-- 3 Calculate Initial Speed -->
-            <p>
-                <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample3" aria-expanded="false" aria-controls="collapseWidthExample3">
-                   Hitung Kelajuan Awal (v₀ = 2v̄ - vₜ)
-                </button>
-              </p>
-              <div class="collapse" id="collapseWidthExample3">
-                <div class="card card-body">
-                  <div class="container">
-                      <label for="speedave3">Kelajuan Rerata (v̄) (m/s)</label>
-                      <input type="number" id="speedave3" class="form-control" placeholder="Masukkan v̄" min="0"/>
-                  </div>
-                  <div class="container">
-                      <label for="speedf3">Kelajuan Akhir (vₜ) (m/s)</label>
-                      <input type="number" id="speedf3" class="form-control" placeholder="Masukkan vₜ" min="0"/>
-                  </div>
-                  <div class="container">
-                      <label for="speedi3" class="output-label" style="background-color:lightgreen">Kelajuan Awal (v₀):</label>
-                      <span id="speedi3" class="output-value"></span>
-                  </div>
-                </div>
-              </div>
-
-            <!-- 6 Calculate Average Speed -->
-            <p class="mt-3">
-                <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample6" aria-expanded="false" aria-controls="collapseWidthExample6">
-                   Hitung Kelajuan Rerata (v̄ = s / t)
-                </button>
-            </p>
-            <div class="collapse" id="collapseWidthExample6">
-                <div class="card card-body">
-                <div class="container">
-                    <label for="time6">Waktu (t) (s)</label>
-                    <input type="number" id="time6" class="form-control" placeholder="Masukkan t" min="0"/>
-                </div>
-                <div class="container">
-                    <label for="distance6">Jarak (s) (m)</label>
-                    <input type="number" id="distance6" class="form-control" placeholder="Masukkan s" min="0"/>
-                </div>
-                <div class="container">
-                    <label for="speedave6" class="output-label" style="background-color:lightgreen">Kelajuan Rerata (v̄):</label>
-                    <span id="speedave6" class="output-value"></span>
-                </div>
-                </div>
-            </div>
-
-             <!-- 9 Calculate Final Speed -->
-             <p class="mt-3">
-                <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample9" aria-expanded="false" aria-controls="collapseWidthExample9">
-                   Hitung Kelajuan Akhir (vₜ = v₀ + a×t)
-                </button>
-              </p>
-              <div class="collapse" id="collapseWidthExample9">
-                <div class="card card-body">
-                  <div class="container">
-                      <label for="time9">Waktu (t) (s)</label>
-                      <input type="number" id="time9" class="form-control" placeholder="Masukkan t" min="0"/>
-                  </div>
-                  <div class="container">
-                      <label for="speedi9">Kelajuan Awal (v₀) (m/s)</label>
-                      <input type="number" id="speedi9" class="form-control" placeholder="Masukkan v₀" min="0"/>
-                  </div>
-                  <div class="container">
-                    <label for="accel9">Perlajuan (a) (m/s²)</label>
-                    <input type="number" id="accel9" class="form-control" placeholder="Masukkan a"/>
-                  </div>
-                  <div class="container">
-                      <label for="speedf9" class="output-label" style="background-color:lightgreen">Kelajuan Akhir (vₜ):</label>
-                      <span id="speedf9" class="output-value"></span>
-                  </div>
-                </div>
-              </div>
-
-        </div> <!-- End Kolom 3 -->
-
-        <!-- Kolom 4 (Kosong atau bisa diisi kalkulator lain jika ada) -->
-         <div class="col-lg-3 col-md-6" style="padding:2%;">
-             <!-- Tempat untuk kalkulator lain -->
-         </div>
-
-    </div> <!-- End Row Kalkulator -->
-
-    <br><br><br><br>
-
-    <!--Footer-->
-    <footer>
-      <div class="footer">
-          <h3>Guru Fisika - WAHYUDI</h3>
-          <h4>Email saya melalui <a href="mailto:pakwahyudi.indonesia@gmail.com">email</a></h4>
-      </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-
-    <!-- Perbaikan: Semua skrip JS digabung dalam satu DOMContentLoaded -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-
-        // --- Helper Function for Safe Calculation ---
-        function displayResult(spanElement, value, unit, precision = 2) {
-            if (isNaN(value) || !isFinite(value)) {
-                spanElement.textContent = '-'; // Tampilkan '-' jika NaN atau Infinity
-            } else {
-                spanElement.textContent = `${value.toFixed(precision)} ${unit}`;
+        <script>
+            //--1 Script for calculating Average Speed//
+            document.addEventListener("DOMContentLoaded", function(){
+            const speedfInput = document.getElementById("speedf");
+            const speediInput = document.getElementById("speedi");
+            const speedaveSpan = document.getElementById("speedave");
+            function calculateAveSpeed(){
+                const speedf =speedfInput.value;
+                const speedi =speediInput.value;
+                const speedave = (speedf/2) + (speedi/2);
+                speedaveSpan.innerHTML = `${speedave.toFixed(2)} m/s`;
             }
-            // Menambahkan superskrip secara dinamis jika unitnya m/s²
-            if (unit === 'm/s²') {
-                 spanElement.innerHTML = `${value.toFixed(precision)} m/s<sup>2</sup>`;
-            }
-        }
-
-        // --- Script for Hidden/Shown Converter Sections ---
-        const checkDistanceConv = document.getElementById('checkDistanceConv');
-        const checkSpeedConv = document.getElementById('checkSpeedConv');
-        const checkAccelConv = document.getElementById('checkAccelConv');
-        const containerDistanceConv = document.getElementById('containerDistanceConv');
-        const containerSpeedConv = document.getElementById('containerSpeedConv');
-        const containerAccelConv = document.getElementById('containerAccelConv');
-
-        function toggleDisplay(checkbox, container) {
-          if (checkbox && container) { // Pastikan elemen ada
-            container.style.display = checkbox.checked ? 'block' : 'none';
-          }
-        }
-
-        // Initial state (optional, based on default checkbox state or style)
-        toggleDisplay(checkDistanceConv, containerDistanceConv);
-        toggleDisplay(checkSpeedConv, containerSpeedConv);
-        toggleDisplay(checkAccelConv, containerAccelConv);
-
-        // Event listeners for checkboxes
-        if(checkDistanceConv) checkDistanceConv.addEventListener('change', () => toggleDisplay(checkDistanceConv, containerDistanceConv));
-        if(checkSpeedConv) checkSpeedConv.addEventListener('change', () => toggleDisplay(checkSpeedConv, containerSpeedConv));
-        if(checkAccelConv) checkAccelConv.addEventListener('change', () => toggleDisplay(checkAccelConv, containerAccelConv));
-
-        // --- Calculators & Converters ---
-
-        //--1 Script for calculating Average Speed v = (v_f + v_i) / 2 --//
-        const speedfInput = document.getElementById("speedf");
-        const speediInput = document.getElementById("speedi");
-        const speedaveSpan = document.getElementById("speedave");
-        function calculateAveSpeed(){
-            // Perbaikan: Gunakan parseFloat
-            const speedf = parseFloat(speedfInput.value);
-            const speedi = parseFloat(speediInput.value);
-            const speedave = (speedf / 2) + (speedi / 2); // Formula tetap
-            displayResult(speedaveSpan, speedave, "m/s");
-        }
-        if(speedfInput && speediInput && speedaveSpan) {
             speedfInput.addEventListener("input", calculateAveSpeed);
             speediInput.addEventListener("input", calculateAveSpeed);
-            calculateAveSpeed(); // Initial calculation
-        }
 
-        //--2 Script for calculating Final Speed v_f = 2*v_ave - v_i --//
-        const speedave2Input = document.getElementById("speedave2");
-        const speedi2Input = document.getElementById("speedi2");
-        const speedf2Span = document.getElementById("speedf2");
-        function calculateSpeedFinal(){
-            // Perbaikan: Gunakan parseFloat
-            const speedave2 = parseFloat(speedave2Input.value);
-            const speedi2 = parseFloat(speedi2Input.value);
-            const speedf2 = (speedave2 * 2) - speedi2;
-            displayResult(speedf2Span, speedf2, "m/s");
-        }
-        if(speedave2Input && speedi2Input && speedf2Span) {
+            calculateAveSpeed();
+        });
+            //--2 Script for calculating Final Speed//
+            document.addEventListener("DOMContentLoaded", function(){
+            const speedave2Input = document.getElementById("speedave2");
+            const speedi2Input = document.getElementById("speedi2");
+            const speedf2Span = document.getElementById("speedf2");
+            function calculateSpeedFinal(){
+                const speedave2 =speedave2Input.value;
+                const speedi2 =speedi2Input.value;
+                const speedf2 = (speedave2*2) - speedi2;
+                speedf2Span.innerHTML = `${speedf2.toFixed(2)} m/s`;
+            }
             speedave2Input.addEventListener("input", calculateSpeedFinal);
             speedi2Input.addEventListener("input", calculateSpeedFinal);
-            calculateSpeedFinal();
-        }
 
-        //--3 Script for calculating initial speed v_i = 2*v_ave - v_f --//
-        const speedave3Input = document.getElementById("speedave3");
-        const speedf3Input = document.getElementById("speedf3");
-        const speedi3Span = document.getElementById("speedi3");
-        function calculateInitialSpeed(){
-            // Perbaikan: Gunakan parseFloat
-            const speedave3 = parseFloat(speedave3Input.value);
-            const speedf3 = parseFloat(speedf3Input.value);
-            const speedi3 = (speedave3 * 2) - speedf3;
-            displayResult(speedi3Span, speedi3, "m/s");
-        }
-        if(speedave3Input && speedf3Input && speedi3Span) {
+            calculateSpeedFinal();
+        });
+            //--3 Script for calculating initial speed//
+            document.addEventListener("DOMContentLoaded", function(){
+            const speedave3Input = document.getElementById("speedave3");
+            const speedf3Input = document.getElementById("speedf3");
+            const speedi3Span = document.getElementById("speedi3");
+            function calculateInitialSpeed(){
+                const speedave3 =speedave3Input.value;
+                const speedf3 =speedf3Input.value;
+                const speedi3 = (speedave3*2) - speedf3;
+                speedi3Span.innerHTML = `${speedi3.toFixed(2)} m/s`;
+            }
             speedave3Input.addEventListener("input", calculateInitialSpeed);
             speedf3Input.addEventListener("input", calculateInitialSpeed);
-            calculateInitialSpeed();
-        }
 
-        //--4 Script for calculating distance s = v_ave * t --//
-        const speedave4Input = document.getElementById("speedave4");
-        const time4Input = document.getElementById("time4");
-        const distance4Span = document.getElementById("distance4");
-        function calculateDistance4(){
-            // Perbaikan: Gunakan parseFloat
-            const speedave4 = parseFloat(speedave4Input.value);
-            const time4 = parseFloat(time4Input.value);
-            const distance4 = speedave4 * time4;
-            displayResult(distance4Span, distance4, "m");
-        }
-         if(speedave4Input && time4Input && distance4Span) {
+            calculateInitialSpeed();
+        });
+            //--4 Script for calculating distance//
+            document.addEventListener("DOMContentLoaded", function(){
+            const speedave4Input = document.getElementById("speedave4");
+            const time4Input = document.getElementById("time4");
+            const distance4Span = document.getElementById("distance4");
+            function calculateDistance4(){
+                const speedave4 =speedave4Input.value;
+                const time4 =time4Input.value;
+                const distance4 = speedave4*time4;
+                distance4Span.innerHTML = `${distance4.toFixed(2)} m`;
+            }
             speedave4Input.addEventListener("input", calculateDistance4);
             time4Input.addEventListener("input", calculateDistance4);
-            calculateDistance4();
-         }
 
-        //--5 Script for calculating time t = s / v_ave --//
-        const speedave5Input = document.getElementById("speedave5");
-        const distance5Input = document.getElementById("distance5");
-        const time5Span = document.getElementById("time5");
-        function calculateTime5(){
-            // Perbaikan: Gunakan parseFloat
-            const speedave5 = parseFloat(speedave5Input.value);
-            const distance5 = parseFloat(distance5Input.value);
-            // Perbaikan: Cek pembagian dengan nol
-            let time5 = NaN;
-            if (speedave5 !== 0) {
-                time5 = distance5 / speedave5;
+            calculateDistance4();
+        });
+            //--5 Script for calculating time//
+            document.addEventListener("DOMContentLoaded", function(){
+            const speedave5Input = document.getElementById("speedave5");
+            const distance5Input = document.getElementById("distance5");
+            const time5Span = document.getElementById("time5");
+            function calculateTime5(){
+                const speedave5 =speedave5Input.value;
+                const distance5 =distance5Input.value;
+                const time5 = distance5/speedave5;
+                time5Span.innerHTML = `${time5.toFixed(2)} s`;
             }
-            displayResult(time5Span, time5, "s");
-        }
-        if(speedave5Input && distance5Input && time5Span) {
             speedave5Input.addEventListener("input", calculateTime5);
             distance5Input.addEventListener("input", calculateTime5);
-            calculateTime5();
-        }
 
-        //--6 Script for calculating Average Speed v_ave = s / t --//
-        const time6Input = document.getElementById("time6");
-        const distance6Input = document.getElementById("distance6");
-        const speedave6Span = document.getElementById("speedave6");
-        function calculateAverageSpeed6(){
-            // Perbaikan: Gunakan parseFloat
-            const time6 = parseFloat(time6Input.value);
-            const distance6 = parseFloat(distance6Input.value);
-             // Perbaikan: Cek pembagian dengan nol
-            let speedave6 = NaN;
-            if (time6 !== 0) {
-                speedave6 = distance6 / time6;
+            calculateTime5();
+        });
+            //--6 Script for calculating Average Speed//
+            document.addEventListener("DOMContentLoaded", function(){
+            const time6Input = document.getElementById("time6");
+            const distance6Input = document.getElementById("distance6");
+            const speedave6Span = document.getElementById("speedave6");
+            function calculateAverageSpeed6(){
+                const time6 =time6Input.value;
+                const distance6 =distance6Input.value;
+                const speedave6 = distance6/time6;
+                speedave6Span.innerHTML = `${speedave6.toFixed(2)} m/s`;
             }
-            displayResult(speedave6Span, speedave6, "m/s");
-        }
-        if(time6Input && distance6Input && speedave6Span) {
             time6Input.addEventListener("input", calculateAverageSpeed6);
             distance6Input.addEventListener("input", calculateAverageSpeed6);
-            calculateAverageSpeed6();
-        }
 
-        //--7 Script for calculating Acceleration a = (v_f - v_i) / t --//
-        const speedf7Input = document.getElementById("speedf7");
-        const speedi7Input = document.getElementById("speedi7");
-        const time7Input = document.getElementById("time7");
-        const accel7Span = document.getElementById("accel7");
-        function calculateAcceleration7(){
-             // Perbaikan: Gunakan parseFloat
-            const time7 = parseFloat(time7Input.value);
-            const speedf7 = parseFloat(speedf7Input.value);
-            const speedi7 = parseFloat(speedi7Input.value);
-            // Perbaikan: Cek pembagian dengan nol
-            let accel7 = NaN;
-            if (time7 !== 0) {
-                accel7 = (speedf7 - speedi7) / time7;
+            calculateAverageSpeed6();
+        });
+            //--7 Script for calculating Acceleration//
+            document.addEventListener("DOMContentLoaded", function(){
+            const speedf7Input = document.getElementById("speedf7");
+            const speedi7Input = document.getElementById("speedi7");
+            const time7Input = document.getElementById("time7");
+            const accel7Span = document.getElementById("accel7");
+            function calculateAcceleration7(){
+                const time7 =time7Input.value;
+                const speedf7 =speedf7Input.value;
+                const speedi7 =speedi7Input.value;
+                const accel7 = (speedf7 - speedi7)/time7;
+                accel7Span.innerHTML = `${accel7.toFixed(2)} m/s\u00B2`;
             }
-             displayResult(accel7Span, accel7, "m/s²");
-        }
-        if(speedf7Input && speedi7Input && time7Input && accel7Span) {
             time7Input.addEventListener("input", calculateAcceleration7);
             speedf7Input.addEventListener("input", calculateAcceleration7);
             speedi7Input.addEventListener("input", calculateAcceleration7);
-            calculateAcceleration7();
-        }
 
-        //--8 Script for calculating Time t = (v_f - v_i) / a --//
-        const speedf8Input = document.getElementById("speedf8");
-        const speedi8Input = document.getElementById("speedi8");
-        const accel8Input = document.getElementById("accel8");
-        const time8Span = document.getElementById("time8");
-        function calculateTime8(){
-             // Perbaikan: Gunakan parseFloat
-            const accel8 = parseFloat(accel8Input.value);
-            const speedf8 = parseFloat(speedf8Input.value);
-            const speedi8 = parseFloat(speedi8Input.value);
-            // Perbaikan: Cek pembagian dengan nol
-            let time8 = NaN;
-            if (accel8 !== 0) {
-                time8 = (speedf8 - speedi8) / accel8;
+            calculateAcceleration7();
+        });
+            //--8 Script for calculating Acceleration//
+            document.addEventListener("DOMContentLoaded", function(){
+            const speedf8Input = document.getElementById("speedf8");
+            const speedi8Input = document.getElementById("speedi8");
+            const accel8Input = document.getElementById("accel8");
+            const time8Span = document.getElementById("time8");
+            function calculateTime8(){
+                const accel8 =accel8Input.value;
+                const speedf8 =speedf8Input.value;
+                const speedi8 =speedi8Input.value;
+                const time8 = (speedf8 - speedi8)/accel8;
+                time8Span.innerHTML = `${time8.toFixed(2)} s`;
             }
-            displayResult(time8Span, time8, "s");
-        }
-        if(speedf8Input && speedi8Input && accel8Input && time8Span) {
             accel8Input.addEventListener("input", calculateTime8);
             speedf8Input.addEventListener("input", calculateTime8);
             speedi8Input.addEventListener("input", calculateTime8);
-            calculateTime8();
-        }
 
-        //--9 Script for calculating Final Speed v_f = v_i + a*t --//
-        const accel9Input = document.getElementById("accel9");
-        const speedi9Input = document.getElementById("speedi9");
-        const time9Input = document.getElementById("time9");
-        const speedf9Span = document.getElementById("speedf9");
-        function calculateFinalSpeed9(){
-             // Perbaikan: Gunakan parseFloat dan hapus Math.floor
-            const time9 = parseFloat(time9Input.value);
-            const accel9 = parseFloat(accel9Input.value);
-            const speedi9 = parseFloat(speedi9Input.value);
-            const speedf9 = speedi9 + (accel9 * time9); // Perbaikan: Hapus Math.floor
-            displayResult(speedf9Span, speedf9, "m/s");
-        }
-        if(accel9Input && speedi9Input && time9Input && speedf9Span) {
+            calculateTime8();
+        });
+            //--9 Script for calculating Acceleration//
+            document.addEventListener("DOMContentLoaded", function(){
+            const accel9Input = document.getElementById("accel9");
+            const speedi9Input = document.getElementById("speedi9");
+            const time9Input = document.getElementById("time9");
+            const speedf9Span = document.getElementById("speedf9");
+            function calculateFinalSpeed9(){
+                const time9 =time9Input.value;
+                const accel9 =accel9Input.value;
+                const speedi9 =speedi9Input.value;
+                const speedf9 = (accel9 * time9) + Math.floor(speedi9);
+                speedf9Span.innerHTML = `${speedf9.toFixed(2)} m/s`;
+            }
             time9Input.addEventListener("input", calculateFinalSpeed9);
             accel9Input.addEventListener("input", calculateFinalSpeed9);
             speedi9Input.addEventListener("input", calculateFinalSpeed9);
-            calculateFinalSpeed9();
-        }
 
-        //--10 Script for calculating Initial Speed v_i = v_f - a*t --//
-        const accel10Input = document.getElementById("accel10");
-        const speedf10Input = document.getElementById("speedf10");
-        const time10Input = document.getElementById("time10");
-        const speedi10Span = document.getElementById("speedi10");
-        function calculateInitialSpeed10(){
-             // Perbaikan: Gunakan parseFloat dan hapus Math.floor
-            const time10 = parseFloat(time10Input.value);
-            const accel10 = parseFloat(accel10Input.value);
-            const speedf10 = parseFloat(speedf10Input.value);
-            // Perbaikan: Formula v_i = v_f - (a*t) dan hapus Math.floor
-            const speedi10 = speedf10 - (accel10 * time10);
-            displayResult(speedi10Span, speedi10, "m/s");
-        }
-         if(accel10Input && speedf10Input && time10Input && speedi10Span) {
+            calculateFinalSpeed9();
+        });
+            //--10 Script for calculating Acceleration//
+            document.addEventListener("DOMContentLoaded", function(){
+            const accel10Input = document.getElementById("accel10");
+            const speedf10Input = document.getElementById("speedf10");
+            const time10Input = document.getElementById("time10");
+            const speedi10Span = document.getElementById("speedi10");
+            function calculateInitialSpeed10(){
+                const time10 =time10Input.value;
+                const accel10 =accel10Input.value;
+                const speedf10 =speedf10Input.value;
+                const speedi10 = (accel10 * time10) - Math.floor(speedf10);
+                speedi10Span.innerHTML = `${speedi10.toFixed(2)} m/s`;
+            }
             time10Input.addEventListener("input", calculateInitialSpeed10);
             accel10Input.addEventListener("input", calculateInitialSpeed10);
             speedf10Input.addEventListener("input", calculateInitialSpeed10);
+
             calculateInitialSpeed10();
-         }
-
-        //--11 Script for units conversion of speed --//
-        const speed11Input = document.getElementById("speed11");
-        const speedsiSpan = document.getElementById("speedsi");
-        const selectSpeedElement = document.getElementById("myselect"); // ID diganti agar lebih deskriptif
-        function calculateSpeedConvert(){
-            const speed11 = parseFloat(speed11Input.value);
-            let speedsi = NaN; // Default ke NaN
-            const selectedOption = selectSpeedElement.value;
-
-            if (!isNaN(speed11)) { // Hanya hitung jika input valid
-                if (selectedOption == "option 1") { speedsi = speed11 * 1; }
-                else if (selectedOption == "option 2") { speedsi = speed11 * (1000 / 3600); } // km/h -> m/s
-                else if (selectedOption == "option 3") { speedsi = speed11 * 1000; } // km/s -> m/s
-                else if (selectedOption == "option 4") { speedsi = speed11 / 60; } // m/min -> m/s
-                else if (selectedOption == "option 5") { speedsi = speed11 * (1000 / 60); } // km/min -> m/s
-                else if (selectedOption == "option 6") { speedsi = speed11 * 0.514444; } // Knot -> m/s
-                else if (selectedOption == "option 7") { speedsi = speed11 * 1609.34; } // mile/s -> m/s
-                else if (selectedOption == "option 8") { speedsi = speed11 * (1609.34 / 3600); } // mph -> m/s (Asumsi m/jam adalah mph)
-                else if (selectedOption == "option 9") { speedsi = speed11 * 0.3048; } // ft/s -> m/s
+        });
+        //--11 Script for units convertion of speed//
+        document.addEventListener("DOMContentLoaded", function(){
+            const speed11Input = document.getElementById("speed11");
+            const speedsiSpan = document.getElementById("speedsi");
+            const selectElement = document.getElementById("myselect");
+            function calculateSpeedConvert(){
+                const speed11 =parseFloat(speed11Input.value);
+                let speedsi;
+                if (selectElement.value == "option 1"){
+                  speedsi = speed11 * 1;
+                }
+                else if (selectElement.value == "option 2"){
+                  speedsi = speed11 * 0.27778;
+                }
+                else if (selectElement.value == "option 3"){
+                  speedsi = speed11 * 1000;
+                }
+                else if (selectElement.value == "option 4"){
+                  speedsi = speed11 / 60;
+                }
+                else if (selectElement.value == "option 5"){
+                  speedsi = speed11 * 16.66667;
+                }
+                else if (selectElement.value == "option 6"){
+                  speedsi = speed11 * 0.514444;
+                }
+                else if (selectElement.value == "option 7"){
+                  speedsi = speed11 * 1609.34;
+                }
+                else if (selectElement.value == "option 8"){
+                  speedsi = speed11 * 0.44704;
+                }
+                else if (selectElement.value == "option 9"){
+                  speedsi = speed11 * 0.3048;
+                }
+                speedsiSpan.innerHTML = `${speedsi.toFixed(2)} m/s`;
             }
-            displayResult(speedsiSpan, speedsi, "m/s");
-        }
-        if(speed11Input && speedsiSpan && selectSpeedElement) {
+
             speed11Input.addEventListener("input", calculateSpeedConvert);
-            selectSpeedElement.addEventListener("change", calculateSpeedConvert);
+            selectElement.addEventListener("change", calculateSpeedConvert);
             calculateSpeedConvert();
-        }
-
-        //--12 Script for units conversion of distance --//
-        const distance12Input = document.getElementById("distance12");
-        const distancesiSpan = document.getElementById("distancesi");
-        const selectDistanceElement = document.getElementById("myselectd"); // ID diganti
-        function calculateDistanceConvert(){
-            const distance12 = parseFloat(distance12Input.value);
-            let distancesi = NaN;
-            const selectedOption = selectDistanceElement.value;
-
-            if (!isNaN(distance12)) {
-                if (selectedOption == "option 1") { distancesi = distance12 * 1000; } // km -> m
-                else if (selectedOption == "option 2") { distancesi = distance12 * 0.3048; } // ft -> m
-                else if (selectedOption == "option 3") { distancesi = distance12 * 1609.34; } // mile -> m
-                else if (selectedOption == "option 4") { distancesi = distance12 * 0.0254; } // inch -> m
-                else if (selectedOption == "option 5") { distancesi = distance12 * 0.9144; } // yard -> m
-                else if (selectedOption == "option 6") { distancesi = distance12 * 0.01; } // cm -> m
-                else if (selectedOption == "option 7") { distancesi = distance12 * 0.001; } // mm -> m
+        });
+                //--12 Script for units convertion of distance//
+                document.addEventListener("DOMContentLoaded", function(){
+            const distance12Input = document.getElementById("distance12");
+            const distancesiSpan = document.getElementById("distancesi");
+            const selectElement = document.getElementById("myselectd");
+            function calculateDistanceConvert(){
+                const distance12 =parseFloat(distance12Input.value);
+                let distancesi;
+                if (selectElement.value == "option 1"){
+                  distancesi = distance12 * 1000;
+                }
+                else if (selectElement.value == "option 2"){
+                  distancesi = distance12 * 0.3048;
+                }
+                else if (selectElement.value == "option 3"){
+                  distancesi = distance12 * 1609.34;
+                }
+                else if (selectElement.value == "option 4"){
+                  distancesi = distance12 * 0.0254;
+                }
+                else if (selectElement.value == "option 5"){
+                  distancesi = distance12 * 0.9144;
+                }
+                else if (selectElement.value == "option 6"){
+                  distancesi = distance12 * 0.01;
+                }
+                else if (selectElement.value == "option 7"){
+                  distancesi = distance12 * 0.001;
+                }
+                distancesiSpan.innerHTML = `${distancesi.toFixed(2)} m`;
             }
-             displayResult(distancesiSpan, distancesi, "m");
-        }
-        if(distance12Input && distancesiSpan && selectDistanceElement) {
+
             distance12Input.addEventListener("input", calculateDistanceConvert);
-            selectDistanceElement.addEventListener("change", calculateDistanceConvert);
+            selectElement.addEventListener("change", calculateDistanceConvert);
             calculateDistanceConvert();
-        }
-
-        //--13 Script for units conversion of acceleration --//
-        const accel13Input = document.getElementById("accel13");
-        const accelsiSpan = document.getElementById("accelsi");
-        const selectAccelElement = document.getElementById("myselecta"); // ID diganti
-        function calculateAccelerationConvert(){
-            const accel13 = parseFloat(accel13Input.value);
-            let accelsi = NaN; // Perbaikan: Harus `accelsi` bukan `distancesi`
-            const selectedOption = selectAccelElement.value;
-
-             if (!isNaN(accel13)) {
-                // Perbaikan: Gunakan `accelsi` di semua cabang
-                if (selectedOption == "option 1") { accelsi = accel13 * 0.01; }          // cm/s² -> m/s²
-                else if (selectedOption == "option 2") { accelsi = accel13 * 0.3048; }     // ft/s² -> m/s²
-                else if (selectedOption == "option 3") { accelsi = accel13 * 1000; }     // km/s² -> m/s²
-                else if (selectedOption == "option 4") { accelsi = accel13 / (60*60); } // m/min² -> m/s²
-                else if (selectedOption == "option 5") { accelsi = accel13 * (1000 / (3600*3600)); } // km/h² -> m/s² (Revisi dari km/min^2)
-                else if (selectedOption == "option 6") { accelsi = accel13 * 0.514444; } // Knot/s -> m/s²
-                else if (selectedOption == "option 7") { accelsi = accel13 * 1609.34; }  // mile/s² -> m/s²
-                else if (selectedOption == "option 8") { accelsi = accel13 * 0.0254; }   // inch/s² -> m/s²
-                else if (selectedOption == "option 9") { accelsi = accel13 * 9.80665; } // g -> m/s² (Standard gravity)
-                else if (selectedOption == "option 10") { accelsi = accel13 * 0.01; }    // Gal (cm/s²) -> m/s²
-             }
-            displayResult(accelsiSpan, accelsi, "m/s²");
-        }
-        if(accel13Input && accelsiSpan && selectAccelElement) {
-            accel13Input.addEventListener("input", calculateAccelerationConvert);
-            selectAccelElement.addEventListener("change", calculateAccelerationConvert);
-            calculateAccelerationConvert();
-        }
-
-        //--14/21 Script for calculating Acceleration a = (vf^2 - vi^2) / (2*s) --//
-        const speedf21Input = document.getElementById("speedf21");
-        const speedi21Input = document.getElementById("speedi21");
-        const distance21Input = document.getElementById("distance21");
-        const accel21Span = document.getElementById("accel21");
-        function calculateAcceleration21(){
-            const distance21 = parseFloat(distance21Input.value);
-            const speedf21 = parseFloat(speedf21Input.value);
-            const speedi21 = parseFloat(speedi21Input.value);
-            let accel21 = NaN;
-             // Perbaikan: Cek pembagi (2*distance21)
-            if (distance21 !== 0) {
-                 accel21 = ((speedf21 * speedf21) - (speedi21 * speedi21)) / (2 * distance21);
+        });
+                        //--13 Script for units convertion of acceleration//
+                        document.addEventListener("DOMContentLoaded", function(){
+            const accel13Input = document.getElementById("accel13");
+            const accelsiSpan = document.getElementById("accelsi");
+            const selectElement = document.getElementById("myselecta");
+            function calculateAccelerationConvert(){
+                const accel13 =parseFloat(accel13Input.value);
+                let distancesi;
+                if (selectElement.value == "option 1"){
+                  accelsi = accel13 * 0.01;
+                }
+                else if (selectElement.value == "option 2"){
+                  accelsi = accel13 * 0.3048;
+                }
+                else if (selectElement.value == "option 3"){
+                  accelsi = accel13 * 1000;
+                }
+                else if (selectElement.value == "option 4"){
+                  accelsi = accel13 * 0.000278;
+                }
+                else if (selectElement.value == "option 5"){
+                  accelsi = accel13 * 0.277;
+                }
+                else if (selectElement.value == "option 6"){
+                  accelsi = accel13 * 0.514444;
+                }
+                else if (selectElement.value == "option 7"){
+                  accelsi = accel13 * 1609.344;
+                }
+                else if (selectElement.value == "option 8"){
+                  accelsi = accel13 * 0.0254;
+                }
+                else if (selectElement.value == "option 9"){
+                  accelsi = accel13 * 9.81;
+                }
+                else if (selectElement.value == "option 10"){
+                  accelsi = accel13 * 0.01;
+                }
+                accelsiSpan.innerHTML = `${accelsi.toFixed(2)} m/s\u00B2`;
             }
-            displayResult(accel21Span, accel21, "m/s²");
-        }
-        if(speedf21Input && speedi21Input && distance21Input && accel21Span) {
+
+            accel13Input.addEventListener("input", calculateAccelerationConvert);
+            selectElement.addEventListener("change", calculateAccelerationConvert);
+            calculateAccelerationConvert();
+        });
+                    //--14 Script for calculating Acceleration//
+                    document.addEventListener("DOMContentLoaded", function(){
+            const speedf21Input = document.getElementById("speedf21");
+            const speedi21Input = document.getElementById("speedi21");
+            const distance21Input = document.getElementById("distance21");
+            const accel21Span = document.getElementById("accel21");
+            function calculateAcceleration21(){
+                const distance21 =parseFloat(distance21Input.value);
+                const speedf21 =parseFloat(speedf21Input.value);
+                const speedi21 =parseFloat(speedi21Input.value);
+                const accel21 = ((speedf21*speedf21) - (speedi21*speedi21))/(2*distance21);
+                accel21Span.innerHTML = `${accel21.toFixed(2)} m/s\u00B2`;
+            }
             distance21Input.addEventListener("input", calculateAcceleration21);
             speedf21Input.addEventListener("input", calculateAcceleration21);
             speedi21Input.addEventListener("input", calculateAcceleration21);
-            calculateAcceleration21();
-        }
 
-        //--15/22 Script for calculating Distance s = (vf^2 - vi^2) / (2*a) --//
-        const speedf22Input = document.getElementById("speedf22");
-        const speedi22Input = document.getElementById("speedi22");
-        const accel22Input = document.getElementById("accel22");
-        const distance22Span = document.getElementById("distance22");
-        function calculateDistance22(){
-            const accel22 = parseFloat(accel22Input.value);
-            const speedf22 = parseFloat(speedf22Input.value);
-            const speedi22 = parseFloat(speedi22Input.value);
-            let distance22 = NaN;
-            // Perbaikan: Cek pembagi (2*accel22)
-            if (accel22 !== 0) {
-                distance22 = ((speedf22 * speedf22) - (speedi22 * speedi22)) / (2 * accel22);
+            calculateAcceleration21();
+        });
+            //--15 Script for calculating Distance//
+            document.addEventListener("DOMContentLoaded", function(){
+            const speedf22Input = document.getElementById("speedf22");
+            const speedi22Input = document.getElementById("speedi22");
+            const accel22Input = document.getElementById("accel22");
+            const distance22Span = document.getElementById("distance22");
+            function calculateDistance22(){
+                const accel22 =parseFloat(accel22Input.value);
+                const speedf22 =parseFloat(speedf22Input.value);
+                const speedi22 =parseFloat(speedi22Input.value);
+                const distance22 = ((speedf22*speedf22) - (speedi22*speedi22))/(2*accel22);
+                distance22Span.innerHTML = `${distance22.toFixed(2)} m`;
             }
-            displayResult(distance22Span, distance22, "m");
-        }
-         if(speedf22Input && speedi22Input && accel22Input && distance22Span) {
             accel22Input.addEventListener("input", calculateDistance22);
             speedf22Input.addEventListener("input", calculateDistance22);
             speedi22Input.addEventListener("input", calculateDistance22);
-            calculateDistance22();
-         }
 
-        //--16/20 Script for calculating Final Speed vf^2 = vi^2 + 2*a*s --//
-        const accel20Input = document.getElementById("accel20");
-        const speedi20Input = document.getElementById("speedi20");
-        const distance20Input = document.getElementById("distance20");
-        const speedf20Span = document.getElementById("speedf20");
-        function calculateFinalSpeed20(){
-            const distance20 = parseFloat(distance20Input.value);
-            const accel20 = parseFloat(accel20Input.value);
-            const speedi20 = parseFloat(speedi20Input.value);
-            let speedf20 = NaN;
-            const termInsideSqrt = (speedi20 * speedi20) + (2 * accel20 * distance20);
-             // Perbaikan: Cek akar negatif
-            if (termInsideSqrt >= 0) {
-                 speedf20 = Math.sqrt(termInsideSqrt);
+            calculateDistance22();
+        });
+            //--16 Script for calculating Final Speed//
+            document.addEventListener("DOMContentLoaded", function(){
+            const accel20Input = document.getElementById("accel20");
+            const speedi20Input = document.getElementById("speedi20");
+            const distance20Input = document.getElementById("distance20");
+            const speedf20Span = document.getElementById("speedf20");
+            function calculateFinalSpeed20(){
+                const distance20 =parseFloat(distance20Input.value);
+                const accel20 =parseFloat(accel20Input.value);
+                const speedi20 =parseFloat(speedi20Input.value);
+                const speedf20 = Math.sqrt(((speedi20*speedi20))+(2*accel20*distance20));
+                speedf20Span.innerHTML = `${speedf20.toFixed(2)} m/s`;
             }
-             displayResult(speedf20Span, speedf20, "m/s");
-        }
-        if(accel20Input && speedi20Input && distance20Input && speedf20Span) {
             distance20Input.addEventListener("input", calculateFinalSpeed20);
             accel20Input.addEventListener("input", calculateFinalSpeed20);
             speedi20Input.addEventListener("input", calculateFinalSpeed20);
-            calculateFinalSpeed20();
-        }
 
-        //--17/23 Script for calculating Initial Speed vi^2 = vf^2 - 2*a*s --//
-        const accel23Input = document.getElementById("accel23");
-        const speedf23Input = document.getElementById("speedf23");
-        const distance23Input = document.getElementById("distance23");
-        const speedi23Span = document.getElementById("speedi23");
-        function calculateInitialSpeed23(){
-            const distance23 = parseFloat(distance23Input.value);
-            const accel23 = parseFloat(accel23Input.value);
-            const speedf23 = parseFloat(speedf23Input.value);
-            let speedi23 = NaN;
-            const termInsideSqrt = (speedf23 * speedf23) - (2 * accel23 * distance23);
-             // Perbaikan: Cek akar negatif
-            if (termInsideSqrt >= 0) {
-                 speedi23 = Math.sqrt(termInsideSqrt);
+            calculateFinalSpeed20();
+        });
+            //--17 Script for calculating Initial Speed//
+            document.addEventListener("DOMContentLoaded", function(){
+            const accel23Input = document.getElementById("accel23");
+            const speedf23Input = document.getElementById("speedf23");
+            const distance23Input = document.getElementById("distance23");
+            const speedi23Span = document.getElementById("speedi23");
+            function calculateInitialSpeed23(){
+                const distance23 =parseFloat(distance23Input.value);
+                const accel23 =parseFloat(accel23Input.value);
+                const speedf23 =parseFloat(speedf23Input.value);
+                const speedi23 = Math.sqrt(((speedf23*speedf23))-(2*accel23*distance23));
+                speedi23Span.innerHTML = `${speedi23.toFixed(2)} m/s`;
             }
-             displayResult(speedi23Span, speedi23, "m/s");
-        }
-        if(accel23Input && speedf23Input && distance23Input && speedi23Span) {
             distance23Input.addEventListener("input", calculateInitialSpeed23);
             accel23Input.addEventListener("input", calculateInitialSpeed23);
             speedf23Input.addEventListener("input", calculateInitialSpeed23);
+
             calculateInitialSpeed23();
-        }
+        });
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Calculation of Non-Uniformly Linear Motion</h1>
+        </div>
+    </body>
 
-        // Tambahkan kalkulator lain di sini jika perlu
+    <!---Navigation Bar-->
+    <div class="navigation">
+        <a href="index.html" class="button">Home</a>
+        <a href="calculation.html" class="button">Calculation</a>
+        <a href="study.html" class="button">Understanding</a>
+        <a href="about.html" class="button">About Me</a>
+    </div>
+    <!--main content-->
+    <div class="container" >
+        <h2>Calculating The Quantity</h2>
+        <p>Click the blue button as you need then insert the value</p>
+    </div>
+    <div class="convert" select="option" style="margin-left:5%; margin-right:5%;">
+      <h2>"Unit Conversion"</h2>
+      <div class="row">
+              <!--Distance Conversion-->
+        <div class="col" style="padding-top:2%;">
+          <div class="container">
+            <label for="">Distance</label>
+            <input type="number" id="distance12" placeholder="Distance Value" min="0"/>
+            <select id="myselectd">
+              <option value="option 1">km</option>
+              <option value="option 2">ft</option>
+              <option value="option 3">mi</option>
+              <option value="option 4">inch</option>
+              <option value="option 5">yard</option>
+              <option value="option 6">cm</option>
+              <option value="option 7">mm</option>
+            </select>
+            <label for="" style="padding:5px; background-color:lightgreen">Distance in SI units</label>
+            <span id="distancesi" style="padding:5px; font-weight: bold;" ></span>
+        </div>
+      </div>
+            <!--Speed Conversion-->
+      <div class="col" style="padding-top:2%;">
+        <div class="container">
+          <label for="">Speed</label>
+          <input type="number" id="speed11" placeholder="Speed Value" min="0"/>
+          <select id="myselect">
+            <option value="option 1">m/s</option>
+            <option value="option 2">km/h</option>
+            <option value="option 3">km/s</option>
+            <option value="option 4">m/minutes</option>
+            <option value="option 5">km/minutes</option>
+            <option value="option 6">Knot</option>
+            <option value="option 7">mi/s</option>
+            <option value="option 8">mph</option>
+            <option value="option 9">ft/s</option>
+          </select>
+          <label for="" style="padding:5px; background-color:yellow">Speed in SI units</label>
+          <span id="speedsi" style="padding:5px; font-weight: bold;" ></span>
+      </div>
+    </div>
+  </div>
+        <!--Acceleration Conversion-->
+  <div class="row" style="padding-top:2%;">
+  <div class="col">
+    <div class="container">
+      <label for="">Acceleration</label>
+      <input type="number" id="accel13" placeholder="Acceleration Value" min="0"/>
+      <select id="myselecta">
+        <option value="option 1">cm/s<sup>2</sup></option>
+        <option value="option 2">ft/s<sup>2</sup></option>
+        <option value="option 3">km/s<sup>2</sup></option>
+        <option value="option 4">m/minutes<sup>2</sup></option>
+        <option value="option 5">km/minutes<sup>2</sup></option>
+        <option value="option 6">Knot/s</option>
+        <option value="option 7">mi/s<sup>2</sup></option>
+        <option value="option 8">inch/s<sup>2</sup></option>
+        <option value="option 9">gn</option>
+        <option value="option 10">gal</option>
+      </select>
+      <label for="" style="padding:5px; background-color:lightblue">Acceleration in SI units</label>
+      <span id="accelsi" style="padding:5px; font-weight: bold;" ></span>
+  </div>
+</div>
+</div>
+</div>
+    <div class="row" style="margin-left:5%; margin-right:5%;">
+        <div class="col" style="padding:2%;">
+            <p>
+                <!--1 Calculate Average Speed-->
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample1" aria-expanded="false" aria-controls="collapseWidthExample1">
+                  Calculate Average Speed
+                </button>
+              </p>
+              <div style="min-height: auto;">
+                <div class="collapse collapse-horizontal" id="collapseWidthExample1">
+                  <div class="card card-body" style="width: 300px;">
+                    <!--Input Quantity 1-->
+                    <div class="container">
+                        <label for="">Final Speed (m/s)</label>
+                        <input type="number" id="speedf" placeholder="enter value of final speed in m/s" min="0"/>
+                    </div>
+                    <!--Input Quantity 2-->
+                    <div class="container">
+                        <label for="">Initial Speed (m/s)</label>
+                        <input type="number" id="speedi" placeholder="enter value of initial speed in m/s" min="0"  />
+                    </div>
+                    <!--Output Quantity-->
+                    <div class="container">
+                        <label for="" style="background-color:lightgreen">Average Speed</label>
+                        <span id="speedave" style="padding:5px; font-weight: bold;"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="col" style="padding:2%;">
+          <p>
+                <!--2 Calculate Final Speed-->
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample2" aria-expanded="false" aria-controls="collapseWidthExample2">
+                  Calculate Final Speed
+                </button>
+              </p>
+              <div style="min-height: auto;">
+                <div class="collapse collapse-horizontal" id="collapseWidthExample2">
+                  <div class="card card-body" style="width: 300px;">
+                    <!--Input Quantity 1-->
+                    <div class="container">
+                        <label for="">Average Speed (m/s)</label>
+                        <input type="number" id="speedave2" placeholder="enter value of average speed in m/s" min="0"/>
+                    </div>
+                    <!--Input Quantity 2-->
+                    <div class="container">
+                        <label for="">Initial Speed (m/s)</label>
+                        <input type="number" id="speedi2" placeholder="enter value of initial speed in m/s" min="0"  />
+                    </div>
+                    <!--Output Quantity-->
+                    <div class="container">
+                        <label for="" style="background-color:lightgreen">Final Speed</label>
+                        <span id="speedf2" style="padding:5px; font-weight: bold;"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="col" style="padding:2%;">
+            <p>
+                <!--3 Calculate Initial Speed-->
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample3" aria-expanded="false" aria-controls="collapseWidthExample3">
+                  Calculate Initial Speed
+                </button>
+              </p>
+              <div style="min-height: auto;">
+                <div class="collapse collapse-horizontal" id="collapseWidthExample3">
+                  <div class="card card-body" style="width: 300px;">
+                    <!--Input Quantity 1-->
+                    <div class="container">
+                        <label for="">Average Speed (m/s)</label>
+                        <input type="number" id="speedave3" placeholder="enter value of average speed in m/s" min="0"/>
+                    </div>
+                    <!--Input Quantity 2-->
+                    <div class="container">
+                        <label for="">Final Speed (m/s)</label>
+                        <input type="number" id="speedf3" placeholder="enter value of final speed in m/s" min="0"  />
+                    </div>
+                    <!--Input Quantity 3-->
+                    <div class="container">
+                        <label for="" style="background-color:lightgreen">Initial Speed</label>
+                        <span id="speedi3" style="padding:5px; font-weight: bold;" ></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+      </div>
+  <div class="row" style="margin-left:5%; margin-right:5%;">
+    <div class="col" style="padding:2%;">
+      <p>
+          <!--4 Calculate Distance-->
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample4" aria-expanded="false" aria-controls="collapseWidthExample4">
+            Calculate Distance
+          </button>
+        </p>
+        <div style="min-height: auto;">
+          <div class="collapse collapse-horizontal" id="collapseWidthExample4">
+            <div class="card card-body" style="width: 300px;">
+              <!--Input Quantity 1-->
+              <div class="container">
+                  <label for="">Average Speed (m/s)</label>
+                  <input type="number" id="speedave4" placeholder="enter value of average speed in m/s" min="0"/>
+              </div>
+              <!--Input Quantity 2-->
+              <div class="container">
+                  <label for="">Time (s)</label>
+                  <input type="number" id="time4" placeholder="enter value of time in s" min="0"  />
+              </div>
+              <!--Output Quantity-->
+              <div class="container">
+                  <label for="" style="background-color:lightgreen">Distance</label>
+                  <span id="distance4" style="padding:5px; font-weight: bold;" ></span>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+  <div class="col" style="padding:2%;">
+    <p>
+        <!--5 Calculate Time-->
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample5" aria-expanded="false" aria-controls="collapseWidthExample5">
+          Calculate Time
+        </button>
+      </p>
+      <div style="min-height: auto;">
+        <div class="collapse collapse-horizontal" id="collapseWidthExample5">
+          <div class="card card-body" style="width: 300px;">
+            <!--Input Quantity 1-->
+            <div class="container">
+                <label for="">Average Speed (m/s)</label>
+                <input type="number" id="speedave5" placeholder="enter value of average speed in m/s" min="0"/>
+            </div>
+            <!--Input Quantity 2-->
+            <div class="container">
+                <label for="">Distance (m)</label>
+                <input type="number" id="distance5" placeholder="enter value of distance in m" min="0"  />
+            </div>
+            <!--Output Quantity-->
+            <div class="container">
+                <label for="" style="background-color:lightgreen">Time</label>
+                <span id="time5" style="padding:5px; font-weight: bold;" ></span>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="col" style="padding:2%;">
+    <p>
+        <!--6 Calculate Average Speed-->
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample6" aria-expanded="false" aria-controls="collapseWidthExample6">
+          Calculate Average Speed
+        </button>
+      </p>
+      <div style="min-height: auto;">
+        <div class="collapse collapse-horizontal" id="collapseWidthExample6">
+          <div class="card card-body" style="width: 300px;">
+            <!--Input Quantity 1-->
+            <div class="container">
+                <label for="">Time (s)</label>
+                <input type="number" id="time6" placeholder="enter value of timed in s" min="0"/>
+            </div>
+            <!--Input Quantity 2-->
+            <div class="container">
+                <label for="">Distance (m)</label>
+                <input type="number" id="distance6" placeholder="enter value of distance in m" min="0"  />
+            </div>
+            <!--Output Quantity-->
+            <div class="container">
+                <label for="" style="background-color:lightgreen">Average Speed</label>
+                <span id="speedave6" style="padding:5px; font-weight: bold;" ></span>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  </div>
+  <div class="row" style="margin-left:5%; margin-right:5%;">
+      <div class="col" style="padding:2%;">
+        <p>
+            <!--7 Calculate Acceleration-->
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample7" aria-expanded="false" aria-controls="collapseWidthExample7">
+              Calculate Acceleration
+            </button>
+          </p>
+          <div style="min-height: auto;">
+            <div class="collapse collapse-horizontal" id="collapseWidthExample7">
+              <div class="card card-body" style="width: 300px;">
+                <!--Input Quantity 1-->
+                <div class="container">
+                    <label for="">Final Speed (m/s)</label>
+                    <input type="number" id="speedf7" placeholder="enter value of final speed in m/s" min="0"/>
+                </div>
+                <!--Input Quantity 2-->
+                <div class="container">
+                    <label for="">Initial Speed (m/s)</label>
+                    <input type="number" id="speedi7" placeholder="enter value of initial speed in m/s" min="0"  />
+                </div>
+                <!--Input Quantity 3-->
+                <div class="container">
+                  <label for="">Time (s)</label>
+                  <input type="number" id="time7" placeholder="enter value of time in s" min="0"  />
+                </div>
+                <!--Output Quantity-->
+                <div class="container">
+                    <label for="" style="background-color:lightgreen">Acceleration</label>
+                    <span id="accel7" style="padding:5px; font-weight: bold;" ></span>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    <div class="col" style="padding:2%;">
+      <p>
+          <!--8 Calculate Time-->
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample8" aria-expanded="false" aria-controls="collapseWidthExample8">
+            Calculate Time
+          </button>
+        </p>
+        <div style="min-height: auto;">
+          <div class="collapse collapse-horizontal" id="collapseWidthExample8">
+            <div class="card card-body" style="width: 300px;">
+              <!--Input Quantity 1-->
+              <div class="container">
+                  <label for="">Final Speed (m/s)</label>
+                  <input type="number" id="speedf8" placeholder="enter value of final speed in m/s" min="0"/>
+              </div>
+              <!--Input Quantity 2-->
+              <div class="container">
+                  <label for="">Initial Speed (m)</label>
+                  <input type="number" id="speedi8" placeholder="enter value of initial speed in m/s" min="0"  />
+              </div>
+              <!--Input Quantity 3-->
+              <div class="container">
+                <label for="">Acceleration (m/s&sup2)</label>
+                <input type="number" id="accel8" placeholder="enter value of acceleration in m/s&sup2" min="0"  />
 
-      }); // Akhir dari DOMContentLoaded
-    </script>
+              <!--Output Quantity-->
+              <div class="container">
+                  <label for="" style="background-color:lightgreen">Time</label>
+                  <span id="time8" style="padding:5px; font-weight: bold;" ></span>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+    <div class="col" style="padding:2%;">
+      <p>
+          <!--9 Calculate Final Speed-->
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample9" aria-expanded="false" aria-controls="collapseWidthExample9">
+            Calculate Final Speed
+          </button>
+        </p>
+        <div style="min-height: auto;">
+          <div class="collapse collapse-horizontal" id="collapseWidthExample9">
+            <div class="card card-body" style="width: 300px;">
+              <!--Input Quantity 1-->
+              <div class="container">
+                  <label for="">Time (s)</label>
+                  <input type="number" id="time9" placeholder="enter value of timed in s" min="0"/>
+              </div>
+              <!--Input Quantity 2-->
+              <div class="container">
+                  <label for="">Initial Speed (m/s)</label>
+                  <input type="number" id="speedi9" placeholder="enter value of initial speed in m/s" min="0"  />
+              </div>
+              <!--Input Quantity 3-->
+              <div class="container">
+                <label for="">Acceleration (m/s&sup2)</label>
+                <input type="number" id="accel9" placeholder="enter value of acceleration in m/s&sup2" min="0"  />
+              </div>
+              <!--Output Quantity-->
+              <div class="container">
+                  <label for="" style="background-color:lightgreen">Final Speed</label>
+                  <span id="speedf9" style="padding:5px; font-weight: bold;" ></span>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="col" style="padding:2%;">
+      <p>
+          <!--10 Calculate Initial Speed-->
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample10" aria-expanded="false" aria-controls="collapseWidthExample10">
+            Calculate Initial Speed
+          </button>
+        </p>
+        <div style="min-height: auto;">
+          <div class="collapse collapse-horizontal" id="collapseWidthExample10">
+            <div class="card card-body" style="width: 300px;">
+              <!--Input Quantity 1-->
+              <div class="container">
+                <label for="">Time (s)</label>
+                <input type="number" id="time10" placeholder="enter value of timed in s" min="0"/>
+              </div>
+              <!--Input Quantity 2-->
+              <div class="container">
+                  <label for="">Final Speed (m/s)</label>
+                  <input type="number" id="speedf10" placeholder="enter value of final speed in m/s" min="0"  />
+              </div>
+              <!--Input Quantity 3-->
+              <div class="container">
+                <label for="">Acceleration (m/s&sup2)</label>
+                <input type="number" id="accel10" placeholder="acceleration in m/s&sup2" min="0"  />
+              </div>
+              <!--Output Quantity-->
+              <div class="container">
+                  <label for="" style="background-color:lightgreen">Initial Speed</label>
+                  <span id="speedi10" style="padding:5px; font-weight: bold;" ></span>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="row" style="margin-left:5%; margin-right:5%;">
+      <div class="col" style="padding:2%;">
+        <p>
+            <!--20 Calculate Final Speed-->
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample20" aria-expanded="false" aria-controls="collapseWidthExample20">
+              Calculate Final Speed
+            </button>
+          </p>
+          <div style="min-height: auto;">
+            <div class="collapse collapse-horizontal" id="collapseWidthExample20">
+              <div class="card card-body" style="width: 300px;">
+                <!--Input Quantity 1-->
+                <div class="container">
+                    <label for="">Initial Speed (m/s)</label>
+                    <input type="number" id="speedi20" placeholder="enter value of initial speed in m/s" min="0"/>
+                </div>
+                <!--Input Quantity 2-->
+                <div class="container">
+                    <label for="">Acceleration (m/s&sup2)</label>
+                    <input type="number" id="accel20" placeholder="enter value of acceleration in m/s&sup2" min="0"  />
+                </div>
+                <!--Input Quantity 3-->
+                <div class="container">
+                  <label for="">Distnace (m)</label>
+                  <input type="number" id="distance20" placeholder="enter value of distance in m" min="0"  />
+                </div>
+                <!--Output Quantity-->
+                <div class="container">
+                    <label for="" style="background-color:lightgreen">Final Speed</label>
+                    <span id="speedf20" style="padding:5px; font-weight: bold;" ></span>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    <div class="col" style="padding:2%;">
+      <p>
+        <!--21 Calculate Acceleration-->
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample21" aria-expanded="false" aria-controls="collapseWidthExample21">
+          Calculate Acceleration
+        </button>
+      </p>
+      <div style="min-height: auto;">
+        <div class="collapse collapse-horizontal" id="collapseWidthExample21">
+          <div class="card card-body" style="width: 300px;">
+            <!--Input Quantity 1-->
+            <div class="container">
+                <label for="">Final Speed (m/s)</label>
+                <input type="number" id="speedf21" placeholder="enter value of final speed in m/s" min="0"/>
+            </div>
+            <!--Input Quantity 2-->
+            <div class="container">
+                <label for="">Initial Speed (m/s)</label>
+                <input type="number" id="speedi21" placeholder="enter value of initial final in m/s" min="0"  />
+            </div>
+            <!--Input Quantity 3-->
+            <div class="container">
+              <label for="">Distance (m)</label>
+              <input type="number" id="distance21" placeholder="enter value of distance in m" min="0"  />
+            </div>
+            <!--Output Quantity-->
+            <div class="container">
+                <label for="" style="background-color:lightgreen">Acceleration</label>
+                <span id="accel21" style="padding:5px; font-weight: bold;" >?</span>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+    <div class="col" style="padding:2%;">
+      <p>
+        <!--23 Calculate Initial Speed-->
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample23" aria-expanded="false" aria-controls="collapseWidthExample23">
+          Calculate Initial Speed
+        </button>
+      </p>
+      <div style="min-height: auto;">
+        <div class="collapse collapse-horizontal" id="collapseWidthExample23">
+          <div class="card card-body" style="width: 300px;">
+            <!--Input Quantity 1-->
+            <div class="container">
+                <label for="">Final Speed (m/s)</label>
+                <input type="number" id="speedf23" placeholder="enter value of final speed in m/s" min="0"/>
+            </div>
+            <!--Input Quantity 2-->
+            <div class="container">
+                <label for="">Acceleration (m/s&sup2)</label>
+                <input type="number" id="accel23" placeholder="enter value of acceleration in m/s&sup2" min="0"  />
+            </div>
+            <!--Input Quantity 3-->
+            <div class="container">
+              <label for="">Distance (m)</label>
+              <input type="number" id="distance23" placeholder="enter value of distance in m" min="0"  />
+            </div>
+            <!--Output Quantity-->
+            <div class="container">
+                <label for="" style="background-color:lightgreen">Initial Speed</label>
+                <span id="speedi23" style="padding:5px; font-weight: bold;" ></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col" style="padding:2%;">
+      <p>
+        <!--22 Calculate Distance-->
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample22" aria-expanded="false" aria-controls="collapseWidthExample22">
+          Calculate Distance
+        </button>
+      </p>
+      <div style="min-height: auto;">
+        <div class="collapse collapse-horizontal" id="collapseWidthExample22">
+          <div class="card card-body" style="width: 300px;">
+            <!--Input Quantity 1-->
+            <div class="container">
+                <label for="">Final Speed (m/s)</label>
+                <input type="number" id="speedf22" placeholder="enter value of final speed in m/s" min="0"/>
+            </div>
+            <!--Input Quantity 2-->
+            <div class="container">
+                <label for="">Acceleration (m/s&sup2)</label>
+                <input type="number" id="accel22" placeholder="enter value of acceleration in m/s&sup2" min="0"  />
+            </div>
+            <!--Input Quantity 3-->
+            <div class="container">
+              <label for="">Initial Speed (m/s)</label>
+              <input type="number" id="speedi22" placeholder="enter value of initial speed in m/s" min="0"  />
+            </div>
+            <!--Output Quantity-->
+            <div class="container">
+                <label for="" style="background-color:lightgreen">Distance</label>
+                <span id="distance22" style="padding:5px; font-weight: bold;" ></span>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="row" style="margin-left:5%; margin-right:5%;">
+    <!-- Your new content here -->
+  </div>
+</div>
+</div>
+        <br>
+        <br>
+        <br>
+        <br>
+    <!--Footer-->
+    <footer>
+      <div class="footer">
+          <h3>CS50 for Indonesian Teacher - WAHYUDI</h3>
+      </div>
+      <div class="footer">
+          <h4>Contact me by <a href="mailto:pakwahyudi.indonesia@gmail.com">email</a></h4>
+      </div>
+  </footer>
 
-</body>
 </html>
