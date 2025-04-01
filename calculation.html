@@ -19,11 +19,10 @@
     <!-- Optional: Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-    <!-- Script block kosong dihapus -->
 </head>
-<body class="d-flex flex-column min-vh-100"> <!-- Layout untuk footer menempel di bawah -->
+<body class="d-flex flex-column min-vh-100">
 
-    <!-- Navigation Bar Bootstrap (Konsisten dengan halaman lain) -->
+    <!-- Navigation Bar Bootstrap -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm mb-4">
       <div class="container">
         <a class="navbar-brand" href="index.html">FisikaCalc</a>
@@ -36,7 +35,6 @@
               <a class="nav-link" href="index.html">Beranda</a>
             </li>
             <li class="nav-item">
-              <!-- Tandai halaman ini sebagai active -->
               <a class="nav-link active" aria-current="page" href="calculation.html">Perhitungan</a>
             </li>
             <li class="nav-item">
@@ -60,7 +58,7 @@
         <!-- Gunakan Grid Bootstrap untuk layout kategori -->
         <div class="row g-4">
 
-            <!-- Kolom 1: Mekanika -->
+            <!-- Kolom 1: Mekanika (Tetap sama) -->
             <div class="col-lg-4 col-md-6">
                 <div class="card shadow-sm">
                     <div class="card-header bg-primary text-white">
@@ -68,11 +66,9 @@
                             <i class="bi bi-gear-wide-connected me-2"></i>Mekanika
                         </h2>
                     </div>
-                    <!-- Tombol untuk mengontrol collapse -->
                     <button class="btn btn-outline-primary rounded-0 rounded-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMechanics" aria-expanded="false" aria-controls="collapseMechanics">
                         Lihat Topik Mekanika <i class="bi bi-chevron-down small"></i>
                     </button>
-                    <!-- Konten yang bisa collapse -->
                     <div class="collapse" id="collapseMechanics">
                         <div class="list-group list-group-flush">
                             <a href="calc_ulm.html" class="list-group-item list-group-item-action"><i class="bi bi-arrow-right-short"></i> Gerak Lurus Beraturan</a>
@@ -93,7 +89,7 @@
                 </div>
             </div>
 
-            <!-- Kolom 2: Thermodinamika -->
+            <!-- Kolom 2: Thermodinamika (Tetap sama) -->
             <div class="col-lg-4 col-md-6">
                 <div class="card shadow-sm">
                      <div class="card-header bg-danger text-white">
@@ -108,7 +104,7 @@
                         <div class="list-group list-group-flush">
                             <a href="calc_temper.html" class="list-group-item list-group-item-action"><i class="bi bi-thermometer-half"></i> Temperatur & Skala</a>
                             <a href="#" onclick="showAlert(); return false;" class="list-group-item list-group-item-action text-muted"><i class="bi bi-cone-striped"></i> Pemuaian Termal (Segera)</a>
-                            <a href="calc_heat.html" class="list-group-item list-group-item-action"><i class="bi bi-fire"></i> Kalor (Segera Hadir)</a> <!-- Link ke placeholder -->
+                            <a href="calc_heat.html" class="list-group-item list-group-item-action"><i class="bi bi-fire"></i> Kalor (Segera Hadir)</a>
                             <a href="#" onclick="showAlert(); return false;" class="list-group-item list-group-item-action text-muted"><i class="bi bi-cone-striped"></i> Perpindahan Kalor (Segera)</a>
                             <a href="#" onclick="showAlert(); return false;" class="list-group-item list-group-item-action text-muted"><i class="bi bi-cone-striped"></i> Teori Kinetika Gas (Segera)</a>
                             <a href="#" onclick="showAlert(); return false;" class="list-group-item list-group-item-action text-muted"><i class="bi bi-cone-striped"></i> Hukum Thermodinamika (Segera)</a>
@@ -117,25 +113,41 @@
                 </div>
             </div>
 
-            <!-- Kolom 3: Gelombang & Osilasi -->
+            <!-- Kolom 3: Gelombang, Osilasi & Optik (Diperbarui) -->
             <div class="col-lg-4 col-md-6">
                 <div class="card shadow-sm">
                      <div class="card-header bg-success text-white">
                         <h2 class="h5 mb-0 text-center">
-                            <i class="bi bi-tsunami me-2"></i>Gelombang & Osilasi
+                            <!-- Ikon bisa disesuaikan, mungkin 'bi-soundwave' atau 'bi-lightbulb' -->
+                            <i class="bi bi-soundwave me-2"></i>Getaran, Gelombang & Optik
                         </h2>
                     </div>
-                     <button class="btn btn-outline-success rounded-0 rounded-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWaves" aria-expanded="false" aria-controls="collapseWaves">
-                        Lihat Topik Gelombang <i class="bi bi-chevron-down small"></i>
+                     <button class="btn btn-outline-success rounded-0 rounded-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWavesOptics" aria-expanded="false" aria-controls="collapseWavesOptics">
+                        Lihat Topik <i class="bi bi-chevron-down small"></i>
                     </button>
-                    <div class="collapse" id="collapseWaves">
+                    <!-- PERUBAHAN DIMULAI DI SINI -->
+                    <div class="collapse" id="collapseWavesOptics">
                         <div class="list-group list-group-flush">
-                             <a href="calc_osci.html" class="list-group-item list-group-item-action"><i class="bi bi-hourglass-split"></i> Osilasi (Segera Hadir)</a> <!-- Link ke placeholder -->
-                             <a href="#" onclick="showAlert(); return false;" class="list-group-item list-group-item-action text-muted"><i class="bi bi-cone-striped"></i> Getaran & Gelombang Mekanik (Segera)</a>
+                            <!-- Topik Getaran -->
+                             <h6 class="list-group-item bg-light text-muted small ps-3 pt-2 pb-1">Getaran</h6>
+                             <a href="#" onclick="showAlert(); return false;" class="list-group-item list-group-item-action text-muted"><i class="bi bi-cone-striped"></i> Getaran pada Pegas (Segera)</a>
+                             <a href="#" onclick="showAlert(); return false;" class="list-group-item list-group-item-action text-muted"><i class="bi bi-cone-striped"></i> Getaran pada Gerak Periodik (Segera)</a>
+                            <!-- Topik Gelombang Mekanik & Bunyi -->
+                            <h6 class="list-group-item bg-light text-muted small ps-3 pt-2 pb-1">Gelombang Mekanik & Bunyi</h6>
+                             <a href="#" onclick="showAlert(); return false;" class="list-group-item list-group-item-action text-muted"><i class="bi bi-cone-striped"></i> Gelombang Mekanik (Segera)</a>
                              <a href="#" onclick="showAlert(); return false;" class="list-group-item list-group-item-action text-muted"><i class="bi bi-cone-striped"></i> Gelombang Bunyi (Segera)</a>
-                             <a href="#" onclick="showAlert(); return false;" class="list-group-item list-group-item-action text-muted"><i class="bi bi-cone-striped"></i> Gelombang Cahaya & Optik (Segera)</a>
+                             <a href="#" onclick="showAlert(); return false;" class="list-group-item list-group-item-action text-muted"><i class="bi bi-cone-striped"></i> Efek Doppler (Segera)</a>
+                             <!-- Topik Gelombang Cahaya & Optik -->
+                             <h6 class="list-group-item bg-light text-muted small ps-3 pt-2 pb-1">Gelombang Cahaya & Optik</h6>
+                             <a href="#" onclick="showAlert(); return false;" class="list-group-item list-group-item-action text-muted"><i class="bi bi-cone-striped"></i> Interferensi Gel. Cahaya (Segera)</a>
+                             <a href="#" onclick="showAlert(); return false;" class="list-group-item list-group-item-action text-muted"><i class="bi bi-cone-striped"></i> Difraksi Gel. Cahaya (Segera)</a>
+                             <a href="#" onclick="showAlert(); return false;" class="list-group-item list-group-item-action text-muted"><i class="bi bi-cone-striped"></i> Refraksi Gel. Cahaya (Segera)</a>
+                             <a href="#" onclick="showAlert(); return false;" class="list-group-item list-group-item-action text-muted"><i class="bi bi-cone-striped"></i> Refleksi Gel. Cahaya (Segera)</a>
+                             <a href="#" onclick="showAlert(); return false;" class="list-group-item list-group-item-action text-muted"><i class="bi bi-cone-striped"></i> Polarisasi Gel. Cahaya (Segera)</a>
+                             <a href="#" onclick="showAlert(); return false;" class="list-group-item list-group-item-action text-muted"><i class="bi bi-cone-striped"></i> Optik Geometri (Segera)</a>
                         </div>
                     </div>
+                    <!-- PERUBAHAN BERAKHIR DI SINI -->
                 </div>
             </div>
 
@@ -143,35 +155,30 @@
 
         </div> <!-- Akhir Row Kategori -->
 
-        <!-- Tag penutup ekstra dihapus -->
-        <!-- <br> dihapus -->
-
     </div> <!-- Akhir Container Utama -->
 
-    <!-- Footer (Struktur diperbaiki & menggunakan class Bootstrap) -->
+    <!-- Footer -->
     <footer class="bg-dark text-white text-center mt-auto py-3">
         <div class="container">
             <p class="mb-1">© 2024 FisikaCalc oleh Guru Fisika - WAHYUDI.</p>
             <p class="mb-0">Kontak: <a href="mailto:pakwahyudi.indonesia@gmail.com" class="text-white">pakwahyudi.indonesia@gmail.com</a></p>
         </div>
-    </footer> <!-- Hanya satu tag penutup footer -->
+    </footer>
 
-    <!-- Bootstrap JS Bundle (di akhir body) -->
+    <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
-    <!-- JavaScript untuk Alert (ditempatkan sebelum </body>) -->
+    <!-- JavaScript untuk Alert -->
     <script>
       function showAlert(){
-        // Menggunakan Bootstrap Modal akan lebih baik, tapi alert sederhana OK untuk sekarang
         alert("Halaman ini sedang dalam tahap pengembangan dan akan segera tersedia. Mohon bersabar ya! ^_^");
       }
-       // Optional: Mencegah link # menggulir ke atas halaman
        document.querySelectorAll('a[href="#"][onclick]').forEach(link => {
            link.addEventListener('click', function(event) {
-               event.preventDefault(); // Mencegah aksi default link #
+               event.preventDefault();
            });
        });
     </script>
 
-</body> <!-- Tag body ditutup -->
-</html> <!-- Tag html ditutup -->
+</body>
+</html>
