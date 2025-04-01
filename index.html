@@ -1,53 +1,107 @@
 <!DOCTYPE html>
+<!-- Bahasa diatur ke Indonesia -->
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Judul halaman utama -->
+    <title>Selamat Datang di FisikaCalc - Perhitungan Fisikamu</title>
 
-<html lang="en">
-    <head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-        <link href="https://fonts.googleapis.com/css2family=monsterrat:wght@500&display=swap" rel="stylesheet">
-        <link href="styles.css" rel="stylesheet">
-        <title>Perhitungan Fisikamu</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
-        </script>
-    </head>
-    <body>
-        <div class="header">
-            <h1>Menghitungkan Fisikamu</h1>
+    <!-- Google Font Montserrat (URL Diperbaiki) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Link ke file CSS eksternal Anda (Pastikan file ini ada dan berisi gaya yang sudah diperbaiki) -->
+    <link href="styles.css" rel="stylesheet">
+
+    <!-- Optional: Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+</head>
+<body class="d-flex flex-column min-vh-100"> <!-- Layout untuk footer menempel di bawah -->
+
+    <!-- Navigation Bar Bootstrap (Konsisten dengan halaman lain) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm mb-4">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">FisikaCalc</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <!-- Tandai halaman ini sebagai active -->
+              <a class="nav-link active" aria-current="page" href="index.html">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="calculation.html">Perhitungan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="study.html">Pemahaman</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">Tentang</a>
+            </li>
+          </ul>
         </div>
-    </body>
+      </div>
+    </nav>
 
-    <!---Navigation Bar-->
-    <div class="navigation">
-        <a href="index.html" class="button">Beranda</a>
-        <a href="calculation.html" class="button">Perhitungan</a>
-        <a href="study.html" class="button">Pemahaman</a>
-        <a href="about.html" class="button">Tentang pembuat</a>
-    </div>
-    <!--main content-->
-    <div class="container">
-        <h2>Fisika Itu Asyik: Gak Perlu Takut Sama Hitung-hitungan!</h2>
-        <hr>
-        <p>Kalian tahu gak sih, kalau fisika itu sebenarnya seru banget? Meskipun identik dengan rumus dan angka, tapi fisika gak melulu soal hitung-hitungan yang rumit kok! Fisika itu ibarat petualangan seru untuk mengungkap rahasia alam semesta, mulai dari kenapa apel jatuh ke bawah sampai bagaimana listrik bisa menyala.</p>
-        <br>
-        <p>Memang, sejak zaman para ilmuwan hebat seperti Newton dan Maxwell, matematika dan perhitungan memang jadi sahabat karib fisika. Tapi tenang, sekarang udah zamannya teknologi canggih! Kita gak perlu lagi pusing dengan kalkulasi rumit yang makan waktu.</p>
-        <br>
-        <p>Jadi, daripada pusing menghitung manual, kita bisa lebih fokus memahami konsep dan teori fisika yang menarik. Alat-alat ini membantu kita "menerjemahkan" rumus matematika yang abstrak menjadi visualisasi yang mudah dipahami. Seru, kan?</p>
-        <br>
-        <p>Intinya, belajar fisika di era digital ini jauh lebih mudah dan menyenangkan. Teknologi, seperti alat komputasi, hadir untuk membantu kita memahami keajaiban fisika dengan cara yang lebih interaktif dan gak bikin puyeng! So, gak perlu takut lagi deh sama fisika, mari kita jelajahi dunia sains dengan semangat!</p>
-    </div>
-    <br>
-    <br>
-    <!--Footer-->
-    <footer>
-        <div class="footer">
-            <h3>Guru Fisika - WAHYUDI</h3>
-        </div>
-        <div class="footer">
-            <h4>Email saya melalui <a href="mailto:pakwahyudi.indonesia@gmail.com">email</a></h4>
-        </div>
-    </footer>
+    <!-- Container Utama Bootstrap untuk Konten Halaman -->
+    <div class="container flex-grow-1 mt-4 mb-5">
 
-</html>
+        <!-- Bagian Hero/Selamat Datang -->
+        <div class="p-5 mb-4 bg-light rounded-3 shadow-sm text-center">
+            <h1 class="display-4 fw-bold">Selamat Datang di FisikaCalc!</h1>
+            <p class="col-md-8 fs-5 mx-auto text-muted">Alat bantu interaktif untuk memahami dan menghitung konsep fisika dengan lebih mudah dan menyenangkan.</p>
+            <hr class="my-4">
+             <p>Jelajahi berbagai kalkulator dan konverter kami untuk mempermudah studi fisika Anda.</p>
+             <a class="btn btn-primary btn-lg mt-3" href="calculation.html" role="button">
+                <i class="bi bi-calculator me-2"></i>Mulai Menghitung
+             </a>
+        </div>
+
+
+        <!-- Bagian Pengantar Teks -->
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h2 class="text-center mb-4">Fisika Itu Asyik: Tak Perlu Takut Hitungan!</h2>
+                <!-- <hr class="w-50 mx-auto mb-4"> Dihapus jika tidak perlu -->
+
+                <p class="lead text-center mb-4">
+                    Tahukah Anda, fisika itu sebenarnya seru banget? Meski identik dengan rumus dan angka, fisika tidak melulu soal hitung-hitungan rumit. Fisika adalah petualangan mengungkap rahasia alam semesta!
+                </p>
+                 <p class="mb-3">
+                     Memang, sejak zaman ilmuwan hebat seperti Newton dan Maxwell, matematika menjadi sahabat karib fisika. Tapi tenang, sekarang zamannya teknologi! Kita tidak perlu pusing dengan kalkulasi manual yang memakan waktu.
+                 </p>
+                 <p class="mb-3">
+                    Dengan alat bantu seperti FisikaCalc ini, kita bisa lebih fokus memahami konsep dan teori fisika yang menarik. Alat ini membantu "menerjemahkan" rumus abstrak menjadi hasil yang konkret dan mudah dipahami.
+                 </p>
+                 <p>
+                    Intinya, belajar fisika di era digital ini jauh lebih mudah dan menyenangkan. Teknologi hadir untuk membantu kita memahami keajaiban fisika secara interaktif. Jadi, jangan takut lagi, mari jelajahi dunia sains dengan semangat!
+                 </p>
+             </div>
+        </div>
+
+        <!-- <br> dihapus -->
+
+    </div> <!-- Akhir Container Utama -->
+
+    <!-- Footer (Struktur diperbaiki & menggunakan class Bootstrap) -->
+    <footer class="bg-dark text-white text-center mt-auto py-3">
+        <div class="container">
+            <p class="mb-1">© 2024 FisikaCalc oleh Guru Fisika - WAHYUDI.</p>
+            <p class="mb-0">Kontak: <a href="mailto:pakwahyudi.indonesia@gmail.com" class="text-white">pakwahyudi.indonesia@gmail.com</a></p>
+        </div>
+    </footer> <!-- Hanya satu tag penutup footer -->
+
+    <!-- Bootstrap JS Bundle (di akhir body) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <!-- JavaScript kustom jika ada (saat ini tidak ada) -->
+    <!-- <script> ... </script> -->
+
+</body> <!-- Tag body ditutup -->
+</html> <!-- Tag html ditutup -->
