@@ -1,81 +1,213 @@
+/* --- Base Styles --- */
 body {
-    background-color: #fffff;
-    font-size: 100%; /*Font size in the web body*/
-    font-weight: 300; /*boldness of the font*/
-    line-height: 100%; /*font height*/
-    margin:0.5%; /*margin of the web body*/
-    text-align: left; /*Position of the body text in the web*/
+    /* font-family sudah diatur di HTML <link> atau bisa ditambahkan di sini lagi jika perlu */
+    /* font-family: 'Montserrat', sans-serif; */
+
+    /* Ukuran font dasar diatur oleh Bootstrap (biasanya 1rem). 100% = default browser. OK. */
+    /* font-size: 100%; */
+
+    /* Bootstrap default font-weight is 400. 300 is lighter. Make sure Montserrat is loaded with weight 300. */
+    font-weight: 300;
+
+    /* Gunakan unitless line-height untuk skalabilitas. Bootstrap default is often 1.5. */
+    line-height: 1.6;
+
+    /* background-color diatur oleh Bootstrap (#fff). Hapus jika tidak ada warna spesifik. */
+    /* background-color: #ffffff; */ /* #fffff adalah typo */
+
+    /* Margin pada body tidak umum, layout diatur oleh container. Hapus. */
+    /* margin: 0.5%; */
+
+    /* text-align: left; adalah default. Hapus. */
+    /* text-align: left; */
 }
 
-.container {
-    margin-left: 2%; /*Left margin of the container*/
-    margin-right: 2%; /*Right margin of the container*/
-}
-.header {
-    background-color: #f5f5f5;/*Color of header's background*/
-    color: #00000; /*color of font in the header's background*/
-    padding: 0.8% 0.8%; /*size of header's background relative to the vertical*/
-    text-align: center; /*Posisi of the header text*/
-}
+/* --- Container --- */
+/* Hapus aturan .container ini. Biarkan Bootstrap yang menangani margin dan width container. */
+/* .container {
+    margin-left: 2%;
+    margin-right: 2%;
+} */
+
+/* --- Header (Gunakan class Bootstrap di HTML) --- */
+/* Pindahkan gaya ini ke class Bootstrap di HTML (e.g., <div class="bg-light text-dark text-center py-3">) */
+/* .header {
+    background-color: #f5f5f5;
+    color: #000000; // Typo fixed
+    padding: 0.8% 0.8%; // Gunakan py-2, px-3 dll. di HTML
+    text-align: center; // Gunakan text-center di HTML
+} */
+
+/* --- Headings --- */
 h2 {
-    color: purple; /*Color of font in h2*/
-    font-size:200%;
+    color: purple; /* OK, gaya spesifik */
+    /* Gunakan class font-size Bootstrap (fs-1, fs-2, etc.) atau rem/em */
+    font-size: 2rem; /* Contoh penggunaan rem, setara ~32px jika base 16px */
 }
 
-p{
-    font-family: Calibri; /*type of font in p*/
-    letter-spacing: 2px;
-    line-height: 20px;
-    text-align: justify;
-    font-weight: 400;
-    font-size : 100%; /*size of font in p*/
+/* Aturan lain untuk h1, h3, dll. jika perlu */
+h3 {
+    /* Contoh */
+    font-size: 1.75rem;
+    color: #343a40; /* Dark gray */
 }
 
+
+/* --- Paragraphs --- */
+p {
+    /* font-family: Calibri; Hapus jika ingin menggunakan font dari body (Montserrat) */
+    letter-spacing: 0.5px; /* 2px mungkin terlalu lebar, sesuaikan */
+    line-height: 1.7; /* Sesuaikan untuk keterbacaan, 20px terlalu fixed */
+    /* text-align: justify; Justify sering buruk di web, left lebih umum */
+    text-align: left; /* Atau hapus untuk default left */
+    font-weight: 400; /* Normal weight */
+    /* font-size : 100%; OK, relatif terhadap body/parent */
+    margin-bottom: 1rem; /* Standard Bootstrap margin-bottom for paragraphs */
+}
+
+/* --- Footer --- */
 footer {
-    background-color: rgba(189, 214, 199, 0.4); /*Color of font in the footer*/
-    padding: 1.5% 1.5%; /*Size of navigation background*/
-    text-align: left; /*Position of object inside navigation background*/
-    text-align: center; /*Position of object inside footer*/
-    color: black; /*Footer font color*/
-    position:sticky; /*Position of footer in the web*/
-  }
+    /* Warna spesifik OK */
+    background-color: rgba(189, 214, 199, 0.4);
+    /* Gunakan class padding Bootstrap di HTML (e.g., py-3) */
+    /* padding: 1.5% 1.5%; */
+    /* Gunakan class text-align Bootstrap di HTML (e.g., text-center) */
+    /* text-align: center; */
+    color: black; /* OK */
 
-  .navigation{
-    background-color: lightblue; /*navigation background color*/
-    padding: 1.5% 1.5%; /*Size of navigation background*/
-    text-align: left; /*Position of object inside navigation background*/
-  }
+    /* Untuk sticky footer yang benar, perlu lebih banyak context/setup */
+    /* position: sticky; */
+    /* bottom: 0; */
+    /* width: 100%; */
+    /* z-index: 1020; // Di bawah navbar sticky */
 
-.button, input[type="submit"] { /*Button style*/
-    background-color: green; /*Color of button*/
-    margin: 1%; /*margin of button to the whole width*/
-    border: 5% solid transparent; /*Button button*/
-    border-radius: 8%; /*round of border*/
-    font-size: 90%; /*Size of font in the button*/
-    font-weight: 700; /*Boldness of font*/
-    line-height: 150%; /*Size of font in the button*/
-    padding: 0.3% 1% 0.3% 1%; /*Size of button*/
-    text-align: center; /*Position of the text in the button relative to the horizontal*/
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    vertical-align: middle; /*Position of the text in the button relative to the vertical*/
+    /* Jika footer sederhana di akhir, tidak perlu position: sticky */
+    margin-top: 3rem; /* Beri jarak dari konten di atasnya */
 }
 
-.button, input[type="submit"]:hover {
-    background-color: white;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
+/* --- Navigation (.navigation lama, Ganti dengan Bootstrap Navbar) --- */
+/* Hapus section ini jika sudah menggunakan <nav class="navbar ..."> Bootstrap */
+/* .navigation{
+    background-color: lightblue;
+    padding: 1.5% 1.5%;
+    text-align: left;
+} */
 
+/* --- Custom Button (.button) & Submit Input --- */
+/* Hapus aturan ini jika Anda hanya menggunakan tombol Bootstrap (<button class="btn btn-primary">) */
+/* Jika Anda BENAR-BENAR perlu class .button kustom: */
+/* .button, input[type="submit"] {
+    background-color: green; // Gunakan .btn-success di HTML
+    margin: 0.5rem; // Gunakan m-1, m-2 etc. di HTML
+    border: 1px solid transparent; // Gunakan border Bootstrap atau override dg px
+    border-radius: 0.375rem; // Gunakan rem atau px, sesuaikan dengan Bootstrap
+    font-size: 0.9rem; // Gunakan rem atau %
+    font-weight: 700; // OK
+    line-height: 1.5; // OK
+    padding: 0.375rem 0.75rem; // Gunakan rem atau px, sesuaikan dg Bootstrap
+    text-align: center; // OK
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    vertical-align: middle; // Biasanya tidak diperlukan
+    display: inline-block; // Agar padding/margin bekerja baik
+    cursor: pointer; // Indikator bisa diklik
+    text-decoration: none; // Jika ini adalah link <a>
+} */
+
+/* Hover state untuk custom button (Hapus jika pakai Bootstrap) */
+/* .button:hover, input[type="submit"]:hover {
+    background-color: darkgreen; // Contoh hover state
+    color: white; // Contoh hover state
+    // transition tidak perlu diulang di hover state
+} */
+
+
+/* --- Links --- */
 a {
-    color: black; /*Anchor font color*/
+    /* color: black; // Bootstrap default is blue. Override jika perlu */
+    /* text-decoration: none; // Hapus garis bawah default jika diinginkan */
 }
 
+/* a:hover {
+    color: darkslategray; // Contoh warna hover
+    text-decoration: underline; // Tambahkan garis bawah saat hover
+} */
+
+/* --- Images --- */
 img {
-    width: 150px;
-    height: auto;
-    border-radius: 15%;
-    margin-left: 3%;
+    max-width: 100%; /* Membuat gambar responsif secara default */
+    height: auto; /* Pertahankan rasio aspek */
+    /* Aturan spesifik ini mungkin hanya untuk gambar tertentu, lebih baik gunakan class */
+    /* width: 150px; */
+    /* border-radius: 15%; */ /* Gunakan px atau rem, atau class Bootstrap .rounded-circle, .rounded */
+    /* margin-left: 3%; */ /* Gunakan class margin Bootstrap di HTML (ms-1, ms-2, ...) */
 }
 
+/* --- Tambahkan Gaya dari Saran Sebelumnya (jika belum ada) --- */
 
+.output-section {
+    background-color: #e9ecef;
+    padding: 10px 15px;
+    border-radius: 0.25rem;
+    border: 1px solid #dee2e6;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Agar rapi di layar kecil */
+}
 
+.output-label {
+    padding: 5px 0;
+    display: inline-block;
+    margin-right: 10px;
+    background-color: transparent;
+    font-weight: normal; /* Normal, bukan bold */
+    margin-bottom: 0; /* Hapus margin bawah default dari label */
+}
 
+.output-value {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #198754; /* Green */
+    text-align: right;
+    flex-grow: 1; /* Ambil sisa ruang */
+}
+.output-value.text-muted {
+    color: #6c757d !important;
+    font-style: italic;
+    font-weight: normal;
+}
+
+/* Opsi: Background spesifik untuk label output (jika masih mau) */
+/* .output-label-distance { border-left: 3px solid lightgreen; padding-left: 5px; } */
+/* .output-label-speed { border-left: 3px solid gold; padding-left: 5px; } */
+/* .output-label-accel { border-left: 3px solid lightblue; padding-left: 5px; } */
+
+/* Pastikan superskrip terlihat benar */
+sup {
+    vertical-align: super;
+    font-size: smaller;
+}
+
+/* Styling untuk Form Switch (jika digunakan dari HTML) */
+.form-switch .form-check-label {
+    cursor: pointer; /* Tunjukkan bisa diklik */
+}
+
+/* Card styling (opsional tambahan) */
+.card {
+    border: none;
+}
+.card-body {
+    padding: 1.25rem; /* Sedikit lebih banyak padding */
+}
+
+/* Navbar active state */
+.navbar .nav-link.active {
+    font-weight: 500; /* Gunakan weight yang sama dengan Montserrat */
+}
+
+/* Utility class tambahan jika perlu */
+.font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+}
