@@ -1,297 +1,409 @@
 <!DOCTYPE html>
+<!-- Bahasa diatur ke Indonesia -->
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Judul halaman spesifik -->
+    <title>Perhitungan Gerak Lurus Beraturan (GLB)</title>
 
-<html lang="en">
-    <head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-        <link href="https://fonts.googleapis.com/css2family=monsterrat:wght@500&display=swap" rel="stylesheet">
-        <link href="styles.css" rel="stylesheet">
-        <title>Perhitungan Fisikamu</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script>
-            //--Script for calculating Distance//
-            document.addEventListener("DOMContentLoaded", function(){
-            const speed2Input = document.getElementById("speed2");
-            const time2Input = document.getElementById("time2");
-            const distance2Span = document.getElementById("distance2");
-            function calculateDistance(){
-                const speed2 =speed2Input.value;
-                const time2 =time2Input.value;
-                const distance2 = speed2 * time2;
-                distance2Span.innerHTML = `${distance2} m`;
-            }
-            speed2Input.addEventListener("input", calculateDistance);
-            time2Input.addEventListener("input", calculateDistance);
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
-            calculateDistance();
-        });
-            //--Script for calculating time//
-            document.addEventListener("DOMContentLoaded", function(){
-            const distance1Input = document.getElementById("distance1");
-            const speed1Input = document.getElementById("speed1");
-            const time1Span = document.getElementById("time1");
-            function calculateTime(){
-                const speed1 =speed1Input.value;
-                const distance1 =distance1Input.value;
-                const time1 = distance1 / speed1;
-                time1Span.innerHTML = `${time1} s`;
-            }
-            distance1Input.addEventListener("input", calculateTime);
-            speed1Input.addEventListener("input", calculateTime);
+    <!-- Google Font Montserrat (URL Diperbaiki) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-            calculateTime();
-        });
-            //--Script for calculating speed//
-            document.addEventListener("DOMContentLoaded", function(){
-            const distanceInput = document.getElementById("distance");
-            const timeInput = document.getElementById("time");
-            const speedSpan = document.getElementById("speed");
-            function calculateSpeed(){
-                const distance =distanceInput.value;
-                const time =timeInput.value;
-                const speed = distance / time;
-                speedSpan.innerHTML = `${speed} m/s`;
-            }
-            distanceInput.addEventListener("input", calculateSpeed);
-            timeInput.addEventListener("input", calculateSpeed);
+    <!-- Link ke file CSS eksternal Anda (Pastikan file ini ada dan berisi gaya yang sudah diperbaiki) -->
+    <link href="styles.css" rel="stylesheet">
 
-            calculateSpeed();
-        });
-               //--11 Script for units convertion of speed//
-               document.addEventListener("DOMContentLoaded", function(){
-            const speed11Input = document.getElementById("speed11");
-            const speedsiSpan = document.getElementById("speedsi");
-            const selectElement = document.getElementById("myselect");
-            function calculateSpeedConvert(){
-                const speed11 =parseFloat(speed11Input.value);
-                let speedsi;
-                if (selectElement.value == "option 1"){
-                  speedsi = speed11 * 1;
-                }
-                else if (selectElement.value == "option 2"){
-                  speedsi = speed11 * 0.27778;
-                }
-                else if (selectElement.value == "option 3"){
-                  speedsi = speed11 * 1000;
-                }
-                else if (selectElement.value == "option 4"){
-                  speedsi = speed11 / 60;
-                }
-                else if (selectElement.value == "option 5"){
-                  speedsi = speed11 * 16.66667;
-                }
-                else if (selectElement.value == "option 6"){
-                  speedsi = speed11 * 0.514444;
-                }
-                else if (selectElement.value == "option 7"){
-                  speedsi = speed11 * 1609.34;
-                }
-                else if (selectElement.value == "option 8"){
-                  speedsi = speed11 * 0.44704;
-                }
-                else if (selectElement.value == "option 9"){
-                  speedsi = speed11 * 0.3048;
-                }
-                speedsiSpan.innerHTML = `${speedsi.toFixed(2)} m/s`;
-            }
+    <!-- Optional: Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-            speed11Input.addEventListener("input", calculateSpeedConvert);
-            selectElement.addEventListener("change", calculateSpeedConvert);
-            calculateSpeedConvert();
-        });
-                //--12 Script for units convertion of distance//
-                document.addEventListener("DOMContentLoaded", function(){
-            const distance12Input = document.getElementById("distance12");
-            const distancesiSpan = document.getElementById("distancesi");
-            const selectElement = document.getElementById("myselectd");
-            function calculateDistanceConvert(){
-                const distance12 =parseFloat(distance12Input.value);
-                let distancesi;
-                if (selectElement.value == "option 1"){
-                  distancesi = distance12 * 1000;
-                }
-                else if (selectElement.value == "option 2"){
-                  distancesi = distance12 * 0.3048;
-                }
-                else if (selectElement.value == "option 3"){
-                  distancesi = distance12 * 1609.34;
-                }
-                else if (selectElement.value == "option 4"){
-                  distancesi = distance12 * 0.0254;
-                }
-                else if (selectElement.value == "option 5"){
-                  distancesi = distance12 * 0.9144;
-                }
-                else if (selectElement.value == "option 6"){
-                  distancesi = distance12 * 0.01;
-                }
-                else if (selectElement.value == "option 7"){
-                  distancesi = distance12 * 0.001;
-                }
-                distancesiSpan.innerHTML = `${distancesi.toFixed(2)} m`;
-            }
+</head>
+<body class="d-flex flex-column min-vh-100"> <!-- Layout untuk footer menempel di bawah -->
 
-            distance12Input.addEventListener("input", calculateDistanceConvert);
-            selectElement.addEventListener("change", calculateDistanceConvert);
-            calculateDistanceConvert();
-        });
-        </script>
-    </head>
-    <body>
-        <div class="header">
-            <h1>Perhitungan Gerak Lurus Beraturan</h1>
-        </div>
-    </body>
-
-    <!---Navigation Bar-->
-    <div class="navigation">
-      <a href="index.html" class="button">Beranda</a>
-      <a href="calculation.html" class="button">Perhitungan</a>
-      <a href="study.html" class="button">Pemahaman</a>
-      <a href="about.html" class="button">Tentang pembuat</a>
-    </div>
-    <!--main content-->
-    <div class="container" >
-        <h2>Perhitungan</h2>
-        <p>Klik tombol biru sesuai kebutuhanmu dan masukkan nilai-nilai pada sel yang disediakan</p>
-    </div>
-    <div class="convert" select="option" style="margin-left:5%; margin-right:5%;">
-      <h2>Konversi Satuan</h2>
-      <!--Distance Conversion-->
-      <div class="row">
-        <div class="col" style="padding:2%;">
-          <div class="container">
-            <label for="">Jarak</label>
-            <input type="number" id="distance12" placeholder="Nilai jarak" min="0"/>
-            <select id="myselectd">
-              <option value="option 1">km</option>
-              <option value="option 2">kaki</option>
-              <option value="option 3">mil</option>
-              <option value="option 4">inchi</option>
-              <option value="option 5">yard</option>
-              <option value="option 6">cm</option>
-              <option value="option 7">mm</option>
-            </select>
-            <label for="" style="padding:5px; background-color:lightgreen">Jarak dalam satuan Sistem Internasional</label>
-            <span id="distancesi" style="padding:5px; font-weight: bold;" ></span>
+    <!-- Navigation Bar Bootstrap (Konsisten dengan halaman lain) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm mb-4">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">FisikaCalc</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <!-- Tandai 'Perhitungan' sebagai active -->
+              <a class="nav-link active" aria-current="page" href="calculation.html">Perhitungan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="study.html">Pemahaman</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">Tentang</a>
+            </li>
+          </ul>
         </div>
       </div>
-                    <!--Speed Conversion-->
-      <div class="col" style="padding:2%;">
+    </nav>
+
+    <!-- Container Utama Bootstrap untuk Konten Halaman -->
+    <div class="container mt-4 mb-5">
+        <div class="intro text-center mb-5">
+             <h1 class="display-5">Gerak Lurus Beraturan (GLB)</h1>
+             <p class="lead">Hitung jarak, waktu, atau kelajuan untuk benda yang bergerak dengan kelajuan konstan.</p>
+        </div>
+
+        <!-- Konversi Satuan (Opsional, bisa dipisah atau digabung) -->
+        <div class="convert mb-5">
+            <h2 class="text-center mb-4">Konversi Satuan</h2>
+            <div class="row g-4 justify-content-center">
+                <!-- Kolom Konversi Jarak -->
+                <div class="col-md-6">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h3 class="card-title h5 mb-3 text-center text-info"><i class="bi bi-rulers me-1"></i>Konversi Jarak</h3>
+                            <div class="mb-3">
+                                <label for="distance12" class="form-label">Jarak Awal:</label>
+                                <input type="number" id="distance12" class="form-control" placeholder="Nilai jarak" min="0"/>
+                            </div>
+                             <div class="mb-3">
+                                <label for="myselectd" class="form-label">Dari Satuan:</label>
+                                <select id="myselectd" class="form-select">
+                                    <option value="km">km</option>
+                                    <option value="ft">kaki (ft)</option>
+                                    <option value="mi">mil (mi)</option>
+                                    <option value="in">inchi (in)</option>
+                                    <option value="yd">yard (yd)</option>
+                                    <option value="cm">cm</option>
+                                    <option value="mm">mm</option>
+                                </select>
+                            </div>
+                            <div class="output-section">
+                                <label class="output-label output-label-distance">Jarak (SI):</label>
+                                <span id="distancesi" class="output-value"> - </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Kolom Konversi Kelajuan -->
+                 <div class="col-md-6">
+                     <div class="card shadow-sm">
+                        <div class="card-body">
+                             <h3 class="card-title h5 mb-3 text-center text-warning"><i class="bi bi-speedometer2 me-1"></i>Konversi Kelajuan</h3>
+                             <div class="mb-3">
+                                <label for="speed11" class="form-label">Kelajuan Awal:</label>
+                                <input type="number" id="speed11" class="form-control" placeholder="Nilai Kelajuan" min="0"/>
+                            </div>
+                             <div class="mb-3">
+                                 <label for="myselect" class="form-label">Dari Satuan:</label>
+                                <select id="myselect" class="form-select">
+                                    <option value="m/s">m/s</option>
+                                    <option value="km/h">km/jam (km/h)</option>
+                                    <option value="km/s">km/s</option>
+                                    <option value="m/min">m/menit</option>
+                                    <option value="km/min">km/menit</option>
+                                    <option value="knot">Knot</option>
+                                    <option value="mi/s">mil/s</option>
+                                    <option value="mph">mph (mil/jam)</option>
+                                    <option value="ft/s">kaki/s (ft/s)</option>
+                                </select>
+                            </div>
+                            <div class="output-section">
+                                <label class="output-label output-label-speed">Kelajuan (SI):</label>
+                                <span id="speedsi" class="output-value"> - </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- Akhir Div Konversi -->
+
+
+        <!-- Kalkulator GLB -->
+         <h2 class="text-center mb-4">Kalkulator GLB ( v = s / t )</h2>
+        <div class="row g-4">
+             <!-- Kolom 1: Hitung Waktu (t = s / v) -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow-sm h-100">
+                     <div class="card-body d-flex flex-column">
+                         <h3 class="card-title h5 mb-3 text-center text-primary"><i class="bi bi-clock me-1"></i>Hitung Waktu (t)</h3>
+                         <div class="mb-3">
+                            <label for="distance1" class="form-label">Jarak Tempuh (s) (meter):</label>
+                            <input type="number" id="distance1" class="form-control" placeholder="Masukkan jarak (m)" min="0"/>
+                        </div>
+                         <div class="mb-3">
+                            <label for="speed1" class="form-label">Kelajuan Konstan (v) (m/s):</label>
+                            <input type="number" id="speed1" class="form-control" placeholder="Masukkan kelajuan (m/s)" min="0"/>
+                        </div>
+                         <div class="output-section mt-auto">
+                            <label class="output-label output-label-result">Waktu Tempuh (t):</label>
+                            <span id="time1" class="output-value"> - </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Kolom 2: Hitung Jarak (s = v * t) -->
+            <div class="col-lg-4 col-md-6">
+                 <div class="card shadow-sm h-100">
+                     <div class="card-body d-flex flex-column">
+                         <h3 class="card-title h5 mb-3 text-center text-success"><i class="bi bi-arrows-fullscreen me-1"></i>Hitung Jarak (s)</h3>
+                         <div class="mb-3">
+                             <label for="speed2" class="form-label">Kelajuan Konstan (v) (m/s):</label>
+                            <input type="number" id="speed2" class="form-control" placeholder="Masukkan kelajuan (m/s)" min="0"/>
+                        </div>
+                         <div class="mb-3">
+                             <label for="time2" class="form-label">Waktu Tempuh (t) (detik):</label>
+                            <input type="number" id="time2" class="form-control" placeholder="Masukkan waktu (s)" min="0"/>
+                        </div>
+                        <div class="output-section mt-auto">
+                            <label class="output-label output-label-result">Jarak Tempuh (s):</label>
+                            <span id="distance2" class="output-value"> - </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Kolom 3: Hitung Kelajuan (v = s / t) -->
+            <div class="col-lg-4 col-md-6">
+                 <div class="card shadow-sm h-100">
+                     <div class="card-body d-flex flex-column">
+                         <h3 class="card-title h5 mb-3 text-center text-danger"><i class="bi bi-wind me-1"></i>Hitung Kelajuan (v)</h3>
+                          <div class="mb-3">
+                            <label for="distance" class="form-label">Jarak Tempuh (s) (meter):</label>
+                            <input type="number" id="distance" class="form-control" placeholder="Masukkan jarak (m)" min="0"/>
+                        </div>
+                         <div class="mb-3">
+                             <label for="time" class="form-label">Waktu Tempuh (t) (detik):</label>
+                            <input type="number" id="time" class="form-control" placeholder="Masukkan waktu (s)" min="0"/>
+                        </div>
+                        <div class="output-section mt-auto">
+                             <label class="output-label output-label-result">Kelajuan (v):</label>
+                            <span id="speed" class="output-value"> - </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- Akhir Row Kalkulator GLB -->
+
+        <!-- Tag penutup ekstra dihapus -->
+        <!-- <br> dihapus -->
+
+    </div> <!-- Akhir Container Utama -->
+
+    <!-- Footer (Struktur diperbaiki & menggunakan class Bootstrap) -->
+    <footer class="bg-dark text-white text-center mt-auto py-3">
         <div class="container">
-          <label for="">Kelajuan</label>
-          <input type="number" id="speed11" placeholder="Nilai Kelajuan" min="0"/>
-          <select id="myselect">
-            <option value="option 1">m/s</option>
-            <option value="option 2">km/jam</option>
-            <option value="option 3">km/s</option>
-            <option value="option 4">m/menit</option>
-            <option value="option 5">km/menit</option>
-            <option value="option 6">Knot</option>
-            <option value="option 7">mil/s</option>
-            <option value="option 8">m/jam</option>
-            <option value="option 9">kaki/s</option>
-          </select>
-          <label for="" style="padding:5px; background-color:yellow">Kelajuan dalam satuan Sistem Internasional</label>
-          <span id="speedsi" style="padding:5px; font-weight: bold;" ></span>
-      </div>
-    </div>
-  </div>
-    <div class="row" style="margin-left:5%; margin-right:5%;">
-        <div class="col" style="padding:2%;">
-            <p>
-              <!--1 Calculate Time-->
-                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample1" aria-expanded="false" aria-controls="collapseWidthExample1">
-                  Perhitungan Waktu
-                </button>
-              </p>
-              <div style="min-height: auto;">
-                <div class="collapse collapse-horizontal" id="collapseWidthExample1">
-                  <div class="card card-body" style="width: 300px;">
-                    <div class="container">
-                        <label for="">Kelajuan (m/s)</label>
-                        <input type="number" id="speed1" placeholder="Masukkan nilai Kelajuan dalam satuan m/s" min="0"/>
-                    </div>
-                    <div class="container">
-                        <label for="">Jarak (m)</label>
-                        <input type="number" id="distance1" placeholder="Masukkan nilai jarak dalam satuan m" min="0"  />
-                    </div>
-                    <div class="container">
-                        <label for="" style="background-color:lightgreen">Waktu</label>
-                        <span id="time1" style="padding:5px; font-weight: bold;" ></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <p class="mb-1">© 2024 FisikaCalc oleh Guru Fisika - WAHYUDI.</p>
+            <p class="mb-0">Kontak: <a href="mailto:pakwahyudi.indonesia@gmail.com" class="text-white">pakwahyudi.indonesia@gmail.com</a></p>
         </div>
-        <div class="col" style="padding:2%;">
-          <p>
-            <!--2 Calculate Distance-->
-                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample2" aria-expanded="false" aria-controls="collapseWidthExample2">
-                  Perhitungan Jarak
-                </button>
-              </p>
-              <div style="min-height: auto;">
-                <div class="collapse collapse-horizontal" id="collapseWidthExample2">
-                  <div class="card card-body" style="width: 300px;">
-                    <div class="container">
-                        <label for="">Kelajuan (m/s)</label>
-                        <input type="number" id="speed2" placeholder="Masukkan nilai jarak dalam satuan m/s" min="0"/>
-                    </div>
-                    <div class="container">
-                        <label for="">Waktu (s)</label>
-                        <input type="number" id="time2" placeholder="Masukkan nilai waktu dalam satuan s" min="0"  />
-                    </div>
-                    <div class="container">
-                        <label for="" style="background-color:lightgreen">Jarak</label>
-                        <span id="distance2" style="padding:5px; font-weight: bold;" ></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-        </div>
-        <div class="col" style="padding:2%;">
-            <p>
-              <!--3 Calculate Speed-->
-                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample3" aria-expanded="false" aria-controls="collapseWidthExample3">
-                  Perhitungan Kelajuan
-                </button>
-              </p>
-              <div style="min-height: auto;">
-                <div class="collapse collapse-horizontal" id="collapseWidthExample3">
-                  <div class="card card-body" style="width: 300px;">
-                    <div class="container">
-                        <label for="">Jarak (m)</label>
-                        <input type="number" id="distance" placeholder="Masukkan nilai jarak dalam satuan m" min="0"/>
-                    </div>
-                    <div class="container">
-                        <label for="">Waktu (s)</label>
-                        <input type="number" id="time" placeholder="Masukkan nilai waktu dalam satuan s" min="0"  />
-                    </div>
-                    <div class="container">
-                        <label for="" style="background-color:lightgreen">Speed</label>
-                        <span id="speed" style="padding:5px; font-weight: bold;"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-        </div>
-      </div>
-    </div>
-            <br>
-            <br>
-            <br>
-            <br>
-        <!--Footer-->
-        <footer>
-          <div class="footer">
-              <h3>Guru Fisika - WAHYUDI</h3>
-          </div>
-          <div class="footer">
-              <h4>Email saya melalui <a href="mailto:pakwahyudi.indonesia@gmail.com">email</a></h4>
-          </div>
-      </footer>
+    </footer> <!-- Hanya satu tag penutup footer -->
+
+    <!-- Bootstrap JS Bundle (di akhir body) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <!-- JavaScript untuk Kalkulator -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+        // --- Helper Function for Safe Calculation & Display ---
+        function displayResult(spanElement, value, unit = '', precision = 2) {
+            if (!spanElement) return;
+
+            if (value === null || isNaN(value) || !isFinite(value)) {
+                spanElement.textContent = '-';
+                if (unit) spanElement.textContent += ` ${unit}`; // Tetap tampilkan unit?
+                spanElement.classList.add('text-muted');
+            } else {
+                spanElement.textContent = `${value.toFixed(precision)} ${unit}`;
+                spanElement.classList.remove('text-muted');
+                // Handle superskrip jika unit memerlukannya
+                 if (unit === 'm/s²') { // Contoh jika perlu
+                     spanElement.innerHTML = `${value.toFixed(precision)} m/s<sup>2</sup>`;
+                 }
+            }
+        }
+
+        // --- Helper Function to Setup Listeners ---
+         function setupCalculator(inputIdPairs, outputSpanId, calculateFunction, initialCall = true) {
+            const inputs = [];
+            let allElementsExist = true;
+
+            for (const id of inputIdPairs) {
+                const element = document.getElementById(id);
+                if (!element) {
+                    console.warn(`Element with ID "${id}" not found for calculator targeting "${outputSpanId}".`);
+                    allElementsExist = false;
+                }
+                inputs.push(element);
+            }
+
+            const outputSpan = document.getElementById(outputSpanId);
+            if (!outputSpan) {
+                console.warn(`Output span with ID "${outputSpanId}" not found.`);
+                allElementsExist = false;
+            }
+
+            if (allElementsExist) {
+                inputs.forEach(input => {
+                    if (input) {
+                         const eventType = (input.tagName === 'SELECT') ? 'change' : 'input';
+                         input.addEventListener(eventType, calculateFunction);
+                    }
+                });
+                if (initialCall) {
+                    calculateFunction();
+                }
+            } else {
+                 console.error(`Calculator setup failed for output "${outputSpanId}" due to missing elements.`);
+            }
+        }
+
+        // --- GLB Calculators ---
+
+        // 1. Calculate Time (t = s / v)
+        function calculateTime() {
+            const distance1 = parseFloat(document.getElementById("distance1")?.value);
+            const speed1 = parseFloat(document.getElementById("speed1")?.value);
+            let time1 = null;
+
+            if (!isNaN(distance1) && !isNaN(speed1)) {
+                if (speed1 !== 0) {
+                    time1 = distance1 / speed1;
+                } else {
+                    console.warn("Pembagian dengan nol dicegah (Hitung Waktu).");
+                    time1 = NaN; // Hasilnya Infinity, tandai sebagai NaN untuk konsistensi
+                }
+            } else if (document.getElementById("distance1")?.value === '' || document.getElementById("speed1")?.value === '') {
+                time1 = null; // Kosongkan jika salah satu input kosong
+            } else {
+                time1 = NaN; // Tandai NaN jika input tidak valid
+            }
+            displayResult(document.getElementById("time1"), time1, 's');
+        }
+        setupCalculator(['distance1', 'speed1'], 'time1', calculateTime);
+
+        // 2. Calculate Distance (s = v * t)
+        function calculateDistance() {
+            const speed2 = parseFloat(document.getElementById("speed2")?.value);
+            const time2 = parseFloat(document.getElementById("time2")?.value);
+            let distance2 = null;
+
+             if (!isNaN(speed2) && !isNaN(time2)) {
+                 distance2 = speed2 * time2;
+             } else if (document.getElementById("speed2")?.value === '' || document.getElementById("time2")?.value === '') {
+                 distance2 = null;
+             } else {
+                 distance2 = NaN;
+             }
+            displayResult(document.getElementById("distance2"), distance2, 'm');
+        }
+        setupCalculator(['speed2', 'time2'], 'distance2', calculateDistance);
+
+        // 3. Calculate Speed (v = s / t)
+        function calculateSpeed() {
+            const distance = parseFloat(document.getElementById("distance")?.value);
+            const time = parseFloat(document.getElementById("time")?.value);
+            let speed = null;
+
+            if (!isNaN(distance) && !isNaN(time)) {
+                if (time !== 0) {
+                    speed = distance / time;
+                } else {
+                     console.warn("Pembagian dengan nol dicegah (Hitung Kelajuan).");
+                     speed = NaN;
+                }
+             } else if (document.getElementById("distance")?.value === '' || document.getElementById("time")?.value === '') {
+                 speed = null;
+             } else {
+                 speed = NaN;
+             }
+            displayResult(document.getElementById("speed"), speed, 'm/s');
+        }
+        setupCalculator(['distance', 'time'], 'speed', calculateSpeed);
 
 
-</html>
+        // --- Unit Converters ---
+
+        // 11. Speed Conversion
+        function calculateSpeedConvert() {
+            const speed11Input = document.getElementById("speed11");
+            const selectElement = document.getElementById("myselect");
+            const speedsiSpan = document.getElementById("speedsi");
+
+            const speed11 = parseFloat(speed11Input?.value);
+            const selectedOption = selectElement?.value; // Meaningful value like 'km/h'
+            let speedsi = null;
+
+            if (!isNaN(speed11) && selectedOption) {
+                 // Conversion factors (example, complete as needed)
+                 const factors = {
+                    'm/s': 1,
+                    'km/h': 1000 / 3600,
+                    'km/s': 1000,
+                    'm/min': 1 / 60,
+                    'km/min': 1000 / 60,
+                    'knot': 0.514444,
+                    'mi/s': 1609.34,
+                    'mph': 1609.34 / 3600,
+                    'ft/s': 0.3048
+                 };
+                 if (factors[selectedOption] !== undefined) {
+                     speedsi = speed11 * factors[selectedOption];
+                 } else {
+                     speedsi = NaN; // Option not found in factors
+                 }
+            } else if (speed11Input?.value === '') {
+                 speedsi = null;
+            }
+            else {
+                speedsi = NaN;
+            }
+            displayResult(speedsiSpan, speedsi, "m/s");
+        }
+        setupCalculator(['speed11', 'myselect'], 'speedsi', calculateSpeedConvert);
+
+        // 12. Distance Conversion
+        function calculateDistanceConvert() {
+            const distance12Input = document.getElementById("distance12");
+            const selectElement = document.getElementById("myselectd");
+            const distancesiSpan = document.getElementById("distancesi");
+
+            const distance12 = parseFloat(distance12Input?.value);
+            const selectedOption = selectElement?.value; // Meaningful value like 'km'
+            let distancesi = null;
+
+            if (!isNaN(distance12) && selectedOption) {
+                 const factors = {
+                     'km': 1000,
+                     'ft': 0.3048,
+                     'mi': 1609.34,
+                     'in': 0.0254,
+                     'yd': 0.9144,
+                     'cm': 0.01,
+                     'mm': 0.001
+                 };
+                 if (factors[selectedOption] !== undefined) {
+                     distancesi = distance12 * factors[selectedOption];
+                 } else {
+                     distancesi = NaN;
+                 }
+            } else if (distance12Input?.value === '') {
+                 distancesi = null;
+            } else {
+                distancesi = NaN;
+            }
+            displayResult(distancesiSpan, distancesi, "m");
+        }
+        setupCalculator(['distance12', 'myselectd'], 'distancesi', calculateDistanceConvert);
+
+
+    }); // Akhir dari DOMContentLoaded
+    </script>
+
+</body> <!-- Tag body ditutup -->
+</html> <!-- Tag html ditutup -->
